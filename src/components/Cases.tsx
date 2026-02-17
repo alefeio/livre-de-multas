@@ -1,0 +1,55 @@
+import Casos from "./Casos";
+
+interface BannerItem {
+    id: string;
+    url: string;
+    title?: string;
+    subtitle?: string;
+    link?: string;
+    target?: string;
+    buttonText?: string;
+    buttonColor?: string;
+}
+
+const FIXED_SLOGAN =
+    'Na Machado - Advogados Associados, transformamos desafios em conquistas jurídicas com seriedade, dedicação e inovação.';
+
+const STATIC_SLIDES: BannerItem[] = [
+    {
+        id: 'static-sobre-2',
+        url: '/images/bg-areas2.jpg',
+        title: 'Casos de Sucesso',
+    },
+];
+
+export default function Cases() {
+    const slide = STATIC_SLIDES[0];
+
+    return (
+        <div className="relative w-full" id="inicio">
+            {/* Imagem de Fundo */}
+            <div className="absolute inset-0 opacity-100 z-10">
+                <img
+                    src={slide.url}
+                    alt={slide.title || 'Banner Sobre'}
+                    className="object-cover object-[center_bottom] w-full h-full"
+                />
+            </div>
+
+            {/* Conteúdo */}
+            <div className="relative z-20 flex flex-col justify-start pt-60 w-full">
+                <div className="container flex flex-col items-center w-full max-w-4xl mx-auto">
+                    <div className="flex-1 pb-12">
+                        {slide.title && (
+                            <h2 className="font-sans text-3xl md:text-5xl lg:text-5xl font-extrabold text-[#fec655] drop-shadow-lg mb-4 leading-tight max-w-md">
+                                {slide.title}
+                            </h2>
+                        )}
+                    </div>
+                </div>
+
+                <Casos />
+            </div>
+        </div>
+    );
+}
