@@ -61,12 +61,12 @@ const ContactPage: React.FC<ContactPageProps> = ({ menu }) => {
     return (
         <>
             <Head>
-                <title>Contato | Pereira de Sousa Associados</title>
-                <meta name="description" content="Entre em contato com a Pereira de Sousa Associados para agendar uma consulta, obter um orçamento ou saber mais sobre nossos serviços." />
-                <meta name="keywords" content="contato engenharia Belém, orçamento arquitetura, falar com engenheiro, consultoria engenharia, telefone construtora, email Pereira de Sousa Associados, endereço Belém-PA" />
+                <title>Contato | Livre de Multas</title>
+                <meta name="description" content="Entre em contato com a Livre de Multas para agendar uma consulta, obter um orçamento ou saber mais sobre nossos serviços." />
+                <meta name="keywords" content="contato engenharia Belém, orçamento arquitetura, falar com engenheiro, consultoria engenharia, telefone construtora, email Livre de Multas, endereço Belém-PA" />
 
                 {/* Metas para Redes Sociais (Open Graph) */}
-                <meta property="og:title" content="Contato | Pereira de Sousa Associados" />
+                <meta property="og:title" content="Contato | Livre de Multas" />
                 <meta property="og:description" content="Entre em contato e vamos construir seu futuro juntos." />
                 <meta property="og:image" content="https://curva-eng.vercel.app/images/contato-og.jpg" />
                 <meta property="og:url" content="https://curva-eng.vercel.app/contato" />
@@ -74,7 +74,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ menu }) => {
 
                 {/* Metas para Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Entre em Contato | Pereira de Sousa Associados" />
+                <meta name="twitter:title" content="Entre em Contato | Livre de Multas" />
                 <meta name="twitter:description" content="Tire suas dúvidas e solicite um orçamento." />
                 <meta name="twitter:image" content="https://curva-eng.vercel.app/images/contato-og.jpg" />
             </Head>

@@ -129,7 +129,7 @@ export default function PageContato({ menu, faqs }: HomePageProps) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "LegalService", // Alterado de LocalBusiness para LegalService (ou Lawyer)
-        "name": "Pereira de Sousa Associados",
+        "name": "Livre de Multas",
         "image": "https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png", // Manter ou alterar a URL da imagem se precisar
         "address": {
             "@type": "PostalAddress",
@@ -162,13 +162,13 @@ export default function PageContato({ menu, faqs }: HomePageProps) {
                 <title>Pereira de Sousa | Direito do Consumidor, Trabalhista e Empresarial em Belém-PA</title>
 
                 {/* Descrição Otimizada para SEO de Advocacia */}
-                <meta name="description" content="Pereira de Sousa Associados: Soluções jurídicas completas e personalizadas para proteger seus direitos. Especialistas em Direito do Consumidor, Trabalhista e Assessoria Empresarial. Atendimento em Belém/PA e online." />
+                <meta name="description" content="Livre de Multas: Soluções jurídicas completas e personalizadas para proteger seus direitos. Especialistas em Direito do Consumidor, Trabalhista e Assessoria Empresarial. Atendimento em Belém/PA e online." />
 
                 {/* Keywords Otimizadas para Advocacia */}
                 <meta name="keywords" content="Pereira de Sousa, escritório de advocacia Belém, advogado em Belém PA, direito do consumidor, advogado trabalhista, assessoria jurídica empresarial, cobranças indevidas, rescisão de contrato, proteção de direitos" />
 
                 {/* Metas para Redes Sociais (Open Graph) */}
-                <meta property="og:title" content="Pereira de Sousa Associados | Compromisso com Seus Direitos" />
+                <meta property="og:title" content="Livre de Multas | Compromisso com Seus Direitos" />
                 <meta property="og:description" content="Da escuta ao resultado, oferecemos soluções jurídicas completas e personalizadas. Transparência, experiência e relacionamento próximo para sua segurança jurídica." />
                 <meta property="og:image" content="https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png" /> {/* Use o logo ou uma imagem institucional relevante */}
                 <meta property="og:url" content="https://pereiradesousa.vercel.app/" />
@@ -176,7 +176,7 @@ export default function PageContato({ menu, faqs }: HomePageProps) {
 
                 {/* Metas para Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Pereira de Sousa Associados" />
+                <meta name="twitter:title" content="Livre de Multas" />
                 <meta name="twitter:description" content="Especialistas em Direito do Consumidor, Trabalhista e Empresarial. Atendimento humanizado e focado em resultados." />
                 <meta name="twitter:image" content="https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png" /> {/* Use o logo ou uma imagem institucional relevante */}
 
@@ -282,7 +282,7 @@ export default function PageContato({ menu, faqs }: HomePageProps) {
                             <div className="relative w-full max-w-4xl mx-auto shadow-xl rounded-3xl overflow-hidden border border-gray-200">
                                 <div className="w-full" style={{ paddingBottom: '56.25%' }}> {/* Proporção 16:9 para o mapa */}
                                     <iframe
-                                        title="Localização do Escritório Pereira de Sousa Associados"
+                                        title="Localização do Escritório Livre de Multas"
                                         src={mapEmbedUrl}
                                         width="100%"
                                         height="100%"

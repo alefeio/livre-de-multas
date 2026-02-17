@@ -39,9 +39,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Envia o email de boas-vindas
         await resend.emails.send({
-            from: "Pereira de Sousa Associados <escritório@pereiradesousa.adv.br>", // Altere para seu email verificado
+            from: "Livre de Multas <escritório@pereiradesousa.adv.br>", // Altere para seu email verificado
             to: email,
-            subject: `Bem-vindo(a) à Newsletter da Pereira de Sousa Associados, ${name}!`,
+            subject: `Bem-vindo(a) à Newsletter da Livre de Multas, ${name}!`,
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -60,19 +60,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 <body>
                     <div class="container">
                         <div class="header">
-                            <img src="https://res.cloudinary.com/dacvhzjxb/image/upload/v1756158564/dresses/xmwkqh4agbzztujfz3x7.png" alt="Logo Pereira de Sousa Associados" />
+                            <img src="https://res.cloudinary.com/dacvhzjxb/image/upload/v1756158564/dresses/xmwkqh4agbzztujfz3x7.png" alt="Logo Livre de Multas" />
                         </div>
                         <div class="content">
                             <p>Olá, ${name}!</p>
-                            <p>Seja bem-vindo(a) à nossa newsletter! Agradecemos o seu interesse em acompanhar os projetos e as novidades da <strong>Pereira de Sousa Associados</strong>.</p>
+                            <p>Seja bem-vindo(a) à nossa newsletter! Agradecemos o seu interesse em acompanhar os projetos e as novidades da <strong>Livre de Multas</strong>.</p>
                             <p>A partir de agora, você receberá conteúdos exclusivos sobre nossos cases de sucesso, insights do setor e tendências em engenharia civil e arquitetura.</p>
                             <p>Estamos prontos para transformar sua visão em realidade.</p>
                             <p>Atenciosamente,</p>
-                            <p>A equipe Pereira de Sousa Associados.</p>
+                            <p>A equipe Livre de Multas.</p>
                             <p><a href="https://curva-eng.vercel.app/projetos" class="cta-button">Ver nosso Portfólio de Projetos</a></p>
                         </div>
                         <div class="footer">
-                            <p>Pereira de Sousa Associados - Obras e Projetos em Belém-PA.</p>
+                            <p>Livre de Multas - Obras e Projetos em Belém-PA.</p>
                         </div>
                     </div>
                 </body>

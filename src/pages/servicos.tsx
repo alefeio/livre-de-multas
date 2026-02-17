@@ -68,7 +68,7 @@ const ServicosPage: React.FC<ServicosPageProps> = ({ menu }) => {
             <Head>
                 <title>Projetos e Obras em Belém-PA | Serviços de Engenharia e Arquitetura Curva</title>
                 <meta name="description" content="Conheça nossos serviços completos de engenharia civil, arquitetura, design de interiores e gerenciamento de obras em Belém-PA. Projetos residenciais, comerciais e institucionais com foco em inovação e qualidade." />
-                <meta name="keywords" content="serviços de engenharia civil, projetos de arquitetura Belém, gerenciamento de obras, reformas, construção, design de interiores Belém, laudo técnico, projetos estruturais, paisagismo, Pereira de Sousa Associados" />
+                <meta name="keywords" content="serviços de engenharia civil, projetos de arquitetura Belém, gerenciamento de obras, reformas, construção, design de interiores Belém, laudo técnico, projetos estruturais, paisagismo, Livre de Multas" />
 
                 {/* Metas para Redes Sociais (Open Graph) */}
                 <meta property="og:title" content="Serviços de Engenharia e Arquitetura em Belém-PA" />
@@ -79,7 +79,7 @@ const ServicosPage: React.FC<ServicosPageProps> = ({ menu }) => {
 
                 {/* Metas para Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Serviços Pereira de Sousa Associados" />
+                <meta name="twitter:title" content="Serviços Livre de Multas" />
                 <meta name="twitter:description" content="Projetos e soluções em engenharia, arquitetura e gestão de obras em Belém-PA. Transforme seu projeto em realidade." />
                 <meta name="twitter:image" content="https://curva-eng.vercel.app/images/predios.jpg" />
 
@@ -94,7 +94,7 @@ const ServicosPage: React.FC<ServicosPageProps> = ({ menu }) => {
                         imageUrl="https://res.cloudinary.com/dacvhzjxb/image/upload/v1756187743/dresses/weck42ticekzxt8fvjs0.jpg" // Sua imagem real
                         title="Soluções Completas para o Seu Projeto"
                     />
-                    <SubtitlePage text="Na Pereira de Sousa Associados, unimos expertise técnica e inovação para entregar projetos que transformam ambientes e superam expectativas. Atuamos em múltiplos segmentos, garantindo soluções personalizadas e de alta qualidade para cada necessidade." />
+                    <SubtitlePage text="Na Livre de Multas, unimos expertise técnica e inovação para entregar projetos que transformam ambientes e superam expectativas. Atuamos em múltiplos segmentos, garantindo soluções personalizadas e de alta qualidade para cada necessidade." />
                     <ServicosComponent />
                     <ParallaxBanner
                         imageUrl="/images/predios.jpg"

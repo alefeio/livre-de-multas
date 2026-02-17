@@ -61,11 +61,11 @@ const PoliticaDeCookies = ({ menu }: PoliticaDeCookiesProps) => {
     return (
         <>
             <Head>
-                <title>Política de Cookies | Pereira de Sousa Associados</title>
+                <title>Política de Cookies | Livre de Multas</title>
                 <meta name="description" content="Leia nossa Política de Cookies e entenda como utilizamos essas tecnologias para melhorar a sua experiência em nosso site." />
                 
                 {/* Metas para Redes Sociais (Open Graph) */}
-                <meta property="og:title" content="Política de Cookies da Pereira de Sousa Associados" />
+                <meta property="og:title" content="Política de Cookies da Livre de Multas" />
                 <meta property="og:description" content="Conheça a nossa política de privacidade e cookies. Sua segurança e transparência são nossa prioridade." />
                 <meta property="og:image" content="https://curva-eng.vercel.app/images/logo.png" />
                 <meta property="og:url" content="https://curva-eng.vercel.app/politica-de-cookies" />
@@ -74,7 +74,7 @@ const PoliticaDeCookies = ({ menu }: PoliticaDeCookiesProps) => {
                 {/* Metas para Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Política de Cookies" />
-                <meta name="twitter:description" content="Leia sobre como a Pereira de Sousa Associados utiliza cookies em seu site." />
+                <meta name="twitter:description" content="Leia sobre como a Livre de Multas utiliza cookies em seu site." />
                 <meta name="twitter:image" content="https://curva-eng.vercel.app/images/logo.png" />
             </Head>
 
@@ -87,7 +87,7 @@ const PoliticaDeCookies = ({ menu }: PoliticaDeCookiesProps) => {
                         Política de Cookies
                     </h1>
                     <p className="mb-8 text-center text-gray-600">
-                        Esta página descreve como a Pereira de Sousa Associados utiliza cookies em seu site.
+                        Esta página descreve como a Livre de Multas utiliza cookies em seu site.
                     </p>
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4 text-gray-800">1. O que são Cookies?</h2>

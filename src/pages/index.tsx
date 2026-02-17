@@ -358,7 +358,7 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
                             <div className="relative w-full max-w-4xl mx-auto shadow-2xl rounded-3xl overflow-hidden border border-gray-200 bg-white">
                                 <div className="w-full" style={{ paddingBottom: '56.25%' }}>
                                     <iframe
-                                        title="Localização do Escritório Pereira de Sousa Associados"
+                                        title="Localização do Escritório Livre de Multas"
                                         src={mapEmbedUrl}
                                         width="100%"
                                         height="100%"

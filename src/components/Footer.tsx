@@ -133,7 +133,7 @@ const Footer = ({ menuData }: MenuProps) => {
                                 Você deve garantir que 'logoUrl' seja a imagem do logo MACHADO em branco/dourado. */}
                             <Image
                                 src={logoUrl || "/images/machado-advogados-logo.png"} // Substitua pelo caminho do logo correto
-                                alt="Pereira de Sousa Associados"
+                                alt="Livre de Multas"
                                 width={180}
                                 height={35}
                                 className="h-auto"

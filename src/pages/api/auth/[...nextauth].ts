@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
                 await resend.emails.send({
                     from: from || "escritório@pereiradesousa.adv.br",
                     to: email,
-                    subject: "Link de login para o site Pereira de Sousa Associados",
+                    subject: "Link de login para o site Livre de Multas",
                     html: `Clique neste link para entrar: <a href="${url}">${url}</a>`,
                 });
             },

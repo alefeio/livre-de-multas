@@ -85,7 +85,7 @@ export function MenuInterno({ menuData }: MenuProps) {
         <Link href="/">
           <img
             src={logoUrl || "/images/logo.png"}
-            alt="Logomarca Pereira de Sousa Associados"
+            alt="Logomarca Livre de Multas"
             className={`transition-all duration-300 h-auto ${isScrolled ? "w-28 md:w-36" : "w-52 md:w-60"
               }`}
           />
