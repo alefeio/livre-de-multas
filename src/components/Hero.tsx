@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="relative flex-1 w-full md:max-w-xl overflow-hidden rounded-3xl order-first md:order-none">
             <div className="absolute inset-0 bg-black/10 z-10" />
             <img
-              src="/images/daniel2.jpg"
+              src="/images/pablo.jpeg"
               alt="Ambiente jurídico profissional do escritório de advocacia Pereira de Sousa"
               className="relative z-0 w-full h-auto object-cover max-h-[420px] md:max-h-full transition-transform duration-500 ease-in-out hover:scale-105"
             />
