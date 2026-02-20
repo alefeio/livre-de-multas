@@ -88,63 +88,34 @@ export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref
     <header
       className={[
         "fixed top-0 left-0 w-full z-50",
-        "bg-blue-950/90 backdrop-blur-md",
-        "border-b border-white/10",
+        "backdrop-blur-md",
         "transition-all duration-300",
-        isScrolled ? "py-3 shadow-lg" : "py-5",
+        isScrolled ? "py-3 shadow-lg bg-blue-950/70 border-b border-white/10" : "py-8",
       ].join(" ")}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex items-center justify-between gap-4">
           {/* Esquerda: Voltar + Logo */}
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={handleBack}
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white hover:bg-white/10 transition"
-              aria-label="Voltar"
-            >
-              <MdArrowBack className="h-5 w-5" />
-            </button>
-
-            <Link href="/" aria-label="Página inicial" onClick={() => setMenuOpen(false)}>
-              <img
-                src={logoUrl || "/images/logo.png"}
-                alt="Livre de Multas"
-                className={[
-                  "transition-all duration-300 object-contain",
-                  isScrolled ? "h-9 md:h-10" : "h-10 md:h-12",
-                ].join(" ")}
-              />
+            <Link href="/" aria-label="Página inicial flex items-center justify-center">
+              {/* <img
+            src={logoUrl || "/images/logo.png"}
+            alt="Logomarca Pereira de Sousa – Advocacia"
+            className={`transition-all duration-300 ${
+              isScrolled ? "w-18 md:w-24" : "w-28 md:w-36"
+            }`}
+          /> */}
+              <h1 className={`${isScrolled ? "text-xl" : "text-3xl"
+                }`}>LIVRE DE MULTAS</h1>
+              <div className={`bg-[#28334f] w-full p-1 text-center ${isScrolled ? "hidden" : ""
+                }`}>
+                <span className="text-white text-xs">ESPECIALISTA EM DIREITO DE TRÂNSITO</span>
+              </div>
             </Link>
-          </div>
-
-          {/* Centro (desktop): título do serviço */}
-          <div className="hidden md:block">
-            {serviceTitle ? (
-              <p className="text-white font-semibold">
-                <span className="text-[#fec655]">Atuação:</span> {serviceTitle}
-              </p>
-            ) : (
-              <p className="text-white/80 text-sm">Defesa e recurso de multas de trânsito</p>
-            )}
           </div>
 
           {/* Direita (desktop): navegação + CTA */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* Links do menu do banco (se quiser mostrar em páginas internas) */}
-            {links?.slice(0, 4).map((l) => (
-              <Link
-                key={l.id}
-                href={l.url}
-                target={l.target}
-                className="relative text-white/90 hover:text-[#fec655] transition-colors duration-300 group text-sm font-semibold"
-              >
-                {l.text}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#fec655] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-
             <a
               href={whatsappLink}
               target="_blank"
@@ -153,8 +124,6 @@ export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref
             >
               Falar no WhatsApp
             </a>
-
-            {authButton}
           </nav>
 
           {/* Botão Mobile */}

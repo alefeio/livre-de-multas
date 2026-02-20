@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
 import { useMemo } from "react";
 
-import { Menu as MenuComponent } from "components/Menu";
+import { MenuServicos as MenuComponent } from "components/MenuServicos";
 import Footer from "components/Footer";
 import WhatsAppButton from "components/WhatsAppButton";
 import FAQ from "components/FAQ";
