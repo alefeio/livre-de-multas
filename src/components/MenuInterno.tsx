@@ -26,7 +26,7 @@ interface MenuProps {
   backHref?: string;
 }
 
-export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref = "/#atuacao" }: MenuProps) {
+export function MenuInterno({ menuData, serviceTitle, whatsappMessage, backHref = "/#atuacao" }: MenuProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { data: session, status } = useSession();
