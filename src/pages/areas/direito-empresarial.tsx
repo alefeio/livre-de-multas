@@ -100,7 +100,7 @@ export default function DireitoEmpresarialPage({ menu }: AreaPageProps) {
         />
       </Head>
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-blue-950 text-white">
         <Analytics />
         <MenuComponent menuData={menu} />
 
@@ -249,7 +249,7 @@ export default function DireitoEmpresarialPage({ menu }: AreaPageProps) {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-black text-white px-6 py-4 rounded-2xl font-semibold hover:opacity-90 transition"
+                    className="bg-blue-950 text-white px-6 py-4 rounded-2xl font-semibold hover:opacity-90 transition"
                   >
                     Solicitar assessoria empresarial
                   </a>

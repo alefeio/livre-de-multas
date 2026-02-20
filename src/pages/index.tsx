@@ -34,6 +34,7 @@ import Contato from 'components/Contato';
 import { MdEmail } from 'react-icons/md';
 import { FaInstagram, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import Parcerias from 'components/Parcerias';
+import PageContato from './contato';
 
 // FUNÇÃO SLUGIFY
 function slugify(text: string): string {
@@ -130,25 +131,25 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
     }
 };
 
-export default function Home({ banners, menu, testimonials, faqs, colecoes }: HomePageProps) {
+export default function Home({ banners, menu, testimonials, faqs }: HomePageProps) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     const ogImage = `${baseUrl}/images/logo.jpg`;
 
-    const address = "Avenida Roberto Camelier, 1642, Condor - Belém - PA";
+    const address = "Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531";
 
-    const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5013049950685!2d-48.485495425034!3d-1.4722054985139539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48e74638471c9%3A0xd430aea868c5d121!2sAv.%20Roberto%20Camelier%2C%201642%20-%20Jurunas%2C%20Bel%C3%A9m%20-%20PA%2C%2066033-683!5e0!3m2!1spt-BR!2sbr!4v1770955846387!5m2!1spt-BR!2sbr";
+    const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63817.13870801698!2d-48.470215!3d-1.432623!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c0641733ad7%3A0xfb2374c1877bb046!2sTv.%20Timb%C3%B3%2C%201563%20-%20Marco%2C%20Bel%C3%A9m%20-%20PA%2C%2066087-531%2C%20Brasil!5e0!3m2!1spt-BR!2sus!4v1771608665183!5m2!1spt-BR!2sus";
 
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "LegalService",
         "name": "Pereira de Sousa Advocacia",
         "image": `${baseUrl}/images/logo.jpg`,
-        "url": "https://www.pereiradesousa.adv.br/",
-        "telephone": "+5591986284970",
+        "url": "https://www.livredemultasoficial.com.br/",
+        "telephone": "+5591981006131",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Avenida Roberto Camelier, 1642, Condor",
+            "streetAddress": "Tv. Timbó, 1563 - Marco",
             "addressLocality": "Belém",
             "addressRegion": "PA",
             "postalCode": "66030-465",
@@ -159,7 +160,7 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
             { "@type": "State", "name": "Pará" }
         ],
         "sameAs": [
-            "https://www.instagram.com/pereiradesousaescritorio/"
+            "https://www.instagram.com/livredemultasoficial/"
         ],
         "description": "O escritório de advocacia Pereira de Sousa Advocacia é um escritório de advocacia em Belém-PA com atuação estratégica em Direito Empresarial, Civil, Família e Sucessões, Previdenciário, Trabalhista, Penal, Bancário, Digital, Agrário, Saúde e defesa das pessoas com TEA."
     };
@@ -182,7 +183,7 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
                 <meta name="robots" content="index, follow, max-image-preview:large" />
 
                 {/* Canonical */}
-                <link rel="canonical" href="https://www.pereiradesousa.adv.br/" />
+                <link rel="canonical" href="https://www.livredemultasoficial.com.br/" />
 
                 {/* Keywords */}
                 <meta
@@ -213,7 +214,7 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
                     property="og:description"
                     content="Escritório de advocacia em Belém-PA com atuação estratégica, ética e humanizada. Soluções jurídicas completas para pessoas e empresas."
                 />
-                <meta property="og:url" content="https://www.pereiradesousa.adv.br/" />
+                <meta property="og:url" content="https://www.livredemultasoficial.com.br/" />
 
                 {/* ✅ AQUI: LOGO CERTA */}
                 <meta property="og:image" content={ogImage} />
@@ -260,149 +261,25 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
                 <HeroSlider banners={banners} />
                 <main className="max-w-full mx-auto">
                     <Hero />
-                    <span id="sobre"></span>
+                    <span id="como-funciona"></span>
                     <HeroSliderSobre />
-                    <Parcerias />
                     <span id="atuacao"></span>
                     <HeroSliderAreas />
-                    <span id="blog"></span>
-                    <Blog />
-                    {/* <Cases /> */}
-                    <Testimonials testimonials={testimonials} />
-                    <span id="fale"></span>
+                    <span id="contato"></span>
                     <Contato />
                     <span id="faq"></span>
                     <FAQ faqs={faqs} />
-                    <div
-                        className="bg-black py-20 md:py-28 relative overflow-hidden text-white"
-                        style={{
-                            backgroundImage: 'url(/images/bg-redes.jpg)',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    >
-                        <div className="max-w-7xl mx-auto px-4 md:px-8">
-                            {/* GRID PARA ALINHAR Contato e Redes Sociais */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 text-center md:text-left">
-
-                                {/* CONTATO */}
-                                <div className="flex flex-col items-center md:items-end md:border-r md:border-gray-500/40 md:pr-16">
-                                    <h3 className="text-[#fec655] text-xl md:text-2xl font-semibold tracking-wide mb-8">
-                                        Contato
-                                    </h3>
-
-                                    <div className="space-y-5">
-                                        <a
-                                            href="mailto:escritório@pereiradesousa.adv.br"
-                                            className="flex items-center justify-center md:justify-end gap-3 text-base md:text-lg hover:text-[#fec655] transition-colors"
-                                            aria-label="Enviar email para escritório@pereiradesousa.adv.br"
-                                        >
-                                            <MdEmail size={22} className="text-[#fec655] flex-shrink-0" />
-                                            escritório@pereiradesousa.adv.br
-                                        </a>
-
-                                        <a
-                                            href="https://wa.me/5591986284970"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-center md:justify-end gap-3 text-base md:text-lg hover:text-[#fec655] transition-colors"
-                                            aria-label="Enviar mensagem WhatsApp para +55 91 98628-4970"
-                                        >
-                                            <FaWhatsapp size={22} className="text-[#fec655] flex-shrink-0" />
-                                            +55 91 98628-4970
-                                        </a>
-                                    </div>
-                                </div>
-
-                                {/* REDES SOCIAIS */}
-                                <div className="flex flex-col items-center md:items-start md:pl-6">
-                                    <h3 className="text-[#fec655] text-xl md:text-2xl font-semibold tracking-wide mb-8">
-                                        Redes Sociais
-                                    </h3>
-
-                                    <div className="space-y-5">
-                                        <a
-                                            href="https://www.instagram.com/pereiradesousaescritorio"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-center md:justify-start gap-3 text-base md:text-lg hover:text-[#fec655] transition-colors"
-                                            aria-label="Acessar Instagram @pereiradesousaescritorio"
-                                        >
-                                            <FaInstagram size={22} className="text-[#fec655] flex-shrink-0" />
-                                            @pereiradesousaescritorio
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+                    <span id="depoimentos"></span>
+                    <Testimonials testimonials={testimonials} />
+                    <span id="blog"></span>
+                    <Blog />
                     <span id="localizacao"></span>
-
-                    {/* LOCALIZAÇÃO */}
-                    <section className="bg-white">
-                        <div className="relative z-10 flex flex-col items-center py-40 md:pt-48">
-
-                            {/* TÍTULO */}
-                            <h1 className="text-center font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-black drop-shadow-lg mb-16 leading-tight">
-                                Nossa Localização
-                            </h1>
-
-                            {/* Endereço */}
-                            <p className="text-gray-600 text-lg mb-10">
-                                {address}
-                            </p>
-
-                            {/* MAPA */}
-                            <div className="relative w-full max-w-4xl mx-auto shadow-2xl rounded-3xl overflow-hidden border border-gray-200 bg-white">
-                                <div className="w-full" style={{ paddingBottom: '56.25%' }}>
-                                    <iframe
-                                        title="Localização do Escritório Livre de Multas"
-                                        src={mapEmbedUrl}
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
-                                        allowFullScreen
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    ></iframe>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
+                    <PageContato />
 
                     <Footer menuData={menu} />
                 </main>
                 <WhatsAppButton />
             </div>
-
-            {/* Modal de Saída */}
-            {showExitModal && (
-                <div
-                    className="fixed inset-0 z-[110] flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm"
-                    onClick={(e) => {
-                        if (e.target === e.currentTarget) {
-                            setShowExitModal(false);
-                        }
-                    }}
-                >
-                    <div
-                        className="bg-primary-dark relative rounded-lg shadow-xl p-6 m-4 max-w-lg w-full transform transition-all duration-300 scale-100"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Botão de fechar */}
-                        <button
-                            onClick={() => setShowExitModal(false)}
-                            className="absolute top-2 right-2 text-white hover:text-gray-600 transition-colors"
-                            aria-label="Fechar"
-                        >
-                            <AiOutlineClose size={24} />
-                        </button>
-                    </div>
-                </div>
-            )}
         </>
     );
 }

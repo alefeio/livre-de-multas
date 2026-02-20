@@ -182,7 +182,7 @@ export function GallerySection({
                 className="relative flex flex-col justify-center items-center mx-auto text-center md:max-w-full h-[50vh] bg-fixed bg-cover bg-center"
                 style={{ backgroundImage: `url('${backgroundImageUrl}')` }}
             >
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div className="absolute inset-0 bg-blue-950/40 backdrop-blur-sm"></div>
                 <div className="relative z-10 flex flex-col justify-center items-center h-full">
                     <h2
                         className={`font-serif text-3xl mb-4 font-bold rounded-xl ${collection.bgcolor} text-primary px-4 py-2 w-fit`}
@@ -237,7 +237,7 @@ export function GallerySection({
                                         // ADICIONADO: A chamada para handleView foi movida para aqui
                                         handleView(item.id);
                                     }}
-                                    className="absolute top-2 right-2 cursor-pointer z-50 text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition"
+                                    className="absolute top-2 right-2 cursor-pointer z-50 text-white bg-blue-950/20 hover:bg-blue-950/40 rounded-full p-2 transition"
                                     aria-label="Ver produto"
                                 >
                                     <svg
@@ -262,7 +262,7 @@ export function GallerySection({
                                             e.stopPropagation();
                                             handleLike(item.id);
                                         }}
-                                        className="inline-flex items-center gap-1 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition"
+                                        className="inline-flex items-center gap-1 bg-blue-950/20 hover:bg-blue-950/40 text-white rounded-full p-2 transition"
                                         aria-label="Curtir foto"
                                     >
                                         <FaHeart className="w-5 h-5" />

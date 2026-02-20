@@ -143,7 +143,7 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
 export default function BlogPage({ post, menu }: BlogPageProps) {
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <div className="min-h-screen flex items-center justify-center bg-blue-950 text-white">
         <h1 className="text-2xl font-bold">404 – Artigo não encontrado</h1>
       </div>
     );
@@ -164,7 +164,7 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
         <link rel="canonical" href={canonicalUrl} />
       </Head>
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-blue-950 text-white">
         <Analytics />
         <MenuComponent menuData={menu} />
 
@@ -177,7 +177,7 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-blue-950/70" />
 
           <div className="relative z-10 h-full flex items-end">
             <div className="max-w-7xl mx-auto px-4 md:px-8 pb-10 w-full text-left">

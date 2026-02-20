@@ -147,7 +147,7 @@ export default function DireitoBancarioPage({ menu }: AreaPageProps) {
         />
       </Head>
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-blue-950 text-white">
         <Analytics />
         <MenuComponent menuData={menu} />
 
@@ -346,7 +346,7 @@ export default function DireitoBancarioPage({ menu }: AreaPageProps) {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-black text-white font-semibold px-6 py-4 rounded-2xl hover:opacity-90 transition text-center"
+                    className="bg-blue-950 text-white font-semibold px-6 py-4 rounded-2xl hover:opacity-90 transition text-center"
                   >
                     Quero falar com um advogado bancário
                   </a>

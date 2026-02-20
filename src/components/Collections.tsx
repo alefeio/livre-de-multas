@@ -34,7 +34,7 @@ export const collections = {
                 Os vestidos pretos são sinônimo de versatilidade e poder. Ideal para ocasiões formais, jantares <br /> ou para aquele evento em que você quer se destacar com discrição e estilo.
             </p>
         ),
-        bgcolor: "bg-black/90",
+        bgcolor: "bg-blue-950/90",
         buttonText: "Solicitar Catálogo de Vestidos Pretos",
         items: [
             { id: 1, img: "/images/dresses/preto1.jpg", productMark: "Paetê", productModel: "Decote V/Mari", cor: "Preto" },

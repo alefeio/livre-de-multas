@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Envia o email de boas-vindas
         await resend.emails.send({
-            from: "Livre de Multas <escritório@pereiradesousa.adv.br>", // Altere para seu email verificado
+            from: "Livre de Multas <contato@livredemultasoficial.com.br>", // Altere para seu email verificado
             to: email,
             subject: `Bem-vindo(a) à Newsletter da Livre de Multas, ${name}!`,
             html: `

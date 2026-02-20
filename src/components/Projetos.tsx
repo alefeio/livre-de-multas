@@ -188,7 +188,7 @@ const Projetos: React.FC = () => {
 
                 {/* Modal do Projeto */}
                 {showModal && selectedProject && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4" onClick={closeModal}>
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-blue-950/80 backdrop-blur-md p-4" onClick={closeModal}>
                         <div className="bg-white rounded-xl shadow-2xl p-6 md:p-8 max-w-5xl w-full max-h-[95vh] overflow-y-auto relative" onClick={e => e.stopPropagation()}>
 
                             {/* Botão de fechar */}
@@ -212,14 +212,14 @@ const Projetos: React.FC = () => {
                                     <>
                                         <button
                                             onClick={handlePrevImage}
-                                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition-colors z-30"
+                                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-blue-950/50 text-white p-3 rounded-full hover:bg-blue-950/80 transition-colors z-30"
                                             aria-label="Imagem anterior"
                                         >
                                             <MdOutlineArrowBackIos size={28} />
                                         </button>
                                         <button
                                             onClick={handleNextImage}
-                                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition-colors z-30"
+                                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-950/50 text-white p-3 rounded-full hover:bg-blue-950/80 transition-colors z-30"
                                             aria-label="Próxima imagem"
                                         >
                                             <MdOutlineArrowForwardIos size={28} />

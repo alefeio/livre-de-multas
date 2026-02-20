@@ -18,7 +18,7 @@ export default function Contato() {
     const slide = STATIC_SLIDES[0];
 
     return (
-        <div className="relative w-full bg-black" id="inicio">
+        <div className="relative w-full bg-blue-950" id="inicio">
 
             {/* Background */}
             <div className="absolute inset-0 z-10">
@@ -28,17 +28,11 @@ export default function Contato() {
                     className="w-full h-full object-cover object-center"
                 />
                 {/* Overlay para contraste */}
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 bg-blue-950/60" />
             </div>
 
             {/* Título */}
-            <div className="relative z-10 flex flex-col items-center py-40 md:pt-48">
-                {slide.title && (
-                    <h1 className="text-center font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#fec655] drop-shadow-lg mb-16 leading-tight">
-                        {slide.title}
-                    </h1>
-                )}
-
+            <div className="relative z-10 flex flex-col items-center px-6 py-16 md:px-10 md:py-24">
                 {/* Formulário */}
                 <div className="w-full px-6">
                     <ContactForm />

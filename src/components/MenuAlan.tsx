@@ -62,7 +62,7 @@ export function MenuAlan({ menuData }: MenuProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 bg-black shadow-lg transition-all duration-300 ${isScrolled ? "py-3" : "py-6"
+      className={`fixed top-0 left-0 w-full z-40 bg-blue-950 shadow-lg transition-all duration-300 ${isScrolled ? "py-3" : "py-6"
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
@@ -93,7 +93,7 @@ export function MenuAlan({ menuData }: MenuProps) {
         <button
           aria-label="Abrir menu"
           onClick={() => setMenuOpen((v) => !v)}
-          className="md:hidden flex items-center justify-center p-2 rounded-md bg-black border border-[#fec655]/40 hover:border-[#fec655] transition-colors"
+          className="md:hidden flex items-center justify-center p-2 rounded-md bg-blue-950 border border-[#fec655]/40 hover:border-[#fec655] transition-colors"
         >
           {menuOpen ? (
             <MdClose className="w-6 h-6 text-white" />
@@ -105,7 +105,7 @@ export function MenuAlan({ menuData }: MenuProps) {
 
       {/* Menu Mobile */}
       <nav
-        className={`fixed inset-0 z-50 bg-black md:hidden transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-50 bg-blue-950 md:hidden transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         {/* Fechar */}

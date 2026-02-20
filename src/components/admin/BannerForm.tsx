@@ -308,7 +308,7 @@ export default function BannerForm() {
                 </button>
               </div>
               {/* Informações do banner (visíveis sempre) */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-2 text-white text-xs text-left">
+              <div className="absolute bottom-0 left-0 right-0 bg-blue-950 bg-opacity-70 p-2 text-white text-xs text-left">
                 {banner.title && <p className="font-bold">{banner.title}</p>}
                 {banner.subtitle && <p>{banner.subtitle}</p>}
                 {banner.buttonText && <p>Botão: {banner.buttonText}</p>}

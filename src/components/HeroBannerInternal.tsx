@@ -23,7 +23,7 @@ const HeroBannerInternal: React.FC<HeroBannerInternalProps> = ({ imageUrl, title
       />
 
       {/* Camada de sobreposição escura para melhorar o contraste do texto */}
-      <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+      <div className="absolute inset-0 bg-blue-950 opacity-50 z-10"></div>
 
       {/* Conteúdo do banner */}
       <div className="relative z-20 text-center text-white px-4 md:px-8 max-w-4xl mx-auto">

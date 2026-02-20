@@ -59,20 +59,21 @@ export function Menu({ menuData }: MenuProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 bg-black shadow-lg transition-all duration-300 ${
-        isScrolled ? "py-3" : "py-6 md:py-8"
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+        isScrolled ? "bg-blue-950/70 py-3 shadow-lg" : "py-6 md:py-8"
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" aria-label="Página inicial">
-          <img
+          {/* <img
             src={logoUrl || "/images/logo.png"}
             alt="Logomarca Pereira de Sousa – Advocacia"
             className={`transition-all duration-300 ${
-              isScrolled ? "w-28 md:w-36" : "w-44 md:w-52"
+              isScrolled ? "w-18 md:w-24" : "w-28 md:w-36"
             }`}
-          />
+          /> */}
+          <h1>LIVRE DE MULTAS</h1>
         </Link>
 
         {/* Navegação Desktop */}
@@ -96,7 +97,7 @@ export function Menu({ menuData }: MenuProps) {
         <button
           aria-label="Abrir menu"
           onClick={() => setMenuOpen((v) => !v)}
-          className="md:hidden flex items-center justify-center p-2 rounded-md bg-black border border-[#fec655]/40 hover:border-[#fec655] transition-colors"
+          className="md:hidden flex items-center justify-center p-2 rounded-md bg-blue-950 border border-[#fec655]/40 hover:border-[#fec655] transition-colors"
         >
           {menuOpen ? (
             <MdClose className="w-6 h-6 text-white" />
@@ -108,7 +109,7 @@ export function Menu({ menuData }: MenuProps) {
 
       {/* Menu Mobile */}
       <nav
-        className={`fixed inset-0 z-50 bg-black md:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-50 bg-blue-950 md:hidden transform transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -124,7 +125,7 @@ export function Menu({ menuData }: MenuProps) {
         </div>
 
         {/* Links */}
-        <ul className="flex flex-col gap-4 px-6 pb-10 text-white text-lg">
+        <ul className="flex flex-col gap-4 px-6 pb-10 text-white text-lg list-none">
           {links.map(({ text, url, target }) => (
             <li key={url}>
               <Link

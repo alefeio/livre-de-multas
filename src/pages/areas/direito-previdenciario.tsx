@@ -148,7 +148,7 @@ export default function DireitoPrevidenciarioPage({ menu }: AreaPageProps) {
         />
       </Head>
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-blue-950 text-white">
         <Analytics />
 
         {/* ✅ LOGOMARCA / MENU */}

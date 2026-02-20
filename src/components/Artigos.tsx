@@ -54,7 +54,7 @@ const Artigos: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-black">
+    <section className="w-full bg-blue-950">
       <div className="max-w-7xl mx-auto">
 
         {/* Estados */}
@@ -76,7 +76,7 @@ const Artigos: React.FC = () => {
               <article
                 key={post.id}
                 onClick={() => navigateToPost(post.slug)}
-                className="group bg-black border border-[#fec655]/20 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                className="group bg-blue-950 border border-[#fec655]/20 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 {/* Imagem */}
                 <div className="relative w-full h-60 overflow-hidden">

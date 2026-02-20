@@ -49,7 +49,7 @@ export default function EditFileModal({ file, projetos, onClose, onSave }: EditF
     }, [selectedProjetoId]);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-blue-950/50">
             <div className="bg-white rounded-lg p-6 w-full max-w-md">
                 <h2 className="text-xl font-bold mb-4">Editar Arquivo</h2>
 

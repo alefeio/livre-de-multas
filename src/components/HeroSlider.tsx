@@ -95,7 +95,7 @@ export default function HeroSlider({ banners }: HeroSliderProps) {
   return (
     <div
       id="inicio"
-      className="relative w-full h-[70vh] overflow-hidden shadow-2xl mt-[88px] md:mt-[150px]"
+      className="relative w-full h-[100vh] overflow-hidden shadow-2xl"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
@@ -121,10 +121,10 @@ export default function HeroSlider({ banners }: HeroSliderProps) {
 
       {/* Overlay e Conteúdo */}
       {slides[current] && (
-        <div className="absolute inset-0 z-20 flex items-center bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-8 max-w-5xl">
+        <div className="absolute inset-0 z-20 flex items-end bg-gradient-to-r from-black/80 via-black/50 to-transparent">
+          <div className="container mx-auto px-8 py-16 max-w-5xl">
             {slides[current].title && (
-              <h2 className="text-4xl md:text-6xl font-extrabold text-[#fec655] drop-shadow-lg mb-6 leading-tight">
+              <h2 className="text-5xl md:text-6xl font-extrabold text-[#fec655] drop-shadow-lg mb-6 leading-tight">
                 {slides[current].title}
               </h2>
             )}
@@ -161,7 +161,7 @@ export default function HeroSlider({ banners }: HeroSliderProps) {
           <button
             onClick={() => setPlaying((p) => !p)}
             aria-label={playing ? "Pausar" : "Reproduzir"}
-            className="absolute bottom-6 right-6 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-black/70 hover:bg-black transition-colors"
+            className="absolute bottom-6 right-6 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-blue-950/70 hover:bg-blue-950 transition-colors"
           >
             {playing ? (
               <MdPause className="w-6 h-6 text-white" />

@@ -24,14 +24,14 @@ const ContactSection: React.FC = () => {
                                 +55 (91) 98455-5829
                             </a>
                         </p>
-                        <p className="flex flex-col items-center justify-center space-x-3 text-xl overflow-hidden">
+                        {/* <p className="flex flex-col items-center justify-center space-x-3 text-xl overflow-hidden">
                             <MdEmail className="text-[#fec655] text-3xl" />
                             <small className="md:text-sm">
-                                <a href="mailto:escritório@pereiradesousa.adv.br" className="font-semibold hover:text-[#fec655] transition-colors">
-                                    escritório@pereiradesousa.adv.br
+                                <a href="mailto:contato@livredemultasoficial.com.br" className="font-semibold hover:text-[#fec655] transition-colors">
+                                    contato@livredemultasoficial.com.br
                                 </a>
                             </small>
-                        </p>
+                        </p> */}
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@ const ContactSection: React.FC = () => {
                 <div className="flex flex-col items-center p-8 bg-[#0c1a25] rounded-xl shadow-xl text-white">
                     <h4 className="font-bold text-white text-2xl mb-6">Siga-nos</h4>
                     <div className="flex space-x-8 text-gray-200">
-                        <a href="https://wa.me//5591986284970?text=Olá! Estou entrando em contato através do site." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-4xl hover:text-green-500 transition-colors">
+                        <a href="https://wa.me//5591981006131?text=Olá! Estou entrando em contato através do site." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-4xl hover:text-green-500 transition-colors">
                             <FaWhatsapp />
                         </a>
                         <a href="https://www.instagram.com/curvaengenhariaearquitetura" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-4xl hover:text-pink-500 transition-colors">
@@ -56,7 +56,7 @@ const ContactSection: React.FC = () => {
                     <h4 className="font-bold text-white text-2xl mb-6">Nossa Localização</h4>
                     <address className="text-[#fec655] font-semibold not-italic text-center text-xl mb-6">
                         <MdLocationOn className="inline text-3xl mr-2 align-middle" />
-                        Avenida Roberto Camelier, 1642, Condor - Belém - PA
+                        Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531
                     </address>
                     <div className="w-full h-64 rounded-xl overflow-hidden shadow-lg border-2 border-gray-700">
                         <iframe

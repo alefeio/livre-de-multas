@@ -41,7 +41,7 @@ const CookieBanner = () => {
           </button>
           <button
             onClick={handleAcceptCookies}
-            className="bg-black hover:bg-gray-900 text-white py-2 px-4 rounded-md text-sm focus:outline-none"
+            className="bg-blue-950 hover:bg-gray-900 text-white py-2 px-4 rounded-md text-sm focus:outline-none"
           >
             Aceitar
           </button>

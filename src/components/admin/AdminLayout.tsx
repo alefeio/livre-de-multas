@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       {/* Camada de sobreposição para o modo mobile quando a barra lateral está aberta */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+          className="fixed inset-0 bg-blue-950 bg-opacity-50 z-20 md:hidden"
           onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}

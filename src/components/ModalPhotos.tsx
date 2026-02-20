@@ -137,7 +137,7 @@ export default function ModalPhotos({
 
             {/* Container do modal: remove o padding no mobile e o aplica em telas maiores */}
             <div
-                className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center p-0 md:p-4"
+                className="fixed inset-0 z-[100] bg-blue-950 bg-opacity-90 flex items-center justify-center p-0 md:p-4"
                 onClick={onClose}
             >
                 {/* Container do conteúdo: agora ocupa 100% da largura em mobile */}
@@ -148,7 +148,7 @@ export default function ModalPhotos({
                     {/* Botão de fechar: reduz a margem para ficar mais próximo da borda em mobile */}
                     <button
                         onClick={onClose}
-                        className="absolute top-2 right-2 text-primary z-50 p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition-colors"
+                        className="absolute top-2 right-2 text-primary z-50 p-2 rounded-full bg-blue-950 bg-opacity-50 hover:bg-opacity-70 transition-colors"
                     >
                         <AiOutlineClose size={24} className="text-primary" />
                     </button>
@@ -165,13 +165,13 @@ export default function ModalPhotos({
                     <div className="absolute top-1/2 left-0 right-0 flex justify-between transform -translate-y-1/2 w-full p-2">
                         <button
                             onClick={prevItem}
-                            className="p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition-colors"
+                            className="p-2 rounded-full bg-blue-950 bg-opacity-50 hover:bg-opacity-70 transition-colors"
                         >
                             <SlArrowLeft size={24} className="text-primary" />
                         </button>
                         <button
                             onClick={nextItem}
-                            className="p-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 transition-colors"
+                            className="p-2 rounded-full bg-blue-950 bg-opacity-50 hover:bg-opacity-70 transition-colors"
                         >
                             <SlArrowRight size={24} className="text-primary" />
                         </button>

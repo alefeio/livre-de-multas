@@ -1,48 +1,49 @@
-import ServicesSection from './ServicesSection';
+import React from "react";
+import ServicesSection from "./ServicesSection";
+import { useRouter } from "next/router";
 
-interface BannerItem {
-  id: string;
-  url: string;
+type ServicesHeroProps = {
   title?: string;
-}
+  subtitle?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
 
-const STATIC_SLIDES: BannerItem[] = [
-  {
-    id: 'static-areas-1',
-    url: '/images/bg-sobre1.jpg',
-    title: 'Áreas de Atuação',
-  },
-];
-
-export default function HeroSliderAreas() {
-  const slide = STATIC_SLIDES[0];
+export default function ServicesHero({
+  title = "Atuação",
+  subtitle = "Escolha o seu caso para ver orientações e entender o próximo passo.",
+}: ServicesHeroProps) {
+  const router = useRouter();
 
   return (
-    <section className="relative w-full min-h-screen bg-black" id="inicio">
-      
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={slide.url}
-          alt={slide.title || 'Banner Áreas de Atuação'}
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Overlay para garantir contraste */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+    <section className="relative w-full overflow-hidden bg-blue-950" id="servicos">
 
-      {/* Conteúdo */}
-      <div className="relative z-10 flex flex-col items-center pt-40 md:pt-48">
-        
-        {/* Título */}
-        {slide.title && (
-          <h1 className="text-center font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#fec655] drop-shadow-lg mb-16 leading-tight">
-            {slide.title}
+      <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
+        {/* Cabeçalho curto */}
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <h1 className="text-3xl font-extrabold leading-tight text-white md:text-5xl">
+            <span className="text-[#fec655]">{title}</span>
           </h1>
-        )}
 
-        {/* Seção de Serviços */}
-        <ServicesSection />
+          <p className="mt-4 text-base leading-relaxed text-gray-200 md:text-lg">
+            {subtitle}
+          </p>
+
+          {/* Atalhos úteis (opcional) */}
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <button
+              onClick={() => router.push("/#contato")}
+              className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition-all duration-300 hover:brightness-95"
+            >
+              Analisar meu caso
+            </button>
+          </div>
+        </div>
+
+        {/* Serviços (cards/links para cada dor) */}
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm md:p-6">
+          <ServicesSection />
+        </div>
       </div>
     </section>
   );

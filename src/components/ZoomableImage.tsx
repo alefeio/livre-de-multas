@@ -71,7 +71,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt }) => {
         }}
       />
 
-      <div className={`absolute bottom-4 right-4 bg-black/60 p-2 rounded-full transition-opacity duration-300 ${isZoomed ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`absolute bottom-4 right-4 bg-blue-950/60 p-2 rounded-full transition-opacity duration-300 ${isZoomed ? 'opacity-0' : 'opacity-100'}`}>
         <AiOutlineSearch className="text-white" size={24} />
       </div>
     </div>

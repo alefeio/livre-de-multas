@@ -121,21 +121,21 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
         "image": "https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png", // Manter ou alterar a URL da imagem se precisar
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Avenida Roberto Camelier, 1642, Condor", // Endereço atualizado
+            "streetAddress": "Tv. Timbó, 1563 - Marco", // Endereço atualizado
             "addressLocality": "Belém",
             "addressRegion": "PA",
             "postalCode": "66030-465", // CEP de referência. Confirme o CEP correto para 2564.
             "addressCountry": "BR"
         },
         "url": "https://pereiradesousa.vercel.app/",
-        "telephone": "+5591986284970", // Telefone atualizado
+        "telephone": "+5591981006131", // Telefone atualizado
         "areaServed": [
             { "@type": "City", "name": "Belém" },
             { "@type": "State", "name": "Pará" }
         ],
         "priceRange": "$$", // Exemplo: indicando uma faixa de preço
         "sameAs": [
-            "https://www.instagram.com/pereiradesousaescritorio/", // Sugestão baseada em busca, verificar a URL exata
+            "https://www.instagram.com/livredemultasoficial/", // Sugestão baseada em busca, verificar a URL exata
             // "https://www.linkedin.com/company/machadoadvogadosassociados"
         ],
         "description": "Escritório de advocacia em Belém, PA. Especializado em Direito do Consumidor, Direito Trabalhista e Assessoria Jurídica Empresarial."
@@ -211,7 +211,7 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
             {/* Modal de Saída */}
             {showExitModal && (
                 <div
-                    className="fixed inset-0 z-[110] flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm"
+                    className="fixed inset-0 z-[110] flex items-center justify-center bg-blue-950 bg-opacity-70 backdrop-blur-sm"
                     onClick={(e) => {
                         if (e.target === e.currentTarget) {
                             setShowExitModal(false);

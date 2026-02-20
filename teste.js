@@ -118,7 +118,7 @@ export default function DressesGallery() {
                                         setModalIdx((gallery.index + idx - 1 + items.length) % items.length);
                                         setModalType(name);
                                     }}
-                                    className="absolute top-2 right-2 bg-black/50 p-2 rounded-full"
+                                    className="absolute top-2 right-2 bg-blue-950/50 p-2 rounded-full"
                                 >
                                     🔍
                                 </button>
@@ -147,7 +147,7 @@ export default function DressesGallery() {
 
             {showModal && modalType && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
+                    className="fixed inset-0 z-50 bg-blue-950/70 flex items-center justify-center"
                     onClick={() => {
                         setShowModal(false);
                         setModalType(null);
@@ -159,7 +159,7 @@ export default function DressesGallery() {
                             setShowModal(false);
                             setModalType(null);
                         }}
-                        className="absolute top-8 right-8 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition"
+                        className="absolute top-8 right-8 text-white bg-blue-950/50 hover:bg-blue-950/70 rounded-full p-2 transition"
                     >
                         ✕
                     </button>

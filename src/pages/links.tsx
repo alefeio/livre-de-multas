@@ -16,11 +16,11 @@ import { FaWhatsapp } from "react-icons/fa";
 const BRAND = {
   name: "Pereira de Sousa Advogados",
   legalName: "Pereira de Sousa Advogados",
-  domain: "https://pereiradesousa.adv.br",
-  pageUrl: "https://pereiradesousa.adv.br",
+  domain: "https://livredemultasoficial.com.br",
+  pageUrl: "https://livredemultasoficial.com.br",
   phoneDisplay: "(91) 98395-7965",
-  phoneE164: "+5591986284970",
-  whatsappNumber: "5591986284970", // sem +, sem espaços
+  phoneE164: "+5591981006131",
+  whatsappNumber: "5591981006131", // sem +, sem espaços
   address: {
     street: "Belém/PA",
     city: "Belém",
@@ -28,7 +28,7 @@ const BRAND = {
     postal: "",
     country: "BR",
   },
-  instagram: "https://www.instagram.com/pereiradesousaescritorio", // ✅ troque pelo @ oficial (se já tiver)
+  instagram: "https://www.instagram.com/livredemultasoficial", // ✅ troque pelo @ oficial (se já tiver)
   googleMaps:
     "https://www.google.com/maps/search/?api=1&query=Bel%C3%A9m%2C%20PA",
   logo: "https://res.cloudinary.com/dfh7fwtec/image/upload/v1768800952/dresses/yaiptstgtqs7a0brs9mh.jpg",
@@ -181,9 +181,9 @@ export default function LinksPage() {
 
         <main className="mx-auto w-full max-w-[520px] px-5 py-10">
           {/* Card topo */}
-          <section className="rounded-3xl bg-black backdrop-blur border border-black/5 shadow-sm p-6">
+          <section className="rounded-3xl bg-blue-950 backdrop-blur border border-black/5 shadow-sm p-6">
             <div className="flex flex-col items-center text-center">
-              <div className="relative h-20 w-44 bg-black shadow-sm border border-black/5">
+              <div className="relative h-20 w-44 bg-blue-950 shadow-sm border border-black/5">
                 <Image
                   src={BRAND.logo}
                   alt="Logo Pereira de Sousa Advogados"
@@ -204,14 +204,14 @@ export default function LinksPage() {
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
                 <a
                   href={primaryCta}
-                  className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-white text-sm font-semibold shadow-sm hover:opacity-90 transition"
+                  className="inline-flex items-center gap-2 rounded-full bg-blue-950 px-4 py-2 text-white text-sm font-semibold shadow-sm hover:opacity-90 transition"
                 >
                   <FaWhatsapp size={16} /> Falar agora
                 </a>
 
                 <a
                   href={`tel:${BRAND.phoneE164}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold hover:bg-black/5 transition"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold hover:bg-blue-950/5 transition"
                 >
                   <FiPhone size={16} /> {BRAND.phoneDisplay}
                 </a>
@@ -241,7 +241,7 @@ export default function LinksPage() {
                   <div
                     className={[
                       "flex h-10 w-10 items-center justify-center rounded-xl",
-                      item.highlight ? "bg-black text-white" : "bg-black/5 text-black",
+                      item.highlight ? "bg-blue-950 text-white" : "bg-blue-950/5 text-black",
                     ].join(" ")}
                   >
                     {item.icon}
@@ -263,7 +263,7 @@ export default function LinksPage() {
                 {item.highlight ? (
                   <div className="h-[3px] w-full bg-gradient-to-r from-black via-black/70 to-black/40" />
                 ) : (
-                  <div className="h-[1px] w-full bg-black/5" />
+                  <div className="h-[1px] w-full bg-blue-950/5" />
                 )}
               </a>
             ))}
@@ -290,7 +290,7 @@ export default function LinksPage() {
 
             <a
               href={primaryCta}
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-black px-4 py-3 text-white text-sm font-semibold shadow-sm hover:opacity-90 transition"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-950 px-4 py-3 text-white text-sm font-semibold shadow-sm hover:opacity-90 transition"
             >
               <FaWhatsapp size={18} /> Falar com o escritório
             </a>

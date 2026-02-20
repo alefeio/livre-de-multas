@@ -72,7 +72,7 @@ export default function FileViewerModal({ file, onClose, onEdit, onDelete }: Fil
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-blue-950/50">
       <div className="bg-white w-full max-w-4xl h-screen flex flex-col rounded-lg overflow-hidden">
         {/* Cabeçalho */}
         <div className="flex justify-between items-center p-4 border-b border-gray-200">

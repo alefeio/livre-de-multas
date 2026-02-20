@@ -25,7 +25,7 @@ export default function Blog() {
     return (
         <section
             id="inicio"
-            className="relative w-full bg-black overflow-hidden"
+            className="relative w-full bg-blue-950 overflow-hidden"
         >
             {/* Background opcional (se quiser manter imagem futuramente) */}
             {/* 
@@ -39,13 +39,11 @@ export default function Blog() {
       */}
 
             {/* Conteúdo */}
-            <div className="relative z-10 flex flex-col items-center py-40 md:pt-48">
-                <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
-                    {slide.title && (
-                        <h1 className="text-center font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#fec655] drop-shadow-lg mb-16 leading-tight">
-                            {slide.title}
-                        </h1>
-                    )}
+            <div className="relative z-10 flex flex-col items-center px-6 py-16 md:px-10 md:py-24">
+                <div className="max-w-7xl mx-auto px-6 md:px-8 w-full text-center">
+                    <h1 className="mb-12 text-3xl font-extrabold leading-tight text-white md:text-5xl">
+                        <span className="text-[#fec655]">Blog</span>
+                    </h1>
 
                     {/* Conteúdo do Blog */}
                     <Artigos />

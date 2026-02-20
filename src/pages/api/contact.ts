@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Envia o e-mail de confirmação para o cliente
     await resend.emails.send({
-      from: "Livre de Multas <escritório@pereiradesousa.adv.br>", // Altere esta linha
+      from: "Livre de Multas <contato@livredemultasoficial.com.br>", // Altere esta linha
       to: email,
       subject: `Confirmação de Recebimento - ${name}`,
       html: `

@@ -1,179 +1,145 @@
 import React from "react";
 import Link from "next/link";
 import {
-  HiOutlineScale,
+  HiOutlineIdentification,
   HiOutlineDocumentText,
-  HiOutlineOfficeBuilding,
   HiOutlineShieldCheck,
 } from "react-icons/hi";
-import {
-  BsPeople,
-  BsBank,
-  BsBriefcase,
-  BsLaptop,
-  BsHeartPulse,
-  BsPersonCheck,
-  BsTree,
-} from "react-icons/bs";
+import { BsSpeedometer2, BsConeStriped, BsShield } from "react-icons/bs";
 
-const services = [
+type ServiceItem = {
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  href: string;
+  highlight?: boolean;
+  group?: "main" | "sub";
+};
+
+const services: ServiceItem[] = [
   {
-    title: "Direito Empresarial",
+    title: "Multa na CNH Provisória",
     description:
-      "Assessoria jurídica completa a empresários e sociedades empresárias, com atuação estratégica em contratos, reorganizações societárias, cobranças e orientação preventiva.",
-    icon: BsBriefcase,
-    href: "/areas/direito-empresarial",
-    target: ''
+      "Entenda o risco para sua habilitação e saiba como agir dentro do prazo com orientação clara e estratégia de recurso.",
+    icon: HiOutlineIdentification,
+    href: "/multa-cnh-provisoria",
+    highlight: true,
+    group: "main",
   },
   {
-    title: "Direito do Trabalho",
+    title: "Multa / Recusa do Bafômetro",
     description:
-      "Atuação na defesa de trabalhadores e empregadores, com foco em prevenção de conflitos, segurança jurídica, reclamatórias trabalhistas e assessoria empresarial contínua.",
-    icon: BsPeople,
-    href: "/areas/direito-do-trabalho",
-    target: ''
-  },
-  {
-    title: "Direito Civil",
-    description:
-      "Atuação em demandas cíveis em geral, incluindo contratos, cobranças, execuções, responsabilidade civil e resolução de conflitos patrimoniais.",
-    icon: HiOutlineDocumentText,
-    href: "/areas/direito-civil",
-    target: ''
-  },
-  {
-    title: "Direito de Família e Sucessões",
-    description:
-      "Atendimento humanizado e técnico em divórcios, pensão alimentícia, guarda, inventários, partilhas e planejamento sucessório.",
-    icon: BsPersonCheck,
-    href: "/areas/direito-de-familia-e-sucessoes",
-    target: ''
-  },
-  {
-    title: "Direito Penal",
-    description:
-      "Defesa técnica e estratégica desde a fase policial até o processo judicial, com atuação ética, sigilosa e comprometida com a ampla defesa.",
+      "Orientação e atuação em autuações envolvendo bafômetro ou recusa, com análise da notificação e dos procedimentos.",
     icon: HiOutlineShieldCheck,
-    href: "/areas/direito-penal",
-    target: ''
+    href: "/recusa-bafometro",
+    highlight: true,
+    group: "main",
   },
   {
-    title: "Direito Agrário",
+    title: "Suspensão do Direito de Dirigir",
     description:
-      "Assessoria jurídica ao produtor rural, com atuação em regularização fundiária, contratos agrários e conflitos possessórios.",
-    icon: BsTree,
-    href: "/areas/direito-agrario",
-    target: ''
+      "Defesa e acompanhamento em processos de suspensão, com organização da documentação e recursos conforme o caso.",
+    icon: HiOutlineDocumentText,
+    href: "/suspensao-cnh",
+    highlight: true,
+    group: "main",
+  },
+
+  // Subitens (causas mais comuns)
+  {
+    title: "Excesso de velocidade acima de 50%",
+    description:
+      "Casos de autuação por alta velocidade que podem gerar suspensão. Veja o que analisar e quais documentos separar.",
+    icon: BsSpeedometer2,
+    href: "/suspensao-cnh/excesso-velocidade-acima-50",
+    group: "sub",
   },
   {
-    title: "Direito Previdenciário",
+    title: "Manobras perigosas / racha",
     description:
-      "Atuação administrativa e judicial em benefícios previdenciários, aposentadorias, pensões, auxílios, revisões e planejamento previdenciário.",
-    icon: BsBank,
-    href: "/areas/direito-previdenciario", // ✅ página já criada
-    target: '_blank'
+      "Situações enquadradas como direção perigosa e disputas. Entenda o procedimento e os próximos passos de defesa.",
+    icon: BsConeStriped,
+    href: "/suspensao-cnh/manobras-perigosas-racha",
+    group: "sub",
   },
   {
-    title: "Direito Tributário",
+    title: "Moto sem capacete",
     description:
-      "Atuação estratégica na defesa do contribuinte, com foco em planejamento tributário, revisão de tributos, recuperação de créditos fiscais e defesa em autos de infração.",
-    icon: BsBank,
-    href: "/areas/direito-tributario",
-    target: ''
-  },
-  {
-    title: "Direito do Consumidor",
-    description:
-      "Defesa dos direitos do consumidor em cobranças indevidas, contratos abusivos, negativação irregular e conflitos com instituições financeiras e prestadores de serviços.",
-    icon: HiOutlineScale,
-    href: "/areas/direito-do-consumidor",
-    target: ''
-  },
-  {
-    title: "Direito Digital",
-    description:
-      "Atuação jurídica no ambiente digital, com foco em LGPD, remoção de conteúdos, vazamento de dados, fraudes digitais e proteção da reputação online.",
-    icon: BsLaptop,
-    href: "/areas/direito-digital",
-    target: ''
-  },
-  {
-    title: "Direito Bancário",
-    description:
-      "Atuação na revisão de contratos bancários, financiamentos, juros abusivos, renegociação de dívidas e defesa em execuções.",
-    icon: HiOutlineOfficeBuilding,
-    href: "/areas/direito-bancario",
-    target: ''
-  },
-  {
-    title: "Direito da Saúde",
-    description:
-      "Atuação na defesa do direito à saúde, com demandas envolvendo planos de saúde, fornecimento de medicamentos e tratamentos médicos.",
-    icon: BsHeartPulse,
-    href: "/areas/direito-da-saude",
-    target: ''
-  },
-  {
-    title: "Direito das Pessoas com TEA",
-    description:
-      "Atuação comprometida com a proteção dos direitos das pessoas com Transtorno do Espectro Autista, assegurando acesso à saúde, educação e benefícios assistenciais.",
-    icon: BsPersonCheck,
-    href: "/areas/direito-das-pessoas-com-tea",
-    target: ''
+      "Autuação por condução sem capacete que pode gerar processo. Veja como funciona a análise e o caminho de recurso.",
+    icon: BsShield,
+    href: "/suspensao-cnh/moto-sem-capacete",
+    group: "sub",
   },
 ];
 
-export default function ServicesSection() {
+function Card({
+  item,
+  compact = false,
+}: {
+  item: ServiceItem;
+  compact?: boolean;
+}) {
+  const Icon = item.icon;
+
   return (
-    <section className="space-y-24 pb-36 flex flex-col items-start md:items-center text-left md:text-center text-left list-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16">
-          {services.map((service) => {
-            const Icon = service.icon;
+    <Link
+      href={item.href}
+      className={[
+        "group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm",
+        "transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#fec655]/60",
+        compact ? "p-5" : "",
+        item.highlight ? "ring-1 ring-[#fec655]/20" : "",
+      ].join(" ")}
+      aria-label={`Ver detalhes sobre ${item.title}`}
+    >
+      <div className="flex items-start gap-4">
+        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-[#fec655]/40 text-[#fec655] text-2xl transition group-hover:border-[#fec655]/70">
+          <Icon />
+        </div>
 
-            return (
-              <Link
-                key={service.href}
-                target={service.target}
-                href={service.href}
-                className="
-                  group
-                  flex flex-col md:flex-row
-                  items-center md:items-start
-                  gap-6
-                  text-center md:text-left
-                  rounded-3xl
-                  p-3 md:p-4
-                  transition
-                  hover:bg-white/5
-                  focus:outline-none focus:ring-2 focus:ring-[#fec655]/60
-                  bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-left list-none
-                "
-                aria-label={`Ver detalhes de ${service.title}`}
-              >
-                {/* Ícone */}
-                <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-full border border-[#fec655]/40 text-[#fec655] text-3xl transition group-hover:border-[#fec655]/70">
-                  <Icon />
-                </div>
+        <div className="space-y-2">
+          <h3 className="text-lg md:text-xl font-extrabold text-white leading-snug">
+            {item.title}
+          </h3>
+          <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+            {item.description}
+          </p>
 
-                {/* Texto */}
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-extrabold text-[#fec655] leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-300 text-base leading-relaxed">
-                    {service.description}
-                  </p>
+          <span className="inline-block text-sm text-[#fec655]/80 group-hover:text-[#fec655] transition">
+            Ver detalhes →
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
 
-                  {/* micro-cta */}
-                  <span className="inline-block text-sm text-[#fec655]/80 group-hover:text-[#fec655] transition">
-                    Ver detalhes →
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+export default function ServicesSection() {
+  const main = services.filter((s) => s.group === "main");
+  const sub = services.filter((s) => s.group === "sub");
+
+  return (
+    <section className="w-full">
+      <div className="mx-auto max-w-7xl">
+        {/* Principais */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          {main.map((item) => (
+            <Card key={item.href} item={item} />
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <h4 className="text-base md:text-lg font-semibold text-white">
+              Principais causas de suspensão
+            </h4>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+            {sub.map((item) => (
+              <Card key={item.href} item={item} compact />
+            ))}
+          </div>
         </div>
       </div>
     </section>

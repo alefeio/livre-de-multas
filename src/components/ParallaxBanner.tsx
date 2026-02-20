@@ -87,7 +87,7 @@ const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
       />
 
       {/* Camada de sobreposição escura */}
-      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-blue-950 opacity-50 z-0"></div>
 
       {/* Camada do conteúdo */}
       <div className={`max-w-7xl mx-auto relative z-10 flex flex-col justify-center h-full text-white px-8 py-16 md:px-12 md:py-24 ${alignmentClass}`}>
