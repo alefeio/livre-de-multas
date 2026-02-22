@@ -10,6 +10,7 @@ import { Menu as MenuComponent } from "components/Menu";
 import Footer from "components/Footer";
 import WhatsAppButton from "components/WhatsAppButton";
 import { MenuData, LinkItem } from "../../types/index";
+import Blog from "components/Blog";
 
 const prisma = new PrismaClient();
 
@@ -320,6 +321,8 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
                 Atendimento sem compromisso. Cada caso depende de documentos e análise técnica.
               </p>
             </section>
+
+            <Blog />
           </main>
         </div>
 
