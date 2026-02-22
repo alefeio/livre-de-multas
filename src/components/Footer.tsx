@@ -68,9 +68,11 @@ export default function Footer({ menuData }: MenuProps) {
   const CONTACT = {
     instagramUrl: "https://www.instagram.com/livredemultasoficial",
     instagramHandle: "@livredemultasoficial",
-    whatsappNumber: "5591986284970",
-    whatsappLabel: "+55 91 98628-4970",
-    email: "contato@livredemultasoficial.com.br",
+    whatsappNumber: "5591981006131",
+    whatsappNumber2: "5591991198584",
+    whatsappLabel: "+55 91 98100-6131",
+    whatsappLabel2: "+55 91 99119-8584",
+    email: "livresdemultasoficial@gmail.com",
     address: "Belém/PA",
     mapUrl:
       "https://www.google.com/maps?ll=-1.432623,-48.470215&z=11&t=m&hl=pt-BR&gl=US&mapclient=embed&q=Tv.+Timb%C3%B3,+1563+-+Marco+Bel%C3%A9m+-+PA+66087-531+Brasil",
@@ -80,6 +82,11 @@ export default function Footer({ menuData }: MenuProps) {
     const message = encodeURIComponent("Olá! Gostaria de saber mais informações sobre os serviços da Livre de Multas.");
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
   }, [CONTACT.whatsappNumber]);
+
+  const openWhatsAppUrl2 = useMemo(() => {
+    const message = encodeURIComponent("Olá! Gostaria de saber mais informações sobre os serviços da Livre de Multas.");
+    return `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
+  }, [CONTACT.whatsappNumber2]);
 
   // Posts dinâmicos (mantido como no seu projeto)
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -263,13 +270,23 @@ export default function Footer({ menuData }: MenuProps) {
                 {CONTACT.whatsappLabel}
               </a>
 
-              {/* <a
+              <a
+                href={openWhatsAppUrl2}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-white hover:text-[#fec655] transition"
+              >
+                <FaWhatsapp size={16} className="text-[#fec655] mr-3 flex-shrink-0" />
+                {CONTACT.whatsappLabel2}
+              </a>
+
+              <a
                 href={`mailto:${CONTACT.email}`}
                 className="flex items-center text-white hover:text-[#fec655] transition"
               >
                 <MdEmail size={16} className="text-[#fec655] mr-3 flex-shrink-0" />
                 {CONTACT.email}
-              </a> */}
+              </a>
 
               <a
                 href={CONTACT.mapUrl}

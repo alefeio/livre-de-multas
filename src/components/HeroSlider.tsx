@@ -95,7 +95,7 @@ export default function HeroSlider({ banners }: HeroSliderProps) {
   return (
     <div
       id="inicio"
-      className="relative w-full h-[100vh] overflow-hidden shadow-2xl"
+      className="relative w-full h-[80vh] md:h-[100vh] overflow-hidden shadow-2xl"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}

@@ -7,7 +7,7 @@ type HeroProps = {
 };
 
 export default function Hero({
-  imageSrc = "/images/pablo.jpeg",
+  imageSrc = "/images/profissional.jpg",
   imageAlt = "Especialista em defesa e recurso de multas de trânsito",
 }: HeroProps) {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function Hero({
   };
 
   return (
-    <section className="relative overflow-hidden bg-blue-950 pt-24 md:pt-36 pb-16 md:pb-24">
+    <section className="relative overflow-hidden bg-blue-950 pt-8 md:pt-36 pb-16 md:pb-24">
       {/* Fundo decorativo */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#fec655]/10 blur-3xl" />

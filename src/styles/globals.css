@@ -2,110 +2,145 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos Globais */
+/* =========================
+   TOKENS / PADRÃO DO SITE
+   (tema escuro + dourado)
+========================= */
 
-body {
-  /* Aplica a fonte padrão, fundo principal e cor de texto */
-  @apply font-sans text-neutral-dark;
+:root {
+  --brand: #fec655;
 }
+
+/* =========================
+   ESTILOS GLOBAIS
+========================= */
 
 html {
   scroll-behavior: smooth;
-  @apply text-base antialiased;
+  @apply antialiased text-base;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  /* Estilo para títulos: negrito, cor principal e espaçamento de linha */
-  @apply font-bold text-[#fec655] leading-snug;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
+body {
+  @apply font-sans bg-blue-950 text-white;
 }
 
+/* Títulos: branco por padrão.
+   (Use spans text-[#fec655] quando quiser destaque) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-extrabold text-white leading-snug;
+}
+
+/* Evita “pular” muito com margins no fluxo;
+   deixe o espaçamento por componente/section */
+h1 { @apply text-3xl md:text-5xl; }
+h2 { @apply text-2xl md:text-3xl; }
+h3 { @apply text-xl md:text-2xl; }
+h4 { @apply text-lg md:text-xl; }
+
+/* Links */
 a {
-  /* Estilo base para links: cor de destaque, sem sublinhado, transição suave */
-  @apply text-accent no-underline transition-colors duration-300;
+  @apply text-[#fec655] no-underline transition-opacity duration-200;
 }
 
 a:hover {
-  /* Cor mais clara no hover */
-  @apply text-accent-light;
+  @apply opacity-90;
 }
 
+/* Container */
 .container {
-  /* Container responsivo centralizado */
-  @apply max-w-screen-xl mx-auto px-4;
+  @apply max-w-7xl mx-auto px-4 md:px-8;
 }
 
-/* Botões */
+/* =========================
+   COMPONENTS (CLASSES REUTILIZÁVEIS)
+========================= */
 
-.btn {
-  /* Botão principal com cor de fundo primária e texto branco */
-  @apply inline-block px-6 py-2 rounded-md font-semibold text-white bg-primary hover:bg-primary-dark transition duration-300;
+@layer components {
+  /* Botão primário (dourado) */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+      rounded-full px-6 py-3 font-bold
+      bg-[#fec655] text-[#0c1a26]
+      shadow-lg transition hover:brightness-95;
+  }
+
+  /* Botão secundário (outline/translúcido) */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+      rounded-full px-6 py-3 font-semibold
+      border border-white/15 bg-white/5 text-white
+      transition hover:bg-white/10;
+  }
+
+  .btn-disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Inputs padrão (tema escuro premium) */
+  .input-base {
+    @apply w-full rounded-xl px-4 py-3
+      bg-white/5 text-black placeholder:text-black/50
+      border border-black/70
+      outline-none transition
+      focus:ring-2 focus:ring-[#fec655]/50 focus:border-[#fec655]/40;
+  }
+
+  /* Card padrão */
+  .card {
+    @apply rounded-3xl border border-white/10
+      bg-white/5 p-6 shadow-2xl backdrop-blur-sm;
+  }
+
+  /* Título de seção */
+  .section-title {
+    @apply text-2xl md:text-3xl font-extrabold text-white;
+  }
+
+  /* Subtítulo de seção */
+  .section-subtitle {
+    @apply mt-2 text-base md:text-lg text-gray-200 leading-relaxed;
+  }
 }
 
-.btn-outline {
-  /* Botão com contorno, transparente no fundo, com preenchimento no hover */
-  @apply inline-block px-6 py-2 rounded-md font-semibold border border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition duration-300;
-}
-
-.btn-disabled {
-  /* Estilo para botões desabilitados */
-  @apply cursor-not-allowed opacity-50;
-}
-
-/* Inputs e Formulários */
+/* =========================
+   FORM ELEMENTS (fallback)
+   (se algum lugar não usar .input-base)
+========================= */
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea,
 select {
-  /* Estilo para campos de formulário com foco na cor primária */
-  @apply w-full px-4 py-2 border rounded-md bg-neutral-light text-neutral-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200;
+  @apply w-full rounded-xl px-4 py-3
+    bg-white/5 text-black placeholder:text-black/50
+    border border-black/70
+    outline-none transition
+    focus:ring-2 focus:ring-[#fec655]/50 focus:border-[#fec655]/40;
 }
 
 label {
-  /* Estilo para rótulos */
-  @apply block mb-1 text-sm font-medium text-neutral-dark;
+  @apply block mb-1 text-sm font-medium text-gray-200;
 }
 
-/* Cards */
-
-.card {
-  /* Estilo para cards */
-  @apply bg-neutral-light shadow-lg rounded-xl p-6;
-}
-
-/* Títulos de seção */
-
-.section-title {
-  /* Títulos de seção centralizados */
-  @apply text-3xl md:text-4xl font-bold text-primary mb-6 text-center;
-}
-
-/* Listas */
-
-ul {
-  /* Listas não ordenadas */
-  @apply list-disc list-inside text-neutral-dark;
-}
-
+/* Listas: não forçamos cor/estilo global para não quebrar o layout.
+   Quando quiser lista com bullets, use classes no componente. */
+ul,
 ol {
-  /* Listas ordenadas */
-  @apply list-decimal list-inside text-neutral-dark;
+  @apply m-0 p-0;
 }
 
-/* Imagens */
-
+/* Imagens responsivas */
 img {
-  /* Imagens responsivas */
   @apply max-w-full h-auto;
 }
 
-/* SVGs */
-
+/* SVG herda cor do texto */
 svg {
-  /* SVGs herdam a cor do texto do elemento pai */
   @apply text-current;
 }

@@ -24,14 +24,14 @@ const ContactSection: React.FC = () => {
                                 +55 (91) 98455-5829
                             </a>
                         </p>
-                        {/* <p className="flex flex-col items-center justify-center space-x-3 text-xl overflow-hidden">
+                        <p className="flex flex-col items-center justify-center space-x-3 text-xl overflow-hidden">
                             <MdEmail className="text-[#fec655] text-3xl" />
                             <small className="md:text-sm">
-                                <a href="mailto:contato@livredemultasoficial.com.br" className="font-semibold hover:text-[#fec655] transition-colors">
-                                    contato@livredemultasoficial.com.br
+                                <a href="mailto:livresdemultasoficial@gmail.com" className="font-semibold hover:text-[#fec655] transition-colors">
+                                    livresdemultasoficial@gmail.com
                                 </a>
                             </small>
-                        </p> */}
+                        </p>
                     </div>
                 </div>
 

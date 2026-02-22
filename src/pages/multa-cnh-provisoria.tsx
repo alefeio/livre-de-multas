@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
 import { useMemo } from "react";
 
-import { MenuServicos as MenuComponent } from "components/MenuServicos";
+import { Menu as MenuComponent } from "components/Menu";
 import Footer from "components/Footer";
 import WhatsAppButton from "components/WhatsAppButton";
 import FAQ from "components/FAQ";
@@ -238,7 +238,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                 <MenuComponent menuData={menu} />
 
                 {/* Fundo premium */}
-                <div className="relative pt-24">
+                <div className="relative pt-56 sm:pt-64 2xl:pt-80">
                     <div className="pointer-events-none absolute inset-0">
                         <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#fec655]/10 blur-3xl" />
                         <div className="absolute bottom-[-240px] right-[-160px] h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl" />
@@ -252,7 +252,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                                 <div className="absolute -right-24 bottom-[-40px] h-64 w-64 rounded-full bg-white/5 blur-3xl" />
                             </div>
 
-                            <div className="relative grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
+                            <div className="relative mx-auto w-full max-w-7xl grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
                                 {/* Texto */}
                                 <div>
                                     <div className="flex flex-wrap gap-2">
@@ -336,7 +336,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                         </header>
 
                         {/* CTA FIXO (MEIO) */}
-                        <section className="mt-10 mx-auto w-full max-w-6xl px-4 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8">
+                        <section className="mt-10 mx-auto w-full max-w-7xl px-4 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8">
                             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                                 <div>
                                     <h2 className="text-xl font-extrabold text-white md:text-2xl">
@@ -363,7 +363,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                         </section>
 
                         {/* QUANDO VIRA PROBLEMA */}
-                        <section id="como-funciona" className="mt-12 mx-auto w-full max-w-6xl px-4 space-y-6">
+                        <section id="como-funciona" className="mt-12 mx-auto w-full max-w-7xl px-4 space-y-6">
                             <h2 className="text-2xl font-extrabold text-white md:text-3xl">
                                 Quando a multa na PPD vira problema?
                             </h2>
@@ -420,7 +420,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                         </section>
 
                         {/* PASSO A PASSO */}
-                        <section id="passos" className="mt-12 mx-auto w-full max-w-6xl px-4">
+                        <section id="passos" className="mt-12 mx-auto w-full max-w-7xl px-4">
                             <h2 className="text-2xl font-extrabold text-white md:text-3xl">Passo a passo prático</h2>
 
                             <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -458,7 +458,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                         </section>
 
                         {/* DOCUMENTOS */}
-                        <section id="documentos" className="my-12 mx-auto w-full max-w-6xl px-4">
+                        <section id="documentos" className="my-12 mx-auto w-full max-w-7xl px-4">
                             <h2 className="text-2xl font-extrabold text-white md:text-3xl">Documentos que ajudam na análise</h2>
 
                             <div className="mt-5 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
@@ -488,7 +488,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                         <FAQ faqs={faqs as any} />
 
                         {/* CTA FINAL */}
-                        <section className="my-14 mx-auto w-full max-w-6xl px-4 rounded-3xl border border-white/10 bg-gradient-to-b from-[#fec655]/10 to-white/5 p-8 shadow-2xl backdrop-blur-sm">
+                        <section className="my-14 mx-auto w-full max-w-7xl px-4 rounded-3xl border border-white/10 bg-gradient-to-b from-[#fec655]/10 to-white/5 p-8 shadow-2xl backdrop-blur-sm">
                             <h2 className="text-2xl font-extrabold text-white">Pronto para analisar seu caso?</h2>
                             <p className="mt-2 text-gray-200">
                                 Se você recebeu notificação durante a CNH provisória (PPD), o ideal é agir rápido para não perder prazos.

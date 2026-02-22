@@ -59,27 +59,27 @@ export function Menu({ menuData }: MenuProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? "bg-blue-950/70 py-3 shadow-lg" : "py-6 md:py-8"
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? "bg-blue-950/90 py-3 shadow-lg" : "py-6 md:py-16"
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" aria-label="Página inicial flex items-center justify-center">
-          {/* <img
+          <img
             src={logoUrl || "/images/logo.png"}
             alt="Logomarca Pereira de Sousa – Advocacia"
             className={`transition-all duration-300 ${
-              isScrolled ? "w-18 md:w-24" : "w-28 md:w-36"
+              isScrolled ? "w-16 sm:w-14 2xl:w-24" : "w-48 sm:w-48 2xl:w-64"
             }`}
-          /> */}
-          <h1 className={`${
+          />
+          {/* <h1 className={`${
               isScrolled ? "text-xl" : "text-3xl"
             }`}>LIVRE DE MULTAS</h1>
           <div className={`bg-[#28334f] w-full p-1 text-center ${
               isScrolled ? "hidden" : ""
             }`}>
             <span className="text-white text-xs">ESPECIALISTA EM DIREITO DE TRÂNSITO</span>
-          </div>
+          </div> */}
         </Link>
 
         {/* Navegação Desktop */}
