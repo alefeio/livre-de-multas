@@ -100,7 +100,7 @@ export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref
             <Link href="/" aria-label="Página inicial flex items-center justify-center">
               {/* <img
             src={logoUrl || "/images/logo.png"}
-            alt="Logomarca Pereira de Sousa – Advocacia"
+            alt="Livre de Multas Oficial - Especialista em Direito de Trânsito"
             className={`transition-all duration-300 ${
               isScrolled ? "w-18 md:w-24" : "w-28 md:w-36"
             }`}

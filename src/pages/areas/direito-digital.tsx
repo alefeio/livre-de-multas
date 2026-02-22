@@ -63,7 +63,7 @@ export default function DireitoDigitalPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-digital`;
 
-  const title = 'Direito Digital e LGPD em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Digital e LGPD em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito Digital: LGPD, adequação e consultoria em privacidade, termos de uso e políticas, remoção de conteúdos, vazamento de dados, fraudes e golpes digitais, crimes digitais e proteção da reputação online.';
 
@@ -115,7 +115,7 @@ export default function DireitoDigitalPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Digital — Pereira de Sousa Advogados',
+    name: 'Direito Digital — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

@@ -32,7 +32,7 @@ const servicesList = [
   {
     title: "Atuação Técnica e Estratégica",
     description:
-      "O escritório de advocacia Pereira de Sousa atua com elevado rigor técnico e visão estratégica, aliando conhecimento jurídico atualizado à experiência prática para oferecer soluções eficazes e seguras.",
+      "O escritório de advocacia Livre de Multas Oficial - Especialista em Direito de Trânsito atua com elevado rigor técnico e visão estratégica, aliando conhecimento jurídico atualizado à experiência prática para oferecer soluções eficazes e seguras.",
   },
 ]
 
@@ -67,7 +67,7 @@ export default function Header() {
               {/* Coluna esquerda */}
               <div className="flex flex-col gap-5">
                 <h2 className="w-full text-center md:text-left text-4xl md:text-5xl font-extrabold text-[#fec655] leading-tight max-w-2xl mx-auto md:mx-0">
-                  Sobre o escritório de advocacia Pereira de Sousa
+                  Sobre o escritório de advocacia Livre de Multas Oficial - Especialista em Direito de Trânsito
                   <br />
                   <small className="text-[#fec655] font-medium">
                     – Advocacia
@@ -75,7 +75,7 @@ export default function Header() {
                 </h2>
 
                 <p className="text-white text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
-                  O escritório de advocacia Pereira de Sousa Advocacia atua com foco na proteção dos direitos de seus clientes,
+                  O escritório de advocacia Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo. atua com foco na proteção dos direitos de seus clientes,
                   oferecendo assessoria jurídica segura, ética e alinhada às exigências do ordenamento jurídico.
                 </p>
 

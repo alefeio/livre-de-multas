@@ -59,7 +59,7 @@ export default function DireitoDasPessoasComTEAPage({ menu }: AreaPageProps) {
   const canonicalUrl = `${baseUrl}/areas/direito-das-pessoas-com-tea`;
 
   const title =
-    'Direito das Pessoas com TEA em Belém | Pereira de Sousa Advogados';
+    'Direito das Pessoas com TEA em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação comprometida com a proteção dos direitos das pessoas com Transtorno do Espectro Autista (TEA), assegurando acesso à saúde, educação inclusiva, atendimento prioritário e benefícios assistenciais, com orientação, atuação administrativa e judicial.';
 
@@ -111,7 +111,7 @@ export default function DireitoDasPessoasComTEAPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito das Pessoas com TEA — Pereira de Sousa Advogados',
+    name: 'Direito das Pessoas com TEA — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

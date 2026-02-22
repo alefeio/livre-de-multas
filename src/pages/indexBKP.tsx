@@ -147,13 +147,13 @@ export default function Home({ banners, menu, testimonials, faqs, colecoes }: Ho
         <>
             <Head>
                 {/* Título Otimizado para SEO de Advocacia */}
-                <title>Pereira de Sousa | Direito do Consumidor, Trabalhista e Empresarial em Belém-PA</title>
+                <title>Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo.</title>
 
                 {/* Descrição Otimizada para SEO de Advocacia */}
                 <meta name="description" content="Livre de Multas: Soluções jurídicas completas e personalizadas para proteger seus direitos. Especialistas em Direito do Consumidor, Trabalhista e Assessoria Empresarial. Atendimento em Belém/PA e online." />
 
                 {/* Keywords Otimizadas para Advocacia */}
-                <meta name="keywords" content="Pereira de Sousa, escritório de advocacia Belém, advogado em Belém PA, direito do consumidor, advogado trabalhista, assessoria jurídica empresarial, cobranças indevidas, rescisão de contrato, proteção de direitos" />
+                <meta name="keywords" content="Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo." />
 
                 {/* Metas para Redes Sociais (Open Graph) */}
                 <meta property="og:title" content="Livre de Multas | Compromisso com Seus Direitos" />

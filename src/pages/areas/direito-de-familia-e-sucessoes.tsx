@@ -64,7 +64,7 @@ export default function DireitoFamiliaSucessoesPage({ menu }: AreaPageProps) {
   const canonicalUrl = `${baseUrl}/areas/direito-de-familia-e-sucessoes`;
 
   const title =
-    'Direito de Família e Sucessões em Belém | Pereira de Sousa Advogados';
+    'Direito de Família e Sucessões em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atendimento humanizado e técnico em Direito de Família e Sucessões: divórcio, pensão alimentícia, guarda, inventário, partilha, testamento e planejamento sucessório.';
 
@@ -80,7 +80,7 @@ export default function DireitoFamiliaSucessoesPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito de Família e Sucessões — Pereira de Sousa Advogados',
+    name: 'Direito de Família e Sucessões — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

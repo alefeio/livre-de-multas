@@ -62,12 +62,14 @@ export function Menu({ menuData }: MenuProps) {
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? "bg-blue-950/90 py-3 shadow-lg" : "py-6 md:py-16"
         }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
+      <div className={`max-w-7xl mx-auto flex px-4 md:px-8 ${
+              isScrolled ? "items-center justify-between" : "items-start justify-between"
+            }`}>
         {/* Logo */}
         <Link href="/" aria-label="Página inicial flex items-center justify-center">
           <img
             src={logoUrl || "/images/logo.png"}
-            alt="Logomarca Pereira de Sousa – Advocacia"
+            alt="Livre de Multas Oficial - Especialista em Direito de Trânsito"
             className={`transition-all duration-300 ${
               isScrolled ? "w-16 sm:w-14 2xl:w-24" : "w-48 sm:w-48 2xl:w-64"
             }`}

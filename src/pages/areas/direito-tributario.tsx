@@ -63,7 +63,7 @@ export default function DireitoTributarioPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-tributario`;
 
-  const title = 'Direito Tributário em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Tributário em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito Tributário: planejamento tributário, revisão de tributos, recuperação de créditos fiscais e defesa em autos de infração, com foco na proteção do contribuinte e segurança jurídica.';
 
@@ -115,7 +115,7 @@ export default function DireitoTributarioPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Tributário — Pereira de Sousa Advogados',
+    name: 'Direito Tributário — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

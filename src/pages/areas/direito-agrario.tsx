@@ -58,7 +58,7 @@ export default function DireitoAgrarioPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-agrario`;
 
-  const title = 'Direito Agrário em Belém e Pará | Pereira de Sousa Advogados';
+  const title = 'Direito Agrário em Belém e Pará | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Assessoria em Direito Agrário para produtor rural: regularização fundiária, contratos agrários (arrendamento e parceria rural), conflitos possessórios, segurança jurídica da propriedade e da atividade no campo.';
 
@@ -110,7 +110,7 @@ export default function DireitoAgrarioPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Agrário — Pereira de Sousa Advogados',
+    name: 'Direito Agrário — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA, Pará e região',
     url: canonicalUrl,
     description,

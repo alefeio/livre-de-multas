@@ -109,7 +109,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "Pereira de Sousa Advocacia",
+    name: "Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo.",
     image: ogImage,
     url: canonicalUrl,
     telephone: "+5591981006131",
@@ -160,7 +160,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
 
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:secure_url" content={ogImage} />
-        <meta property="og:image:alt" content="Pereira de Sousa Advocacia" />
+        <meta property="og:image:alt" content="Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo." />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

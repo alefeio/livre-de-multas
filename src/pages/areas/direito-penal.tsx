@@ -63,7 +63,7 @@ export default function DireitoPenalPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-penal`;
 
-  const title = 'Direito Penal em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Penal em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito Penal: defesa técnica e estratégica desde a fase policial até o processo judicial, acompanhamento em audiências, pedidos de liberdade, recursos e atuação ética, sigilosa e comprometida com a ampla defesa.';
 
@@ -115,7 +115,7 @@ export default function DireitoPenalPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Penal — Pereira de Sousa Advogados',
+    name: 'Direito Penal — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

@@ -63,7 +63,7 @@ export default function DireitoDoConsumidorPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-do-consumidor`;
 
-  const title = 'Direito do Consumidor em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito do Consumidor em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito do Consumidor: cobranças indevidas, contratos abusivos, negativação irregular, vícios e defeitos de produtos/serviços, descumprimento de oferta e conflitos com bancos, operadoras e prestadores de serviços.';
 
@@ -115,7 +115,7 @@ export default function DireitoDoConsumidorPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito do Consumidor — Pereira de Sousa Advogados',
+    name: 'Direito do Consumidor — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

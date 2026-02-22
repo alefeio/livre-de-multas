@@ -58,7 +58,7 @@ export default function DireitoPrevidenciarioPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-previdenciario`;
 
-  const title = 'Advogado Previdenciário em Belém | Dr. Alan Sousa — Pereira de Sousa Advogados';
+  const title = 'Advogado Previdenciário em Belém | Dr. Alan Sousa — Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Dr. Alan Sousa atua em Direito Previdenciário (RGPS/INSS e RPPS), com demandas no BELÉMPREV e IGEPPS, planejamento previdenciário, aposentadorias, auxílio-doença, BPC/LOAS, pensão por morte, salário-maternidade, revisões, recursos e ações judiciais em Belém/PA.';
 
@@ -116,7 +116,7 @@ export default function DireitoPrevidenciarioPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Previdenciário — Dr. Alan Sousa | Pereira de Sousa Advogados',
+    name: 'Direito Previdenciário — Dr. Alan Sousa | Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

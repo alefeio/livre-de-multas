@@ -63,7 +63,7 @@ export default function DireitoBancarioPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-bancario`;
 
-  const title = 'Direito Bancário em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Bancário em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito Bancário: revisão de contratos bancários, financiamentos e empréstimos, juros abusivos, cobranças indevidas, renegociação de dívidas e defesa em execuções, com foco em segurança contratual e proteção do consumidor e empresas.';
 
@@ -115,7 +115,7 @@ export default function DireitoBancarioPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Bancário — Pereira de Sousa Advogados',
+    name: 'Direito Bancário — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

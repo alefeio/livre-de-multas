@@ -58,7 +58,7 @@ export default function DireitoDaSaudePage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-da-saude`;
 
-  const title = 'Direito da Saúde em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito da Saúde em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação em Direito da Saúde: defesa do direito à saúde, demandas contra planos de saúde, negativa de cobertura, fornecimento de medicamentos, tratamentos, cirurgias, exames e internações, com atuação administrativa e judicial quando necessário.';
 
@@ -110,7 +110,7 @@ export default function DireitoDaSaudePage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito da Saúde — Pereira de Sousa Advogados',
+    name: 'Direito da Saúde — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

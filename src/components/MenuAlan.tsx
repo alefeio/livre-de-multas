@@ -70,7 +70,7 @@ export function MenuAlan({ menuData }: MenuProps) {
         <Link href="#" aria-label="Página inicial">
           <img
             src={"/images/logo-alan.jpg"}
-            alt="Logomarca Pereira de Sousa – Advocacia"
+            alt="Livre de Multas Oficial - Especialista em Direito de Trânsito"
             className={`transition-all duration-300 ${isScrolled ? "w-28 md:w-36" : "w-44 md:w-52"
               }`}
           />

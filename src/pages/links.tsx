@@ -14,8 +14,8 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND = {
-  name: "Pereira de Sousa Advogados",
-  legalName: "Pereira de Sousa Advogados",
+  name: "Livre de Multas Oficial - Especialista em Direito de Trânsito",
+  legalName: "Livre de Multas Oficial - Especialista em Direito de Trânsito",
   domain: "https://livredemultasoficial.com.br",
   pageUrl: "https://livredemultasoficial.com.br",
   phoneDisplay: "(91) 98395-7965",
@@ -41,11 +41,11 @@ function buildWhatsAppLink(message: string) {
 }
 
 export default function LinksPage() {
-  const title = "Pereira de Sousa Advogados | Links oficiais";
+  const title = "Livre de Multas Oficial - Especialista em Direito de Trânsito | Links oficiais";
   const description =
-    "Fale com o escritório Pereira de Sousa Advogados. Atendimento via WhatsApp, acesso ao site e redes sociais. Atuação em diversas áreas do Direito, com orientação técnica e humanizada.";
+    "Fale com o escritório Livre de Multas Oficial - Especialista em Direito de Trânsito. Atendimento via WhatsApp, acesso ao site e redes sociais. Atuação em diversas áreas do Direito, com orientação técnica e humanizada.";
   const keywords =
-    "Pereira de Sousa Advogados, advogado em Belém, escritório de advocacia Belém, direito previdenciário Belém, direito civil Belém, direito do trabalho Belém, direito empresarial Belém, direito de família Belém, direito do consumidor Belém, direito bancário Belém, direito tributário Belém, direito digital Belém, direito da saúde Belém, advogado TEA Belém";
+    "Livre de Multas Oficial - Especialista em Direito de Trânsito, advogado em Belém, escritório de advocacia Belém, direito previdenciário Belém, direito civil Belém, direito do trabalho Belém, direito empresarial Belém, direito de família Belém, direito do consumidor Belém, direito bancário Belém, direito tributário Belém, direito digital Belém, direito da saúde Belém, advogado TEA Belém";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -66,7 +66,7 @@ export default function LinksPage() {
   };
 
   const primaryCta = buildWhatsAppLink(
-    "Olá! Gostaria de falar com um advogado do escritório Pereira de Sousa. Pode me orientar, por favor?"
+    "Olá! Gostaria de falar com um advogado do escritório Livre de Multas Oficial - Especialista em Direito de Trânsito. Pode me orientar, por favor?"
   );
 
   const areasCta = buildWhatsAppLink(
@@ -107,7 +107,7 @@ export default function LinksPage() {
       note: "Serviços e informações",
     },
     {
-      label: "Instagram (Pereira de Sousa)",
+      label: "Instagram (Livre de Multas Oficial - Especialista em Direito de Trânsito)",
       href: BRAND.instagram,
       icon: <FiInstagram size={18} />,
       highlight: false,
@@ -123,7 +123,7 @@ export default function LinksPage() {
     {
       label: "Avaliações (Google)",
       href: `https://www.google.com/search?q=${encodeURIComponent(
-        "Pereira de Sousa Advogados Belém avaliações"
+        "Livre de Multas Oficial - Especialista em Direito de Trânsito Belém avaliações"
       )}`,
       icon: <FiStar size={18} />,
       highlight: false,
@@ -142,7 +142,7 @@ export default function LinksPage() {
         <link rel="canonical" href={BRAND.pageUrl} />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Pereira de Sousa Advogados | Links oficiais" />
+        <meta property="og:title" content="Livre de Multas Oficial - Especialista em Direito de Trânsito | Links oficiais" />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={BRAND.pageUrl} />
@@ -153,7 +153,7 @@ export default function LinksPage() {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pereira de Sousa Advogados | Links oficiais" />
+        <meta name="twitter:title" content="Livre de Multas Oficial - Especialista em Direito de Trânsito | Links oficiais" />
         <meta name="twitter:description" content={description} />
         <meta
           name="twitter:image"
@@ -186,7 +186,7 @@ export default function LinksPage() {
               <div className="relative h-20 w-44 bg-blue-950 shadow-sm border border-black/5">
                 <Image
                   src={BRAND.logo}
-                  alt="Logo Pereira de Sousa Advogados"
+                  alt="Logo Livre de Multas Oficial - Especialista em Direito de Trânsito"
                   fill
                   style={{ objectFit: "contain" }}
                 />

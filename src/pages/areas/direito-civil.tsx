@@ -63,7 +63,7 @@ export default function DireitoCivilPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-civil`;
 
-  const title = 'Direito Civil em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Civil em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação completa em Direito Civil: contratos, cobranças, execuções, responsabilidade civil, indenizações e resolução de conflitos patrimoniais, com foco em segurança jurídica e soluções eficazes.';
 
@@ -79,7 +79,7 @@ export default function DireitoCivilPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Civil — Pereira de Sousa Advogados',
+    name: 'Direito Civil — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

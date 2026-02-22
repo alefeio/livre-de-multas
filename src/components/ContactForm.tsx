@@ -99,7 +99,7 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
           <option value="SUSPENSAO">Suspensão da CNH</option>
           <option value="EXCESSO_50">Excesso acima de 50%</option>
           <option value="MANOBRA_PERIGOSA">Manobra perigosa / racha</option>
-          <option value="SEM_CAPACETE">Moto sem capacete</option>
+          <option value="SEM_CAPACETE">Multa sem capacete</option>
           <option value="OUTRO">Outro</option>
         </select>
 

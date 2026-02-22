@@ -58,7 +58,7 @@ export default function DireitoEmpresarialPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-empresarial`;
 
-  const title = 'Direito Empresarial em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito Empresarial em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Assessoria jurídica completa em Direito Empresarial: contratos, reorganizações societárias, cobrança empresarial, orientação preventiva e suporte jurídico estratégico para empresas.';
 
@@ -74,7 +74,7 @@ export default function DireitoEmpresarialPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito Empresarial — Pereira de Sousa Advogados',
+    name: 'Direito Empresarial — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

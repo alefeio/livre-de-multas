@@ -58,7 +58,7 @@ export default function DireitoDoTrabalhoPage({ menu }: AreaPageProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const canonicalUrl = `${baseUrl}/areas/direito-do-trabalho`;
 
-  const title = 'Direito do Trabalho em Belém | Pereira de Sousa Advogados';
+  const title = 'Direito do Trabalho em Belém | Livre de Multas Oficial - Especialista em Direito de Trânsito';
   const description =
     'Atuação completa e estratégica em Direito do Trabalho: defesa de trabalhadores e empregadores, prevenção de conflitos, reclamatórias trabalhistas, acordos, consultoria e assessoria empresarial contínua.';
 
@@ -112,7 +112,7 @@ export default function DireitoDoTrabalhoPage({ menu }: AreaPageProps) {
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
-    name: 'Direito do Trabalho — Pereira de Sousa Advogados',
+    name: 'Direito do Trabalho — Livre de Multas Oficial - Especialista em Direito de Trânsito',
     areaServed: 'Belém/PA e região',
     url: canonicalUrl,
     description,

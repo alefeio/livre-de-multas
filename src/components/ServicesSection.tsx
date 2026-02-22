@@ -51,7 +51,7 @@ const services: ServiceItem[] = [
     description:
       "Casos de autuação por alta velocidade que podem gerar suspensão. Veja o que analisar e quais documentos separar.",
     icon: BsSpeedometer2,
-    href: "/suspensao-cnh/excesso-velocidade-acima-50",
+    href: "/suspensao-cnh#excesso-velocidade-50",
     group: "sub",
   },
   {
@@ -59,15 +59,15 @@ const services: ServiceItem[] = [
     description:
       "Situações enquadradas como direção perigosa e disputas. Entenda o procedimento e os próximos passos de defesa.",
     icon: BsConeStriped,
-    href: "/suspensao-cnh/manobras-perigosas-racha",
+    href: "/suspensao-cnh#manobras-perigosas-racha",
     group: "sub",
   },
   {
-    title: "Moto sem capacete",
+    title: "Multa sem capacete",
     description:
       "Autuação por condução sem capacete que pode gerar processo. Veja como funciona a análise e o caminho de recurso.",
     icon: BsShield,
-    href: "/suspensao-cnh/moto-sem-capacete",
+    href: "/suspensao-cnh#moto-sem-capacete",
     group: "sub",
   },
 ];

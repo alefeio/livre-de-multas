@@ -14,7 +14,7 @@ export default function SobreSection() {
           "
       >
         <p>
-          O <strong>Escritório de Advocacia Pereira de Sousa</strong> desenvolve sua atuação com foco na prestação de serviços jurídicos qualificados, fundamentados na ética, na responsabilidade profissional e no constante aprimoramento técnico.
+          O <strong>Escritório de Advocacia Livre de Multas Oficial - Especialista em Direito de Trânsito</strong> desenvolve sua atuação com foco na prestação de serviços jurídicos qualificados, fundamentados na ética, na responsabilidade profissional e no constante aprimoramento técnico.
         </p>
 
         <p>
