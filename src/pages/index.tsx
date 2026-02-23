@@ -81,7 +81,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
             }));
 
             formattedMenu = {
-                logoUrl: rawMenu.logoUrl || "/images/logo.png",
+                logoUrl: rawMenu.logoUrl || "https://livredemultasoficial.com.br/images/logo.png",
                 links,
             };
         }

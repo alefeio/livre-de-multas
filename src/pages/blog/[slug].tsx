@@ -322,7 +322,9 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
               </p>
             </section>
 
-            <Blog />
+            <div className="my-10">
+              <Blog />
+            </div>
           </main>
         </div>
 
