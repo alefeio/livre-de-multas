@@ -4,6 +4,7 @@ import { formatPhoneNumber } from "utils/formatPhoneNumber";
 
 const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [receivedNotification, setReceivedNotification] = useState("");
@@ -21,24 +22,29 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
     e.preventDefault();
     setStatus("submitting");
 
+    const messageFull =
+      [receivedNotification && `Notificação: ${receivedNotification}`, deadline && `Prazo: ${deadline}`]
+        .filter(Boolean)
+        .join(". ") + (message ? (receivedNotification || deadline ? "\n\n" : "") + message : "");
+    const messageToSend = (messageFull || message || "").trim() || "(Sem descrição)";
+
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
-          phone,
-          service,
-          receivedNotification,
-          deadline,
-          message,
-          pageSlug,
+          email,
+          phone: phone || undefined,
+          serviceOfInterest: service || undefined,
+          message: messageToSend,
         }),
       });
 
       if (res.ok) {
         setStatus("success");
         setName("");
+        setEmail("");
         setPhone("");
         setService("");
         setReceivedNotification("");
@@ -72,6 +78,16 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Seu nome completo"
+          required
+          className="input-base"
+        />
+
+        {/* E-mail */}
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Seu e-mail"
           required
           className="input-base"
         />

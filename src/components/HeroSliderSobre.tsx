@@ -28,7 +28,7 @@ export default function AboutHero({
   imageSrc = "/images/banner03.png",
   imageAlt = "Equipe e atendimento especializado em defesa e recurso de multas",
   primaryCtaLabel = "Falar no WhatsApp",
-  primaryCtaHref = "/contato",
+  primaryCtaHref = "https://wa.me/5591981006131?text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20site.",
   highlights = [
     { title: "Atendimento objetivo", desc: "Você entende os próximos passos sem enrolação." },
     { title: "Prazos e organização", desc: "Orientação para agir no tempo certo e com documentação correta." },
@@ -69,12 +69,23 @@ export default function AboutHero({
 
             {/* CTAs */}
             <div className="flex flex-col gap-3 sm:flex-row">
-              <button
-                onClick={() => goTo(primaryCtaHref)}
-                className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition-all duration-300 hover:brightness-95"
-              >
-                {primaryCtaLabel}
-              </button>
+              {primaryCtaHref?.startsWith("http") ? (
+                <a
+                  href={primaryCtaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition-all duration-300 hover:brightness-95"
+                >
+                  {primaryCtaLabel}
+                </a>
+              ) : (
+                <button
+                  onClick={() => goTo(primaryCtaHref ?? "")}
+                  className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition-all duration-300 hover:brightness-95"
+                >
+                  {primaryCtaLabel}
+                </button>
+              )}
             </div>
           </div>
 

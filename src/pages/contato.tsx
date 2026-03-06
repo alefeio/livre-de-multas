@@ -107,12 +107,11 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
 };
 
 export default function PageContato() {
-    // Endereço exato fornecido na imagem
+    // Endereço: Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531
     const address = "Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531";
 
-    // O link abaixo é um exemplo de embed HTML que você pode obter do Google Maps
-    // A latitude/longitude está aproximada para o centro de Belém, PA
-    const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.59968470487!2d-48.48705352528751!3d-1.4552427985449557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a488e36783856d%3A0x8e8e7b7f193c727d!2sTravessa%20S%C3%A3o%20Pedro%2C%20842%20-%20Batista%20Campos%2C%20Bel%C3%A9m%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr";
+    // Embed do Google Maps para o endereço correto
+    const mapEmbedUrl = "https://www.google.com/maps?output=embed&q=Tv.+Timb%C3%B3,+1563+-+Marco,+Bel%C3%A9m+-+PA,+66087-531";
 
     const jsonLd = {
         "@context": "https://schema.org",
@@ -124,7 +123,7 @@ export default function PageContato() {
             "streetAddress": "Tv. Timbó, 1563 - Marco", // Endereço atualizado
             "addressLocality": "Belém",
             "addressRegion": "PA",
-            "postalCode": "66030-465", // CEP de referência. Confirme o CEP correto para 2564.
+            "postalCode": "66087-531",
             "addressCountry": "BR"
         },
         "url": "https://pereiradesousa.vercel.app/",

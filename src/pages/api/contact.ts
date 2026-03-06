@@ -1,15 +1,32 @@
 // pages/api/contact.ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import { getServerSession } from 'next-auth';
+import prisma from '../../../../lib/prisma';
 import { Resend } from 'resend';
+import { authOptions } from './auth/[...nextauth]';
 
-const prisma = new PrismaClient();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'GET') {
+    const session = await getServerSession(req, res, authOptions);
+    if (!session || (session.user as any)?.role !== 'ADMIN') {
+      return res.status(401).json({ message: 'Acesso não autorizado.' });
+    }
+    try {
+      const contacts = await prisma.contact.findMany({
+        orderBy: { createdAt: 'desc' },
+      });
+      return res.status(200).json(contacts);
+    } catch (error) {
+      console.error('Erro ao listar contatos:', error);
+      return res.status(500).json({ message: 'Erro ao listar contatos.' });
+    }
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', ['POST']);
+    res.setHeader('Allow', ['GET', 'POST']);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
