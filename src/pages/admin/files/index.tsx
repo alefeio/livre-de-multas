@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 import { File as DbFile, Projeto, Task } from 'types/task';
 import FileViewerModal from 'components/FileViewerModal';
 import EditFileModal from 'components/EditFileModal';
@@ -506,8 +507,8 @@ export default function FilesPage() {
   return (
     <AdminLayout>
       <Head><title>Arquivos</title></Head>
-      <div className="container mx-auto p-4 md:p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Gerenciar Arquivos</h1>
+      <AdminPageWrapper title="Arquivos" subtitle="Visualize e gerencie os arquivos por projeto e tarefa.">
+      <div className="mx-auto max-w-6xl">
 
         {/* Filtros */}
         <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -657,6 +658,7 @@ export default function FilesPage() {
           />
         )}
       </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 }

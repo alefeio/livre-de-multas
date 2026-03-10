@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -116,19 +117,19 @@ const FaqPage = ({ faqs }: FaqPageProps) => {
   };
 
   if (status === 'loading') return <AdminLayout><p>Verificando autenticação...</p></AdminLayout>;
-  if ((status === 'authenticated' && (session?.user as any)?.role !== 'ADMIN')) {
+  if (status === 'authenticated' && (session?.user as any)?.role !== 'ADMIN') {
     return (
       <AdminLayout>
-        <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem visualizar os arquivos.</p>
-        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer Login</Link>
+        <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem acessar.</p>
+        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer login</Link>
       </AdminLayout>
     );
   }
 
   return (
     <AdminLayout>
-      <h1 className="text-3xl font-bold mb-6">Gerenciar Perguntas Frequentes</h1>
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <AdminPageWrapper title="Perguntas Frequentes" subtitle="Adicione, edite ou remova perguntas e respostas do FAQ.">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <h2 className="text-lg font-semibold mb-4">{editId ? 'Editar FAQ' : 'Adicionar Nova FAQ'}</h2>
         {error && <div className="bg-red-100 text-red-700 p-2 rounded mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
@@ -199,7 +200,8 @@ const FaqPage = ({ faqs }: FaqPageProps) => {
             </div>
           ))}
         </div>
-      </div>
+        </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { MdAddPhotoAlternate, MdDelete, MdEdit } from 'react-icons/md';
 import AdminLayout from "components/admin/AdminLayout";
+import AdminPageWrapper from "components/admin/AdminPageWrapper";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -255,11 +256,11 @@ export default function AdminBlog() {
     };
 
     if (status === 'loading') return <AdminLayout><p>Verificando autenticação...</p></AdminLayout>;
-    if ((status === 'authenticated' && (session?.user as any)?.role !== 'ADMIN')) {
+    if (status === 'authenticated' && (session?.user as any)?.role !== 'ADMIN') {
         return (
             <AdminLayout>
-                <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem gerenciar o blog.</p>
-                <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer Login</Link>
+                <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem acessar.</p>
+                <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer login</Link>
             </AdminLayout>
         );
     }
@@ -270,8 +271,8 @@ export default function AdminBlog() {
                 <title>Admin - Blog</title>
             </Head>
             <AdminLayout>
-                <main className="container mx-auto p-6 lg:p-12 mt-20">
-                    <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Gerenciar Blog / Artigos</h1>
+                <AdminPageWrapper title="Blog / Artigos" subtitle="Crie e edite os artigos publicados no site.">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
 
                     {/* Formulário de Criação/Edição */}
                     <section className="bg-white p-8 rounded-xl shadow-lg mb-10 border border-gray-200">

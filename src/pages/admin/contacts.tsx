@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -76,13 +77,11 @@ export default function ContactsPage({ contacts }: ContactsPageProps) {
 
   return (
     <AdminLayout>
-      <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-6">Contatos (Analisar meu caso)</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Listagem dos dados enviados pelo formulário da seção &quot;Analisar meu caso&quot;.
-        </p>
-
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+      <AdminPageWrapper
+        title="Contatos (Analisar meu caso)"
+        subtitle="Mensagens enviadas pelo formulário da seção Analisar meu caso na home."
+      >
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
           {contacts.length === 0 ? (
             <div className="p-8 text-center text-gray-500">
               Nenhum contato registrado ainda.
@@ -144,7 +143,7 @@ export default function ContactsPage({ contacts }: ContactsPageProps) {
             </div>
           )}
         </div>
-      </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 }

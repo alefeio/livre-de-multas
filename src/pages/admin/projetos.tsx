@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { MdAddPhotoAlternate, MdDelete, MdEdit } from 'react-icons/md';
 import AdminLayout from "components/admin/AdminLayout";
+import AdminPageWrapper from "components/admin/AdminPageWrapper";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -260,7 +261,7 @@ export default function AdminProjetos() {
     return (
       <AdminLayout>
         <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem visualizar os arquivos.</p>
-        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer Login</Link>
+        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer login</Link>
       </AdminLayout>
     );
   }
@@ -271,9 +272,8 @@ export default function AdminProjetos() {
         <title>Admin - Projetos</title>
       </Head>
       <AdminLayout>
-        <main className="container mx-auto p-6 lg:p-12 mt-20">
-          <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Gerenciar Projetos</h1>
-
+        <AdminPageWrapper title="Cases / Projetos" subtitle="Gerencie os cases e projetos exibidos no site.">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           {/* Formulário de Criação/Edição */}
           <section className="bg-white p-8 rounded-xl shadow-lg mb-10 border border-gray-200">
             <h2 className="text-2xl font-bold mb-6 text-gray-700">{form.id ? "Editar Artigo" : "Adicionar Novo Artigo"}</h2>
@@ -413,7 +413,8 @@ export default function AdminProjetos() {
               ))
             )}
           </section>
-        </main>
+        </div>
+        </AdminPageWrapper>
       </AdminLayout>
 
       {/* Modal de Confirmação/Alerta (substituindo alert/confirm) */}

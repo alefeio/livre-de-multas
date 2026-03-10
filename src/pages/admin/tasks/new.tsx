@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { Task, User } from '../../../types/task';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 
 // Defina as interfaces para o formulário
 interface TaskFormData {
@@ -164,19 +165,12 @@ export default function NewTaskPage() {
 
   return (
     <AdminLayout>
-      <div className="container mx-auto p-4 md:p-8">
-        <Head>
-          <title>Nova Tarefa</title>
-        </Head>
-
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Criar Nova Tarefa</h1>
-          <p className="text-gray-500">
-            <Link href="/admin/tasks" className="text-orange-500 hover:underline">Voltar para a lista de tarefas</Link>
-          </p>
+      <Head><title>Nova Tarefa</title></Head>
+      <AdminPageWrapper title="Nova Tarefa" subtitle="Preencha os dados para criar uma nova tarefa.">
+        <div className="mb-4">
+          <Link href="/admin/tasks" className="text-orange-500 hover:underline text-sm">← Voltar para a lista de tarefas</Link>
         </div>
-
-        <div className="bg-white shadow-lg rounded-lg p-6 md:p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && <div className="text-red-500 text-sm">{error}</div>}
 
@@ -304,7 +298,7 @@ export default function NewTaskPage() {
             </div>
           </form>
         </div>
-      </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 }

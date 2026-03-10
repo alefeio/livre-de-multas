@@ -114,32 +114,21 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
     }
 };
 
+const BLOG_BASE = "https://www.livredemultasoficial.com.br/blog";
+const SHARE_IMAGE = "https://www.livredemultasoficial.com.br/images/banner03.png";
+
 export default function PageBlog({ menu }: HomePageProps) {
-    const jsonLd = {
+    const title = "Artigos sobre Multas e Direito de Trânsito | Blog Livre de Multas";
+    const description = "Leia artigos sobre defesa de multas, CNH provisória, recurso de multa, bafômetro, suspensão da CNH e direito de trânsito. Orientações em linguagem clara pela Livre de Multas Belém.";
+    const keywords = "blog direito de trânsito, artigos multa trânsito, cnh provisória, recurso de multa, defesa multa belém, livré de multas blog";
+
+    const jsonLdBlog = {
         "@context": "https://schema.org",
-        "@type": "LegalService", // Alterado de LocalBusiness para LegalService (ou Lawyer)
-        "name": "Livre de Multas",
-        "image": "https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png", // Manter ou alterar a URL da imagem se precisar
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Tv. Timbó, 1563 - Marco", // Endereço atualizado
-            "addressLocality": "Belém",
-            "addressRegion": "PA",
-            "postalCode": "66030-465", // CEP de referência. Confirme o CEP correto para 2564.
-            "addressCountry": "BR"
-        },
-        "url": "https://pereiradesousa.vercel.app/",
-        "telephone": "+5591981006131", // Telefone atualizado
-        "areaServed": [
-            { "@type": "City", "name": "Belém" },
-            { "@type": "State", "name": "Pará" }
-        ],
-        "priceRange": "$$", // Exemplo: indicando uma faixa de preço
-        "sameAs": [
-            "https://www.instagram.com/livredemultasoficial/", // Sugestão baseada em busca, verificar a URL exata
-            // "https://www.linkedin.com/company/machadoadvogadosassociados"
-        ],
-        "description": "Escritório de advocacia em Belém, PA. Especializado em Direito do Consumidor, Direito Trabalhista e Assessoria Jurídica Empresarial."
+        "@type": "Blog",
+        name: "Blog Livre de Multas",
+        description,
+        url: BLOG_BASE,
+        publisher: { "@type": "Organization", name: "Livre de Multas Oficial", url: "https://www.livredemultasoficial.com.br" },
     };
 
     const [showExitModal, setShowExitModal] = useState(false);
@@ -147,27 +136,31 @@ export default function PageBlog({ menu }: HomePageProps) {
     return (
         <>
             <Head>
-                {/* Título Otimizado para SEO de Advocacia */}
-                <title>Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo.</title>
+                <title>{title}</title>
+                <meta name="description" content={description} />
+                <meta name="robots" content="index, follow, max-image-preview:large" />
+                <link rel="canonical" href={BLOG_BASE} />
+                <meta name="keywords" content={keywords} />
+                <meta name="author" content="Livre de Multas Oficial" />
 
-                {/* Descrição Otimizada para SEO de Advocacia */}
-                <meta name="description" content="Livre de Multas: Soluções jurídicas completas e personalizadas para proteger seus direitos. Especialistas em Direito do Consumidor, Trabalhista e Assessoria Empresarial. Atendimento em Belém/PA e online." />
-
-                {/* Keywords Otimizadas para Advocacia */}
-                <meta name="keywords" content="Livre de Multas Oficial - Especialista em Direito de Trânsito :: Atuamos com foco em orientação clara e estratégia técnica para defesa e recurso de multas de trânsito, com atendimento direto e acompanhamento durante o processo." />
-
-                {/* Metas para Redes Sociais (Open Graph) */}
-                <meta property="og:title" content="Livre de Multas | Compromisso com Seus Direitos" />
-                <meta property="og:description" content="Da escuta ao resultado, oferecemos soluções jurídicas completas e personalizadas. Transparência, experiência e relacionamento próximo para sua segurança jurídica." />
-                <meta property="og:image" content="https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png" /> {/* Use o logo ou uma imagem institucional relevante */}
-                <meta property="og:url" content="https://pereiradesousa.vercel.app/" />
+                <meta property="og:locale" content="pt_BR" />
                 <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Livre de Multas Oficial" />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:url" content={BLOG_BASE} />
+                <meta property="og:image" content={SHARE_IMAGE} />
+                <meta property="og:image:secure_url" content={SHARE_IMAGE} />
+                <meta property="og:image:alt" content="Blog Livre de Multas - Direito de Trânsito" />
 
-                {/* Metas para Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Livre de Multas" />
-                <meta name="twitter:description" content="Especialistas em Direito do Consumidor, Trabalhista e Empresarial. Atendimento humanizado e focado em resultados." />
-                <meta name="twitter:image" content="https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png" /> {/* Use o logo ou uma imagem institucional relevante */}
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={description} />
+                <meta name="twitter:image" content={SHARE_IMAGE} />
+
+                <meta name="theme-color" content="#070a0f" />
+
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBlog) }} />
 
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />

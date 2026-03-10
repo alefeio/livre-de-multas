@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -240,18 +241,16 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
   if ((status === 'authenticated' && (session?.user as any)?.role !== 'ADMIN')) {
     return (
       <AdminLayout>
-        <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem visualizar os arquivos.</p>
-        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer Login</Link>
+        <p className="text-red-500 text-center mt-8">Acesso negado. Apenas administradores podem acessar.</p>
+        <Link href="/api/auth/signin" className="text-center block mt-4 text-orange-500 font-bold">Fazer login</Link>
       </AdminLayout>
     );
   }
 
   return (
     <AdminLayout>
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Gerenciar Depoimentos</h1>
-
-        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+      <AdminPageWrapper title="Depoimentos" subtitle="Adicione, edite ou remova depoimentos exibidos no site.">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 mb-6">
           <h2 className="text-xl font-semibold mb-4">
             {editing ? 'Editar Depoimento' : 'Adicionar Novo Depoimento'}
           </h2>
@@ -334,8 +333,8 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
           </form>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Depoimentos Existentes</h2>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Depoimentos Existentes</h2>
 
           {(testimonialList && testimonialList.length > 0) ? (
             <ul className="space-y-4">
@@ -382,7 +381,7 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
             </div>
           )}
         </div>
-      </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 }

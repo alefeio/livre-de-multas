@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { FaTrash, FaPlus, FaArrowUp, FaArrowDown, FaEdit } from "react-icons/fa";
 import { DynamicSection } from "../../components/sections/DynamicSection";
 import AdminLayout from '../../components/admin/AdminLayout';
+import AdminPageWrapper from '../../components/admin/AdminPageWrapper';
 
 // Tipos de dados para as sessões
 interface HomepageSection {
@@ -230,10 +231,9 @@ export default function HomepageAdmin() {
 
   return (
     <AdminLayout>
-      <div className="p-6">
-        <h1 className="text-3xl font-bold mb-6  ">Gerenciar Homepage</h1>
-        {message && <p className={`mb-4 text-center ${message.startsWith('Erro') || message.startsWith('Acesso') ? 'text-primary' : 'text-primary'}`}>{message}</p>}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+      <AdminPageWrapper title="Homepage" subtitle="Gerencie as sessões e a ordem do conteúdo da página inicial.">
+        {message && <p className={`mb-4 text-center ${message.startsWith('Erro') || message.startsWith('Acesso') ? 'text-red-600' : 'text-gray-600 dark:text-gray-400'}`}>{message}</p>}
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 mb-6">
           <h2 className="text-xl font-bold mb-4">Adicionar Nova Sessão</h2>
           <div className="flex flex-wrap gap-4">
             <button
@@ -244,8 +244,8 @@ export default function HomepageAdmin() {
             </button>
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold mb-4">Sessões Atuais</h2>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Sessões Atuais</h2>
           {sections.length === 0 && !loading && <p>Nenhuma sessão adicionada ainda.</p>}
           {loading && <p>Carregando sessões...</p>}
           <ul className="space-y-4">
@@ -288,7 +288,7 @@ export default function HomepageAdmin() {
             {loading ? "Salvando..." : "Salvar Ordem e Conteúdo"}
           </button>
         </div>
-      </div>
+      </AdminPageWrapper>
     </AdminLayout>
   );
 }

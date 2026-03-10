@@ -38,60 +38,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    // Salva os dados do contato no banco de dados
+    // 1. Salva no banco (prioridade: garantir que a mensagem fique guardada)
     const newContact = await prisma.contact.create({
       data: {
-        name,
-        email,
-        phone,
-        serviceOfInterest,
-        message,
+        name: String(name).trim(),
+        email: String(email).trim().toLowerCase(),
+        phone: phone ? String(phone).trim() : null,
+        serviceOfInterest: serviceOfInterest ? String(serviceOfInterest).trim() : null,
+        message: String(message).trim(),
       },
     });
 
-    // Envia o e-mail de confirmação para o cliente
-    await resend.emails.send({
-      from: "Livre de Multas <livresdemultasoficial@gmail.com>", // Altere esta linha
-      to: email,
-      subject: `Confirmação de Recebimento - ${name}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Confirmação de Contato</title>
-          <style>
-            body { font-family: sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-            .header { text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
-            .header h1 { color: #A9876D; }
-            .content p { margin-bottom: 15px; }
-            .cta-button { display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #A9876D; text-decoration: none; border-radius: 5px; }
-            .footer { text-align: center; font-size: 12px; color: #777; margin-top: 20px; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>Livre de Multas</h1>
-            </div>
-            <div class="content">
-              <p>Olá, ${name}!</p>
-              <p>Agradecemos o seu contato. Recebemos a sua mensagem com sucesso e nossa equipe já está analisando as suas informações. Em breve, entraremos em contato para dar continuidade ao seu atendimento.</p>
-              <p>Atenciosamente,</p>
-              <p>A equipe da Livre de Multas.</p>
-            </div>
-            <div class="footer">
-              <p>Este é um e-mail automático. Por favor, não responda.</p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
-    });
+    // 2. Tenta enviar e-mail de confirmação (não bloqueia a resposta de sucesso)
+    if (process.env.RESEND_API_KEY) {
+      try {
+        await resend.emails.send({
+          from: "Livre de Multas <livresdemultasoficial@gmail.com>",
+          to: String(email).trim(),
+          subject: `Confirmação de Recebimento - ${name}`,
+          html: `
+            <!DOCTYPE html><html><head><meta charset="utf-8"><title>Confirmação de Contato</title></head><body style="font-family:sans-serif;line-height:1.6;color:#333;">
+            <div style="max-width:600px;margin:20px auto;padding:20px;border:1px solid #ddd;border-radius:8px;">
+              <div style="text-align:center;border-bottom:1px solid #eee;padding-bottom:10px;margin-bottom:20px;"><h1 style="color:#0c1a26;">Livre de Multas</h1></div>
+              <p>Olá, ${String(name)}!</p>
+              <p>Agradecemos o seu contato. Recebemos a sua mensagem com sucesso e nossa equipe já está analisando as suas informações. Em breve, entraremos em contato.</p>
+              <p>Atenciosamente,<br/>Equipe Livre de Multas.</p>
+              <p style="text-align:center;font-size:12px;color:#777;margin-top:20px;">E-mail automático. Por favor, não responda.</p>
+            </div></body></html>
+          `,
+        });
+      } catch (emailErr: any) {
+        console.error('[contact] E-mail de confirmação não enviado:', emailErr?.message || emailErr);
+      }
+    }
 
-    res.status(201).json({ success: true, contact: newContact, message: 'Mensagem enviada com sucesso!' });
+    return res.status(201).json({ success: true, contact: newContact, message: 'Mensagem enviada com sucesso!' });
   } catch (error: any) {
-    console.error('Erro ao salvar contato no banco de dados ou enviar e-mail:', error);
-    res.status(500).json({ success: false, message: 'Erro interno do servidor ao salvar sua mensagem.' });
+    console.error('Erro ao salvar contato no banco de dados:', error);
+    return res.status(500).json({ success: false, message: 'Erro ao salvar sua mensagem. Tente novamente.' });
   }
 }

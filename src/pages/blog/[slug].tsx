@@ -143,6 +143,13 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
    PAGE
 ========================= */
 
+const BASE_URL = "https://www.livredemultasoficial.com.br";
+
+function truncateForMeta(text: string, maxLen: number = 158): string {
+  if (!text || text.length <= maxLen) return text;
+  return text.slice(0, maxLen - 3).trim() + "...";
+}
+
 export default function BlogPage({ post, menu }: BlogPageProps) {
   if (!post) {
     return (
@@ -152,34 +159,61 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
     );
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  const canonicalUrl = `${baseUrl}/blog/${post.slug}`;
-  const ogImage = `${baseUrl}/images/logo.jpg`;
-
+  const canonicalUrl = `${BASE_URL}/blog/${post.slug}`;
   const coverImage = post.items[0]?.img || "/images/blog-default-cover.jpg";
+  const ogImage = coverImage.startsWith("http") ? coverImage : `${BASE_URL}${coverImage.startsWith("/") ? "" : "/"}${coverImage}`;
+  const metaDescription = truncateForMeta(post.description || post.subtitle || post.title);
+  const titleTag = `${post.title} | Livre de Multas - Direito de Trânsito`;
+  const keywords = `multa trânsito, cnh provisória, direito de trânsito, ${post.title}`;
+
+  const jsonLdArticle = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: metaDescription,
+    image: ogImage,
+    url: canonicalUrl,
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt,
+    author: { "@type": "Organization", name: "Livre de Multas Oficial", url: BASE_URL },
+    publisher: { "@type": "Organization", name: "Livre de Multas Oficial", logo: { "@type": "ImageObject", url: `${BASE_URL}/images/logo.png` } },
+  };
 
   return (
     <>
       <Head>
-        <title>{post.title} | Livre de Multas</title>
-        <meta name="description" content={post.subtitle || post.title} />
+        <title>{titleTag}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <link rel="canonical" href={canonicalUrl} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content="Livre de Multas Oficial" />
 
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Livre de Multas Oficial" />
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.subtitle || post.title} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:secure_url" content={ogImage} />
-        <meta property="og:image:alt" content="Livre de Multas" />
+        <meta property="og:image:alt" content={post.title} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="article:published_time" content={post.createdAt} />
+        <meta property="article:modified_time" content={post.updatedAt} />
+        <meta property="article:author" content="Livre de Multas Oficial" />
+        <meta property="article:section" content="Direito de Trânsito" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.subtitle || post.title} />
+        <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={post.title} />
 
         <meta name="theme-color" content="#070a0f" />
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
       </Head>
 
       <div className="min-h-screen bg-blue-950 text-white overflow-x-hidden">

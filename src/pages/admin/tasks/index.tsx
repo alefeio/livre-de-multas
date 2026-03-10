@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Task, User, Projeto, TaskStatusEnum } from '../../../types/task'; // Importe todas as interfaces relevantes
 import { useSession } from 'next-auth/react';
 import AdminLayout from 'components/admin/AdminLayout';
+import AdminPageWrapper from 'components/admin/AdminPageWrapper';
 import TaskDetailModal from 'components/admin/TaskDetailModal';
 import TaskEditForm from 'components/admin/TaskEditForm';
 import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
@@ -299,13 +300,12 @@ export default function TasksPage() {
 
   return (
     <AdminLayout>
-      <div className="container mx-auto p-4 md:p-8">
-        <Head>
-          <title>Gerenciador de Tarefas</title>
-        </Head>
-
+      <Head>
+        <title>Gerenciador de Tarefas</title>
+      </Head>
+      <AdminPageWrapper title="Tarefas" subtitle="Organize e acompanhe as tarefas por projeto.">
+      <div className="mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Gerenciar Tarefas</h1>
           <div className="flex flex-wrap items-center gap-4 mt-4 md:mt-0">
             {/* NOVO: Filtro de Projeto */}
             <div className="w-full md:w-auto">
@@ -500,6 +500,7 @@ export default function TasksPage() {
           </div>
         )}
       </div>
+      </AdminPageWrapper>
 
       {/* Modal de Detalhes da Tarefa */}
       {showDetailModal && selectedTask && (

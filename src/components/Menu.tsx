@@ -59,19 +59,19 @@ export function Menu({ menuData }: MenuProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? "bg-blue-950/90 py-3 shadow-lg" : "py-6 md:py-16"
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? "bg-blue-950/90 py-3 shadow-lg" : "py-3 md:py-4"
         }`}
     >
       <div className={`max-w-7xl mx-auto flex px-4 md:px-8 ${
-              isScrolled ? "items-center justify-between" : "items-start justify-between"
+              isScrolled ? "items-center justify-between" : "items-center justify-between"
             }`}>
-        {/* Logo */}
-        <Link href="/" aria-label="Página inicial flex items-center justify-center">
+        {/* Logo — menor no topo (scroll inativo); igual ao scrolled após rolar */}
+        <Link href="/" aria-label="Página inicial" className="flex items-center justify-center">
           <img
             src={logoUrl || "/images/logo.png"}
             alt="Livre de Multas Oficial - Especialista em Direito de Trânsito"
             className={`transition-all duration-300 ${
-              isScrolled ? "w-16 sm:w-14 2xl:w-24" : "w-48 sm:w-48 2xl:w-64"
+              isScrolled ? "w-16 sm:w-14 2xl:w-24" : "w-20 sm:w-24 md:w-28 2xl:w-32"
             }`}
           />
           {/* <h1 className={`${

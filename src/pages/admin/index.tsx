@@ -1,17 +1,19 @@
-// src/pages/admin/index.tsx
-
 import AdminLayout from "../../components/admin/AdminLayout";
+import AdminPageWrapper from "../../components/admin/AdminPageWrapper";
 
 export default function AdminDashboard() {
-    return (
-        <AdminLayout>
-            <div className="container mx-auto">
-                <h1 className="text-3xl font-bold mb-4  ">Dashboard</h1>
-                <p className="text-lg  ">Bem-vindo ao painel de administração!</p>
-                <div className="mt-8 p-6 bg-white rounded shadow-md">
-                  <p>Use o menu lateral para navegar e gerenciar o conteúdo do site.</p>
-                </div>
-            </div>
-        </AdminLayout>
-    );
+  return (
+    <AdminLayout>
+      <AdminPageWrapper
+        title="Dashboard"
+        subtitle="Bem-vindo ao painel de administração do site."
+      >
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <p className="text-gray-600 dark:text-gray-400">
+            Use o menu lateral para navegar e gerenciar o conteúdo do site.
+          </p>
+        </div>
+      </AdminPageWrapper>
+    </AdminLayout>
+  );
 }

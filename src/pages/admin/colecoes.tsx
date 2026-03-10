@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { MdAddPhotoAlternate, MdDelete, MdEdit } from 'react-icons/md';
 import AdminLayout from "components/admin/AdminLayout";
+import AdminPageWrapper from "components/admin/AdminPageWrapper";
 
 // Definições de tipo
 interface ColecaoItem {
@@ -250,9 +251,8 @@ export default function AdminColecoes() {
         <title>Admin - Coleções</title>
       </Head>
       <AdminLayout>
-        <main className="container mx-auto p-6 lg:p-12 mt-20">
-          <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Gerenciar Coleções</h1>
-          
+        <AdminPageWrapper title="Coleções" subtitle="Gerencie as coleções e itens do site.">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           {/* Formulário de Criação/Edição */}
           <section className="bg-white p-8 rounded-xl shadow-lg mb-10 border border-gray-200">
             <h2 className="text-2xl font-bold mb-6 text-gray-700">{form.id ? "Editar Coleção" : "Adicionar Nova Coleção"}</h2>
@@ -361,7 +361,8 @@ export default function AdminColecoes() {
               ))
             )}
           </section>
-        </main>
+        </div>
+        </AdminPageWrapper>
       </AdminLayout>
     </>
   );
