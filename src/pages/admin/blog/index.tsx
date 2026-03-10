@@ -406,7 +406,8 @@ export default function AdminBlog() {
                             ))
                         )}
                     </section>
-                </main>
+                </div>
+                </AdminPageWrapper>
 
                 {/* Modal de Confirmação/Alerta */}
                 {showModal && (
