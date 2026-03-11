@@ -115,7 +115,7 @@ export default function Hero() {
               <p className="text-lg font-extrabold text-white">
                 {ESPECIALISTAS[activeIndex].nome}
               </p>
-              <p className="text-sm font-semibold text-[#fec655]">Especialistas em Direito de Trânsito</p>
+              <p className="text-sm font-semibold text-[#fec655]">Advogados Especialistas em Direito de Trânsito</p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"

@@ -115,7 +115,7 @@ export default function Home({ banners, menu, testimonials, faqs }: HomePageProp
   const shareImage = "https://www.livredemultasoficial.com.br/images/banner03.png";
 
   const title = "Multa na CNH Provisória? Defesa e Recurso de Multas | Livre de Multas Belém";
-  const description = "Especialistas em Direito de Trânsito em Belém-PA. Análise da notificação, defesa e recurso de multas, CNH provisória, bafômetro e suspensão. Atendimento pelo WhatsApp.";
+  const description = "Advogados Especialistas em Direito de Trânsito em Belém-PA. Análise da notificação, defesa e recurso de multas, CNH provisória, bafômetro e suspensão. Atendimento pelo WhatsApp.";
   const keywords = "multa cnh provisória, defesa de multa belém, recurso de multa trânsito, suspensão da cnh, bafômetro recusa, direito de trânsito belém pa, livre de multas, advogado multa trânsito, analisar notificação multa";
 
   const jsonLdLegal = {
