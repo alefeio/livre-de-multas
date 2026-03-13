@@ -61,9 +61,9 @@ export default function Hero() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-8 py-4 text-lg font-bold text-[#0c1a26] shadow-lg transition-all duration-300 hover:brightness-95"
+              className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:brightness-110"
             >
-              ANALISAR MINHA MULTA NO WHATSAPP
+              Quero recorrer minha multa
             </a>
 
             <p className="text-sm text-gray-400">
@@ -120,9 +120,9 @@ export default function Hero() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 flex w-full items-center justify-center rounded-full bg-[#fec655] px-6 py-3 font-bold text-[#0c1a26] shadow-lg transition-all duration-200 hover:brightness-95"
+                className="mt-4 flex w-full items-center justify-center rounded-full bg-[#25D366] px-6 py-3 font-bold text-white shadow-lg transition-all duration-200 hover:brightness-110"
               >
-                ANALISAR MINHA MULTA NO WHATSAPP
+                Falar com um especialista no WhatsApp
               </a>
             </div>
           </div>

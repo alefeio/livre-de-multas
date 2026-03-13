@@ -19,15 +19,20 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
   const [startX, setStartX] = useState(0);
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(1);
 
   const carouselTrackRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
   const carouselViewportRef = useRef<HTMLDivElement>(null);
 
-  const getItemsToShow = useCallback(() => {
-    if (typeof window === "undefined") return 1;
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    return isDesktop ? 3 : 1;
+  useEffect(() => {
+    const updateItemsToShow = () => {
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      setItemsToShow(isDesktop ? 3 : 1);
+    };
+    updateItemsToShow();
+    window.addEventListener("resize", updateItemsToShow);
+    return () => window.removeEventListener("resize", updateItemsToShow);
   }, []);
 
   const getPageCount = useCallback(
@@ -40,7 +45,6 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
 
   const updateCarouselPosition = useCallback(() => {
     if (carouselTrackRef.current && itemRef.current && carouselViewportRef.current) {
-      const itemsToShow = getItemsToShow();
       const gapX = 8; // gap-x-2 => 8px
 
       const singleItemRenderedWidth = itemRef.current.offsetWidth;
@@ -79,7 +83,7 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
       carouselTrackRef.current.style.transition = "transform 0.5s ease-in-out";
       setPrevTranslate(newTranslateX);
     }
-  }, [currentIndex, getItemsToShow, testimonials.length]);
+  }, [currentIndex, itemsToShow, testimonials.length]);
 
   useEffect(() => {
     updateCarouselPosition();
@@ -90,8 +94,6 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
   // Navegação
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => {
-      const itemsToShow = getItemsToShow();
-
       if (itemsToShow === 1) {
         const nextIndex = prevIndex + 1;
         return nextIndex >= testimonials.length ? 0 : nextIndex;
@@ -101,12 +103,10 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
       const next = prevIndex + 1;
       return next > maxStart ? 0 : next;
     });
-  }, [testimonials.length, getItemsToShow]);
+  }, [testimonials.length, itemsToShow]);
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prevIndex) => {
-      const itemsToShow = getItemsToShow();
-
       if (itemsToShow === 1) {
         const nextIndex = prevIndex - 1;
         return nextIndex < 0 ? testimonials.length - 1 : nextIndex;
@@ -116,7 +116,7 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
       const next = prevIndex - 1;
       return next < 0 ? maxStart : next;
     });
-  }, [testimonials.length, getItemsToShow]);
+  }, [testimonials.length, itemsToShow]);
 
   // Drag/Swipe
   const startDrag = useCallback((clientX: number) => {
@@ -193,7 +193,6 @@ export default function Testimonials({ testimonials }: TestimonialsPageProps) {
 
   if (!testimonials || testimonials.length === 0) return null;
 
-  const itemsToShow = getItemsToShow();
   const pageCount = getPageCount(itemsToShow);
 
   const visibleStartIndex = (() => {

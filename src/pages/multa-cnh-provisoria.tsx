@@ -301,7 +301,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                                     <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                                         <a
                                             href="#passos"
-                                            className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-6 py-3 text-sm font-bold text-[#0c1a26] shadow-lg transition hover:brightness-95"
+                                            className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110"
                                         >
                                             Ver passo a passo
                                         </a>
@@ -352,7 +352,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                                     href="https://wa.me/5591981006131?text=Ol%C3%A1%21%20Recebi%20uma%20multa%20na%20CNH%20provis%C3%B3ria%20(PPD)%20e%20gostaria%20de%20analisar%20meu%20caso."
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition hover:brightness-95"
+                                    className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-7 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
                                 >
                                     Analisar minha multa
                                 </a>
@@ -501,7 +501,7 @@ export default function MultaCnhProvisoriaPage({ menu }: PageProps) {
                                     href="https://wa.me/5591981006131?text=Ol%C3%A1%21%20Recebi%20uma%20multa%20na%20CNH%20provis%C3%B3ria%20(PPD)%20e%20gostaria%20de%20analisar%20meu%20caso."
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition hover:brightness-95"
+                                    className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-7 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
                                 >
                                     Falar no WhatsApp
                                 </a>

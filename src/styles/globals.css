@@ -61,12 +61,12 @@ a:hover {
 ========================= */
 
 @layer components {
-  /* Botão primário (dourado) */
+  /* Botão primário (verde WhatsApp) */
   .btn {
     @apply inline-flex items-center justify-center gap-2
       rounded-full px-6 py-3 font-bold
-      bg-[#fec655] text-[#0c1a26]
-      shadow-lg transition hover:brightness-95;
+      bg-[#25D366] text-white
+      shadow-lg transition hover:brightness-110;
   }
 
   /* Botão secundário (outline/translúcido) */

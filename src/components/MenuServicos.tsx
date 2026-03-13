@@ -120,7 +120,7 @@ export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-5 py-2.5 text-sm font-bold text-[#0c1a26] shadow-lg hover:brightness-95 transition"
+              className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-lg hover:brightness-110 transition"
             >
               Falar no WhatsApp
             </a>
@@ -174,7 +174,7 @@ export function MenuServicos({ menuData, serviceTitle, whatsappMessage, backHref
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center rounded-full bg-[#fec655] px-6 py-3 text-sm font-bold text-[#0c1a26] shadow-lg hover:brightness-95 transition"
+            className="w-full inline-flex items-center justify-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-lg hover:brightness-110 transition"
           >
             Falar no WhatsApp
           </a>

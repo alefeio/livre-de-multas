@@ -183,7 +183,7 @@ export default function DireitoPenalPage({ menu }: AreaPageProps) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#fec655] text-black font-semibold px-5 py-3 rounded-2xl hover:opacity-90 transition"
+                  className="bg-[#25D366] text-white font-semibold px-5 py-3 rounded-2xl hover:brightness-110 transition"
                 >
                   Falar com um advogado criminalista
                 </a>

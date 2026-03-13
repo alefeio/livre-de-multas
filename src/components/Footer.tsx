@@ -138,7 +138,7 @@ export default function Footer({ menuData }: MenuProps) {
               href={openWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#fec655] px-7 py-3 font-bold text-[#0c1a26] shadow-lg transition hover:brightness-95"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
             >
               <FaWhatsapp />
               Falar no WhatsApp
@@ -305,7 +305,7 @@ export default function Footer({ menuData }: MenuProps) {
 
         {/* Rodapé final */}
         <div className="mt-12 border-t border-white/10 pt-6 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-400" suppressHydrationWarning>
             © {new Date().getFullYear()} Livre de Multas. Todos os direitos reservados.
           </p>
           <p className="text-xs text-gray-500">

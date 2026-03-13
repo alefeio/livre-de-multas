@@ -25,7 +25,7 @@ export default function HeroSliderSobre() {
               key={step.num}
               className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm text-center"
             >
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#fec655] text-xl font-bold text-[#0c1a26]">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-xl font-bold text-white">
                 {step.num}
               </span>
               <p className="mt-4 text-base font-semibold text-white">{step.text}</p>
@@ -42,9 +42,9 @@ export default function HeroSliderSobre() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#fec655] px-8 py-3 font-bold text-[#0c1a26] shadow-lg transition hover:brightness-95"
+            className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-8 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
           >
-            ANALISAR MINHA MULTA NO WHATSAPP
+            Defender minha CNH no WhatsApp
           </a>
         </div>
       </div>

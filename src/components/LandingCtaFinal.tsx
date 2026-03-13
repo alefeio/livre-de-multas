@@ -16,7 +16,7 @@ export default function LandingCtaFinal() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-[#0c1a26] px-10 py-4 text-lg font-bold text-white shadow-lg transition hover:bg-[#0c1a26]/90"
+          className="mt-8 inline-flex items-center justify-center rounded-full bg-[#25D366] px-10 py-4 text-lg font-bold text-white shadow-lg transition hover:brightness-110"
         >
           ANALISAR MINHA MULTA NO WHATSAPP
         </a>

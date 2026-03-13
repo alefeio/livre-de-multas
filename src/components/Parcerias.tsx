@@ -80,7 +80,7 @@ export default function Parcerias() {
                                 href="https://wa.me/5591981006131?text=Olá!%20Tenho%20interesse%20em%20firmar%20parceria%20com%20o%20escritório."
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-[#fec655] text-black font-bold px-5 py-3 hover:opacity-90 transition"
+                                className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-[#25D366] text-white font-bold px-5 py-3 hover:brightness-110 transition"
                                 aria-label="Falar no WhatsApp sobre parceria"
                             >
                                 <FaWhatsapp />

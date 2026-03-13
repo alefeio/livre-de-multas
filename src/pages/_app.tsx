@@ -2,10 +2,16 @@
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
+import { useState, useEffect } from "react";
 import "../styles/globals.css";
 import CookieBanner from "components/CookieBanner";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <SessionProvider session={session}>
       {/* ✅ Meta Pixel (global) */}
@@ -44,7 +50,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Script>
 
       <Component {...pageProps} />
-      <CookieBanner />
+      {mounted && <CookieBanner />}
 
       {/* ✅ Pixel noscript (global) */}
       <noscript>

@@ -15,16 +15,23 @@ interface MenuProps {
 export function Menu({ menuData }: MenuProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // alinha estado com scroll atual
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mounted]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -40,22 +47,21 @@ export function Menu({ menuData }: MenuProps) {
 
   const { logoUrl, links } = menuData;
 
-  const authButton =
-    status === "loading" ? (
-      <span className="text-white/70">Carregando...</span>
-    ) : (
-      session && (
-        <Link
-          href="/admin"
-          onClick={() => setMenuOpen(false)}
-          className="relative flex items-center gap-1 text-white hover:text-[#fec655] transition-colors duration-300 group"
-        >
-          <MdAccountCircle className="w-5 h-5 text-white" />
-          Minha Conta
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#fec655] transition-all duration-300 group-hover:w-full" />
-        </Link>
-      )
-    );
+  const authButton = !mounted ? null : status === "loading" ? (
+    <span className="text-white/70">Carregando...</span>
+  ) : (
+    session && (
+      <Link
+        href="/admin"
+        onClick={() => setMenuOpen(false)}
+        className="relative flex items-center gap-1 text-white hover:text-[#fec655] transition-colors duration-300 group"
+      >
+        <MdAccountCircle className="w-5 h-5 text-white" />
+        Minha Conta
+        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#fec655] transition-all duration-300 group-hover:w-full" />
+      </Link>
+    )
+  );
 
   return (
     <header
@@ -146,7 +152,7 @@ export function Menu({ menuData }: MenuProps) {
             </li>
           ))}
 
-          {session && (
+          {mounted && session && (
             <li>
               <Link
                 href="/admin"
