@@ -177,7 +177,10 @@ export default function AdminDashboard({ stats }: { stats: DashboardStats }) {
       >
         {/* Cards de estatísticas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+          <Link
+            href="/admin/pageviews"
+            className="block bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 hover:border-[#fec655]/40 hover:shadow-md transition-all"
+          >
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Acessos ao site</p>
@@ -185,12 +188,15 @@ export default function AdminDashboard({ stats }: { stats: DashboardStats }) {
                 <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
                   Hoje: {stats.pageViewsToday.toLocaleString("pt-BR")} · Este mês: {stats.pageViewsMonth.toLocaleString("pt-BR")}
                 </p>
+                <p className="mt-2 text-sm font-medium text-[#fec655] hover:underline">
+                  Ver detalhes →
+                </p>
               </div>
               <div className="rounded-lg bg-[#fec655]/10 p-2 text-[#fec655]">
                 <MdTrendingUp className="text-2xl" />
               </div>
             </div>
-          </div>
+          </Link>
           <StatCard
             title="Contatos (Analisar meu caso)"
             value={stats.contacts}
