@@ -13,6 +13,7 @@ import {
   MdAssignment,
   MdPhotoLibrary,
   MdArticle,
+  MdTrendingUp,
 } from "react-icons/md";
 
 interface DashboardStats {
@@ -25,12 +26,27 @@ interface DashboardStats {
   tasksPendente: number;
   tasksEmAndamento: number;
   tasksConcluida: number;
+  pageViewsTotal: number;
+  pageViewsToday: number;
+  pageViewsMonth: number;
 }
 
 const prisma = new PrismaClient();
 
+function getStartOfTodayUTC() {
+  const d = new Date();
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+}
+function getStartOfMonthUTC() {
+  const d = new Date();
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1));
+}
+
 export const getServerSideProps: GetServerSideProps<{ stats: DashboardStats }> = async () => {
   try {
+    const startOfToday = getStartOfTodayUTC();
+    const startOfMonth = getStartOfMonthUTC();
+
     const [
       contactsCount,
       contactsRecent,
@@ -41,6 +57,9 @@ export const getServerSideProps: GetServerSideProps<{ stats: DashboardStats }> =
       tasksPendente,
       tasksEmAndamento,
       tasksConcluida,
+      pageViewsTotal,
+      pageViewsToday,
+      pageViewsMonth,
     ] = await Promise.all([
       prisma.contact.count(),
       prisma.contact.findMany({
@@ -55,6 +74,9 @@ export const getServerSideProps: GetServerSideProps<{ stats: DashboardStats }> =
       prisma.task.count({ where: { status: "PENDENTE", deletedAt: null } }),
       prisma.task.count({ where: { status: "EM_ANDAMENTO", deletedAt: null } }),
       prisma.task.count({ where: { status: "CONCLUIDA", deletedAt: null } }),
+      prisma.pageView.count(),
+      prisma.pageView.count({ where: { createdAt: { gte: startOfToday } } }),
+      prisma.pageView.count({ where: { createdAt: { gte: startOfMonth } } }),
     ]);
 
     const stats: DashboardStats = {
@@ -71,6 +93,9 @@ export const getServerSideProps: GetServerSideProps<{ stats: DashboardStats }> =
       tasksPendente,
       tasksEmAndamento,
       tasksConcluida,
+      pageViewsTotal,
+      pageViewsToday,
+      pageViewsMonth,
     };
 
     return { props: { stats: JSON.parse(JSON.stringify(stats)) } };
@@ -88,6 +113,9 @@ export const getServerSideProps: GetServerSideProps<{ stats: DashboardStats }> =
           tasksPendente: 0,
           tasksEmAndamento: 0,
           tasksConcluida: 0,
+          pageViewsTotal: 0,
+          pageViewsToday: 0,
+          pageViewsMonth: 0,
         },
       },
     };
@@ -149,6 +177,20 @@ export default function AdminDashboard({ stats }: { stats: DashboardStats }) {
       >
         {/* Cards de estatísticas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Acessos ao site</p>
+                <p className="mt-1 text-2xl font-bold text-gray-900 dark:text-white">{stats.pageViewsTotal.toLocaleString("pt-BR")}</p>
+                <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
+                  Hoje: {stats.pageViewsToday.toLocaleString("pt-BR")} · Este mês: {stats.pageViewsMonth.toLocaleString("pt-BR")}
+                </p>
+              </div>
+              <div className="rounded-lg bg-[#fec655]/10 p-2 text-[#fec655]">
+                <MdTrendingUp className="text-2xl" />
+              </div>
+            </div>
+          </div>
           <StatCard
             title="Contatos (Analisar meu caso)"
             value={stats.contacts}

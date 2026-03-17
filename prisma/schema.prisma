@@ -314,3 +314,11 @@ model BlogFoto {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
+
+// Contador de acessos (page views) para o dashboard
+model PageView {
+  id        String   @id @default(cuid())
+  path      String   // ex: /, /blog, /blog/slug
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}

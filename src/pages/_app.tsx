@@ -2,15 +2,30 @@
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import "../styles/globals.css";
 import CookieBanner from "components/CookieBanner";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Registra page view para contador de acessos no dashboard (apenas páginas públicas)
+  useEffect(() => {
+    if (!mounted || typeof window === "undefined") return;
+    const path = router.asPath?.split("?")[0] || "/";
+    if (path.startsWith("/admin")) return;
+    fetch("/api/pageview", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path }),
+    }).catch(() => {});
+  }, [mounted, router.asPath]);
 
   return (
     <SessionProvider session={session}>
