@@ -16,6 +16,7 @@ import {
   MdClose,
   MdDarkMode,
   MdLightMode,
+  MdPerson,
 } from "react-icons/md";
 
 interface AdminLayoutProps {
@@ -201,12 +202,21 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             </ul>
           </div>
 
-          {/* Grupo 4: Autenticação */}
+          {/* Grupo 4: Conta e usuários */}
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
               Conta
             </h3>
             <ul className="space-y-1 list-none">
+              <li>
+                <Link
+                  href="/admin/users"
+                  className="text-gray-900 dark:text-white flex items-center p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 group"
+                >
+                  <MdPerson className="mr-3 text-xl text-gray-500 group-hover:text-primary transition-colors" />
+                  <span className="text-sm font-medium">Perfis de usuário</span>
+                </Link>
+              </li>
               <li>
                 <button
                   onClick={toggleTheme}
