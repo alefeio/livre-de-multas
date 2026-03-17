@@ -1,6 +1,7 @@
 // components/Artigos.tsx
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 // Tipagens
@@ -21,9 +22,19 @@ interface BlogItem {
   slug: string;
 }
 
-const Artigos: React.FC = () => {
+interface ArtigosProps {
+  /** Na home: exibir só os primeiros N posts */
+  limit?: number;
+  /** Na home: exibir botão "Ver todos" linkando para /blog */
+  showVerTodos?: boolean;
+  /** Na página /blog: quantidade de posts por página (ativa paginação) */
+  perPage?: number;
+}
+
+const Artigos: React.FC<ArtigosProps> = ({ limit, showVerTodos, perPage = 0 }) => {
   const [posts, setPosts] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -53,6 +64,14 @@ const Artigos: React.FC = () => {
     router.push(`/blog/${slug}`);
   };
 
+  const usePagination = perPage > 0;
+  const totalPages = usePagination ? Math.ceil(posts.length / perPage) : 1;
+  const displayPosts = usePagination
+    ? posts.slice((currentPage - 1) * perPage, currentPage * perPage)
+    : limit
+      ? posts.slice(0, limit)
+      : posts;
+
   return (
     <section className="w-full bg-blue-950">
       <div className="max-w-7xl mx-auto">
@@ -70,9 +89,10 @@ const Artigos: React.FC = () => {
           </p>
         )}
 
-        {!loading && posts.length > 0 && (
+        {!loading && displayPosts.length > 0 && (
+          <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {posts.map((post) => (
+            {displayPosts.map((post) => (
               <article
                 key={post.id}
                 onClick={() => navigateToPost(post.slug)}
@@ -121,6 +141,57 @@ const Artigos: React.FC = () => {
               </article>
             ))}
           </div>
+
+          {showVerTodos && posts.length > 0 && (
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/blog"
+                className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-8 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
+              >
+                Ver todos os artigos
+              </Link>
+            </div>
+          )}
+
+          {usePagination && totalPages > 1 && (
+            <nav className="mt-12 flex flex-wrap items-center justify-center gap-2" aria-label="Paginação do blog">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-white transition hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed"
+                aria-label="Página anterior"
+              >
+                Anterior
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => setCurrentPage(page)}
+                  className={`min-w-[2.5rem] rounded-full px-4 py-2 font-semibold transition ${
+                    currentPage === page
+                      ? "bg-[#25D366] text-white"
+                      : "border border-white/20 bg-white/5 text-white hover:bg-white/10"
+                  }`}
+                  aria-label={`Página ${page}`}
+                  aria-current={currentPage === page ? "page" : undefined}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-white transition hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed"
+                aria-label="Próxima página"
+              >
+                Próxima
+              </button>
+            </nav>
+          )}
+          </>
         )}
       </div>
     </section>

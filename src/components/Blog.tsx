@@ -1,28 +1,16 @@
 import Artigos from "./Artigos";
 
-interface BannerItem {
-    id: string;
-    url: string;
-    title?: string;
-    subtitle?: string;
-    link?: string;
-    target?: string;
-    buttonText?: string;
-    buttonColor?: string;
+interface BlogProps {
+  /** Na home: exibir só os primeiros N posts */
+  limit?: number;
+  /** Na home: exibir botão "Ver todos" */
+  showVerTodos?: boolean;
+  /** Na página /blog: posts por página (ativa paginação) */
+  perPage?: number;
 }
 
-const STATIC_SLIDES: BannerItem[] = [
-    {
-        id: "static-blog",
-        url: "/images/bg-blog.jpg",
-        title: "Blog",
-    },
-];
-
-export default function Blog() {
-    const slide = STATIC_SLIDES[0];
-
-    return (
-        <Artigos />
-    );
+export default function Blog({ limit, showVerTodos, perPage }: BlogProps) {
+  return (
+    <Artigos limit={limit} showVerTodos={showVerTodos} perPage={perPage} />
+  );
 }

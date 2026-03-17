@@ -168,10 +168,9 @@ export default function PageBlog({ menu }: HomePageProps) {
 
             <div className="min-h-screen">
                 <Analytics />
-                {/* O componente espera menuData={...}, e a prop 'menu' já tem essa estrutura */}
                 <MenuComponent menuData={menu} />
-                <main className="max-w-full mx-auto">
-                    <Blog />
+                <main className="max-w-full mx-auto pt-32 md:pt-40">
+                    <Blog perPage={9} />
                     <Footer menuData={menu} />
                 </main>
                 <WhatsAppButton />

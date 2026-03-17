@@ -225,13 +225,13 @@ export default function Home({ banners, menu, testimonials, faqs }: HomePageProp
           <LandingCtaFinal />
 
           {/* 8. Blog — alcance orgânico */}
-          <span id="blog"></span>
-          <section className="relative w-full bg-blue-950 overflow-hidden" aria-label="Artigos do blog">
+          <span id="blog" className="block scroll-mt-36" aria-hidden="true" />
+          <section className="relative w-full bg-blue-950 overflow-hidden pt-20 md:pt-24" aria-label="Artigos do blog">
             <div className="container mx-auto max-w-7xl relative z-10 flex flex-col items-center px-6 py-16 md:px-10 md:py-24">
               <h2 className="mb-12 text-3xl font-extrabold leading-tight text-white md:text-5xl">
                 <span className="text-[#fec655]">Artigos</span> e orientações
               </h2>
-              <Blog />
+              <Blog limit={6} showVerTodos />
             </div>
           </section>
 
