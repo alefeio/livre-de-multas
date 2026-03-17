@@ -307,6 +307,7 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
                   prose-base
                   md:prose-lg
                   max-w-none
+                  text-justify
                   prose-headings:text-white
                   prose-p:text-gray-200
                   prose-li:text-gray-200
@@ -318,7 +319,7 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
                   prose-blockquote:text-gray-200
                 "
               >
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                <div className="text-justify" dangerouslySetInnerHTML={{ __html: post.content }} />
               </article>
             </section>
 
