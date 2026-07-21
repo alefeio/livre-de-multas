@@ -28,7 +28,7 @@ function CollectionGallerySection({ collection, openModal }: CollectionGallerySe
         <GallerySection
             key={collection.slug}
             collection={collection}
-            buttonHref={collection.buttonUrl || `https://wa.me/5591985810208?text=Olá! Gostaria do Catálogo de ${collection.title}.`}
+            buttonHref={collection.buttonUrl || `https://wa.me/5591981006131?text=Olá! Gostaria do Catálogo de ${collection.title}.`}
             onOpenModal={handleOpenModal}
         />
     );

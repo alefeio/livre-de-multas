@@ -280,7 +280,7 @@ export function GallerySection({
 
                                     <div className="flex gap-2">
                                         <a
-                                            href={`https://wa.me//5591985810208?text=Olá! Gostaria de reservar o modelo ${encodeURIComponent(item.productModel ?? "")} - ${encodeURIComponent(item.productMark ?? "")}. Link para a foto: ${encodeURIComponent(shareUrl)}`}
+                                            href={`https://wa.me//5591981006131?text=Olá! Gostaria de reservar o modelo ${encodeURIComponent(item.productModel ?? "")} - ${encodeURIComponent(item.productMark ?? "")}. Link para a foto: ${encodeURIComponent(shareUrl)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center justify-center bg-primary hover:bg-primary   hover:  rounded-full shadow-lg p-2 font-bold text-xs transition-colors duration-300"

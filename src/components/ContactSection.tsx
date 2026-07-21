@@ -20,8 +20,8 @@ const ContactSection: React.FC = () => {
                     <div className="space-y-5 text-gray-200">
                         <p className="flex flex-col items-center justify-center space-x-3 text-xl">
                             <MdPhone className="text-[#fec655] text-3xl" />
-                            <a href="tel:+5591982016888" className="font-semibold hover:text-[#fec655] transition-colors">
-                                +55 (91) 98455-5829
+                            <a href="tel:+5591981006131" className="font-semibold hover:text-[#fec655] transition-colors">
+                                +55 (91) 98100-6131
                             </a>
                         </p>
                         <p className="flex flex-col items-center justify-center space-x-3 text-xl overflow-hidden">

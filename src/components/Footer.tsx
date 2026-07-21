@@ -69,9 +69,7 @@ export default function Footer({ menuData }: MenuProps) {
     instagramUrl: "https://www.instagram.com/livredemultasoficial",
     instagramHandle: "@livredemultasoficial",
     whatsappNumber: "5591981006131",
-    whatsappNumber2: "5591991198584",
     whatsappLabel: "+55 91 98100-6131",
-    whatsappLabel2: "+55 91 99119-8584",
     email: "livresdemultasoficial@gmail.com",
     address: "Belém/PA",
     mapUrl:
@@ -82,11 +80,6 @@ export default function Footer({ menuData }: MenuProps) {
     const message = encodeURIComponent("Olá! Gostaria de saber mais informações sobre os serviços da Livre de Multas.");
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
   }, [CONTACT.whatsappNumber]);
-
-  const openWhatsAppUrl2 = useMemo(() => {
-    const message = encodeURIComponent("Olá! Gostaria de saber mais informações sobre os serviços da Livre de Multas.");
-    return `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
-  }, [CONTACT.whatsappNumber2]);
 
   // Posts dinâmicos (mantido como no seu projeto)
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -268,16 +261,6 @@ export default function Footer({ menuData }: MenuProps) {
               >
                 <FaWhatsapp size={16} className="text-[#fec655] mr-3 flex-shrink-0" />
                 {CONTACT.whatsappLabel}
-              </a>
-
-              <a
-                href={openWhatsAppUrl2}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-white hover:text-[#fec655] transition"
-              >
-                <FaWhatsapp size={16} className="text-[#fec655] mr-3 flex-shrink-0" />
-                {CONTACT.whatsappLabel2}
               </a>
 
               <a

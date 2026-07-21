@@ -67,7 +67,7 @@ const SharePage = ({ product, collectionTitle, shareUrl }: ShareProps) => {
   }
   const handleWhatsappClick = () => {
     const whatsappMessage = `Olá! Gostaria de reservar o modelo ${product.productModel}. Link para a foto: ${shareUrl}`;
-    const whatsappUrl = `https://wa.me/5591985810208?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/5591981006131?text=${encodeURIComponent(
       whatsappMessage
     )}`;
     window.open(whatsappUrl, '_blank');

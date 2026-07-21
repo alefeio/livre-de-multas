@@ -1,33 +1,17 @@
 // lib/prisma.ts
 import { PrismaClient } from '@prisma/client';
 
-// Cliente base
-const prismaClientSingleton = () => {
-  return new PrismaClient().$extends({
-    query: {
-      user: {
-        async create({ args, query }) {
-          // Novos usuários (ex.: cadastro via NextAuth) já nascem como ADMIN
-          args.data = { ...args.data, role: (args.data as any).role ?? 'ADMIN' };
-          return query(args);
-        },
-      },
-    },
-  });
-};
-
-type PrismaClientExtended = ReturnType<typeof prismaClientSingleton>;
-
 // Garante que apenas uma instância do PrismaClient seja criada no ambiente de desenvolvimento
-let prisma: PrismaClientExtended;
+// Isso evita problemas de "hot-reloading" no Next.js
+let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {
-  prisma = prismaClientSingleton();
+  prisma = new PrismaClient();
 } else {
   // @ts-ignore
   if (!global.prisma) {
     // @ts-ignore
-    global.prisma = prismaClientSingleton();
+    global.prisma = new PrismaClient();
   }
   // @ts-ignore
   prisma = global.prisma;

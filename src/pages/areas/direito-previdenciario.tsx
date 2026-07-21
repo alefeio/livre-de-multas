@@ -71,7 +71,7 @@ export default function DireitoPrevidenciarioPage({ menu }: AreaPageProps) {
   const areaImage = '/images/areas/direito-previdenciario.jpg';
 
   const whatsappLink =
-    'https://wa.me/5591983957965?text=Olá!%20Quero%20falar%20sobre%20um%20caso%20de%20Direito%20Previdenciário.';
+    'https://wa.me/5591981006131?text=Olá!%20Quero%20falar%20sobre%20um%20caso%20de%20Direito%20Previdenciário.';
 
   const faq = [
     {

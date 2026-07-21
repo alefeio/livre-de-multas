@@ -23,7 +23,7 @@ const Footer = () => {
             <a href="https://www.instagram.com/mydressbelem/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram className="h-6 w-6 text-white hover:text-white transition-colors" />
             </a>
-            <a href="https://wa.me/5591985810208" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a href="https://wa.me/5591981006131" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <FaWhatsapp className="h-6 w-6 text-white hover:text-white transition-colors" />
             </a>
           </div>

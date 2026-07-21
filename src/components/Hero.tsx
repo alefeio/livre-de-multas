@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const WHATSAPP_MSG = encodeURIComponent("Olá, recebi uma multa de trânsito e gostaria de analisar meu caso.");
 const WHATSAPP_URL = `https://wa.me/5591981006131?text=${WHATSAPP_MSG}`;
 
-const ESPECIALISTAS = [
-  { nome: "Pablo Roberto", foto: "/images/profissional.jpg", alt: "Pablo Roberto - Especialista em Direito de Trânsito" },
-  { nome: "Rodrigo Pinheiro", foto: "/images/profissional-2.jpg", alt: "Rodrigo Pinheiro - Especialista em Direito de Trânsito" },
-];
-
-const ROTATE_INTERVAL_MS = 5000;
+const ESPECIALISTA = {
+  nome: "Pablo Roberto",
+  foto: "/images/profissional.jpg",
+  alt: "Pablo Roberto - Especialista em Direito de Trânsito",
+};
 
 export default function Hero() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((i) => (i + 1) % ESPECIALISTAS.length);
-    }, ROTATE_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-blue-950 pt-28 sm:pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-24" id="inicio">
       {/* Fundo decorativo */}
@@ -71,51 +61,26 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Carrossel de especialistas */}
+          {/* Foto do especialista */}
           <div className="relative">
             <div className="absolute -inset-4 rounded-[28px] bg-gradient-to-b from-[#fec655]/20 to-transparent blur-2xl" />
 
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5">
               <div className="relative w-full h-[320px] sm:h-[360px] md:h-[400px] overflow-hidden bg-blue-950/50">
-                {ESPECIALISTAS.map((esp, idx) => (
-                  <div
-                    key={esp.foto}
-                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                      idx === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-                    }`}
-                  >
-                    <img
-                      src={esp.foto}
-                      alt={esp.alt}
-                      className="absolute inset-0 h-full w-full object-cover object-top"
-                    />
-                  </div>
-                ))}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0 z-10" />
-              </div>
-
-              {/* Indicadores do carrossel */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-                {ESPECIALISTAS.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    aria-label={`Ver ${ESPECIALISTAS[idx].nome}`}
-                    onClick={() => setActiveIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === activeIndex ? "w-6 bg-[#fec655]" : "w-2 bg-white/50 hover:bg-white/70"
-                    }`}
-                  />
-                ))}
+                <img
+                  src={ESPECIALISTA.foto}
+                  alt={ESPECIALISTA.alt}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
               </div>
             </div>
 
-            {/* Card de autoridade — nome muda com o slide */}
             <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
               <p className="text-lg font-extrabold text-white">
-                {ESPECIALISTAS[activeIndex].nome}
+                {ESPECIALISTA.nome}
               </p>
-              <p className="text-sm font-semibold text-[#fec655]">Advogados Especialistas em Direito de Trânsito</p>
+              <p className="text-sm font-semibold text-[#fec655]">Advogado Especialista em Direito de Trânsito</p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
