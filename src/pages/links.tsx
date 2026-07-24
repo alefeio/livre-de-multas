@@ -22,15 +22,15 @@ const BRAND = {
   phoneE164: "+5591981006131",
   whatsappNumber: "5591981006131", // sem +, sem espaços
   address: {
-    street: "Belém/PA",
+    street: "Av. Gov. José Malcher, 153 - Nazaré, sala 12",
     city: "Belém",
     region: "PA",
-    postal: "",
+    postal: "66035-065",
     country: "BR",
   },
   instagram: "https://www.instagram.com/livredemultasoficial", // ✅ troque pelo @ oficial (se já tiver)
   googleMaps:
-    "https://www.google.com/maps/search/?api=1&query=Bel%C3%A9m%2C%20PA",
+    "https://www.google.com/maps/search/?api=1&query=Av.+Gov.+Jos%C3%A9+Malcher,+153+-+Nazar%C3%A9,+Bel%C3%A9m+-+PA,+66035-065",
   logo: "https://res.cloudinary.com/dfh7fwtec/image/upload/v1768800952/dresses/yaiptstgtqs7a0brs9mh.jpg",
   ogImage: "https://res.cloudinary.com/dfh7fwtec/image/upload/v1768800952/dresses/yaiptstgtqs7a0brs9mh.jpg", // ✅ opcional (crie depois). Se não existir, troque por uma imagem que exista.
 };

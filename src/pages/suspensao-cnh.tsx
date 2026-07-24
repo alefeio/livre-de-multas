@@ -168,10 +168,10 @@ export default function SuspensaoCnhPage({ menu }: PageProps) {
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Tv. Timbó, 1563 - Marco",
+      streetAddress: "Av. Gov. José Malcher, 153 - Nazaré, sala 12",
       addressLocality: "Belém",
       addressRegion: "PA",
-      postalCode: "66087-531",
+      postalCode: "66035-065",
       addressCountry: "BR",
     },
     areaServed: [

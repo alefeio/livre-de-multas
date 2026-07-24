@@ -121,10 +121,10 @@ export default function Atuacao({ menu }: HomePageProps) {
         "image": "https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png", // Manter ou alterar a URL da imagem se precisar
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Tv. Timbó, 1563 - Marco", // Endereço atualizado
+            "streetAddress": "Av. Gov. José Malcher, 153 - Nazaré, sala 12",
             "addressLocality": "Belém",
             "addressRegion": "PA",
-            "postalCode": "66030-465", // CEP de referência. Confirme o CEP correto para 2564.
+            "postalCode": "66035-065",
             "addressCountry": "BR"
         },
         "url": "https://pereiradesousa.vercel.app/",

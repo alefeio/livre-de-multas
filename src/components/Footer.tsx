@@ -71,9 +71,9 @@ export default function Footer({ menuData }: MenuProps) {
     whatsappNumber: "5591981006131",
     whatsappLabel: "+55 91 98100-6131",
     email: "livresdemultasoficial@gmail.com",
-    address: "Belém/PA",
+    address: "Av. Gov. José Malcher, 153 - Nazaré, Belém - PA, 66035-065, sala 12",
     mapUrl:
-      "https://www.google.com/maps?ll=-1.432623,-48.470215&z=11&t=m&hl=pt-BR&gl=US&mapclient=embed&q=Tv.+Timb%C3%B3,+1563+-+Marco+Bel%C3%A9m+-+PA+66087-531+Brasil",
+      "https://www.google.com/maps/search/?api=1&query=Av.+Gov.+Jos%C3%A9+Malcher,+153+-+Nazar%C3%A9,+Bel%C3%A9m+-+PA,+66035-065",
   };
 
   const openWhatsAppUrl = useMemo(() => {

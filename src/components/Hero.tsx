@@ -80,7 +80,7 @@ export default function Hero() {
               <p className="text-lg font-extrabold text-white">
                 {ESPECIALISTA.nome}
               </p>
-              <p className="text-sm font-semibold text-[#fec655]">Advogado Especialista em Direito de Trânsito</p>
+              <p className="text-sm font-semibold text-[#fec655]">Especialista em Direito de Trânsito</p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"

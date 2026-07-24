@@ -56,12 +56,12 @@ const ContactSection: React.FC = () => {
                     <h4 className="font-bold text-white text-2xl mb-6">Nossa Localização</h4>
                     <address className="text-[#fec655] font-semibold not-italic text-center text-xl mb-6">
                         <MdLocationOn className="inline text-3xl mr-2 align-middle" />
-                        Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531
+                        Av. Gov. José Malcher, 153 - Nazaré, Belém - PA, 66035-065, sala 12
                     </address>
                     <div className="w-full h-64 rounded-xl overflow-hidden shadow-lg border-2 border-gray-700">
                         <iframe
                             title="Livre de Multas"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5013049950685!2d-48.485495425034!3d-1.4722054985139539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48e74638471c9%3A0xd430aea868c5d121!2sAv.%20Roberto%20Camelier%2C%201642%20-%20Jurunas%2C%20Bel%C3%A9m%20-%20PA%2C%2066033-683!5e0!3m2!1spt-BR!2sbr!4v1770955846387!5m2!1spt-BR!2sbr"
+                            src="https://www.google.com/maps?output=embed&q=Av.+Gov.+Jos%C3%A9+Malcher,+153+-+Nazar%C3%A9,+Bel%C3%A9m+-+PA,+66035-065"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}

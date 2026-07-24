@@ -107,11 +107,11 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
 };
 
 export default function PageContato() {
-    // Endereço: Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531
-    const address = "Tv. Timbó, 1563 - Marco, Belém - PA, 66087-531";
+    // Endereço: Av. Gov. José Malcher, 153 - Nazaré, Belém - PA, 66035-065, sala 12
+    const address = "Av. Gov. José Malcher, 153 - Nazaré, Belém - PA, 66035-065, sala 12";
 
     // Embed do Google Maps para o endereço correto
-    const mapEmbedUrl = "https://www.google.com/maps?output=embed&q=Tv.+Timb%C3%B3,+1563+-+Marco,+Bel%C3%A9m+-+PA,+66087-531";
+    const mapEmbedUrl = "https://www.google.com/maps?output=embed&q=Av.+Gov.+Jos%C3%A9+Malcher,+153+-+Nazar%C3%A9,+Bel%C3%A9m+-+PA,+66035-065";
 
     const jsonLd = {
         "@context": "https://schema.org",
@@ -120,10 +120,10 @@ export default function PageContato() {
         "image": "https://res.cloudinary.com/dpnexaukz/image/upload/v1761676888/dresses/zkpnvv4q8mmmoknbvhhc.png", // Manter ou alterar a URL da imagem se precisar
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Tv. Timbó, 1563 - Marco", // Endereço atualizado
+            "streetAddress": "Av. Gov. José Malcher, 153 - Nazaré, sala 12",
             "addressLocality": "Belém",
             "addressRegion": "PA",
-            "postalCode": "66087-531",
+            "postalCode": "66035-065",
             "addressCountry": "BR"
         },
         "url": "https://pereiradesousa.vercel.app/",
