@@ -112,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (method) {
         case 'POST':
             try {
-                const { title, subtitle, description, metaDescription, keywords, order, publico, items } = req.body;
+                const { title, subtitle, description, metaDescription, keywords, publico, items } = req.body;
                 
                 if (!title) {
                     return res.status(400).json({ success: false, message: 'O campo "title" é obrigatório.' });
@@ -126,27 +126,44 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const slug = await generateUniqueSlug(title);
                 console.log(`[API /api/crud/blog] Novo Slug gerado: ${slug}`);
 
-                const novoPost = await prisma.blog.create({
-                    data: {
-                        title,
-                        slug, // 🌟 Adiciona o slug gerado
-                        subtitle,
-                        description,
-                        metaDescription: metaDescription || null,
-                        keywords: keywords || null,
-                        order,
-                        publico: publico ?? false,
-                        items: {
-                            createMany: {
-                                data: items?.map((item: any) => ({
-                                    detalhes: item.detalhes,
-                                    img: item.img,
-                                })) ?? [],
+                // Novo post sempre entra com order 0; existentes passam a 1, 2, 3...
+                const existingPosts = await prisma.blog.findMany({
+                    orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
+                    select: { id: true },
+                });
+
+                const novoPost = await prisma.$transaction(async (tx) => {
+                    // Reorganiza posts existentes em sequência a partir de 1
+                    for (let i = 0; i < existingPosts.length; i++) {
+                        await tx.blog.update({
+                            where: { id: existingPosts[i].id },
+                            data: { order: i + 1 },
+                        });
+                    }
+
+                    return tx.blog.create({
+                        data: {
+                            title,
+                            slug,
+                            subtitle,
+                            description,
+                            metaDescription: metaDescription || null,
+                            keywords: keywords || null,
+                            order: 0,
+                            publico: publico ?? false,
+                            items: {
+                                createMany: {
+                                    data: items?.map((item: any) => ({
+                                        detalhes: item.detalhes,
+                                        img: item.img,
+                                    })) ?? [],
+                                },
                             },
                         },
-                    },
+                    });
                 });
-                console.log(`[API /api/crud/blog] POST executado. Novo post ${novoPost.id} criado.`);
+
+                console.log(`[API /api/crud/blog] POST executado. Novo post ${novoPost.id} criado com order 0. ${existingPosts.length} posts reordenados.`);
                 res.status(201).json({ success: true, post: novoPost });
             } catch (e: any) {
                 console.error("[API /api/crud/blog] Erro ao criar post:", e);

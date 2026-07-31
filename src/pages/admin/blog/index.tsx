@@ -320,7 +320,13 @@ export default function AdminBlog() {
                                 }
                                 placeholder="Conteúdo completo do Post"
                             />
-                            <input type="number" name="order" value={form.order} onChange={handleFormChange} placeholder="Ordem de exibição" required className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900" />
+                            {form.id ? (
+                                <input type="number" name="order" value={form.order} onChange={handleFormChange} placeholder="Ordem de exibição" required className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900" />
+                            ) : (
+                                <div className="p-3 border border-gray-200 rounded-lg bg-gray-50 text-sm text-gray-600">
+                                    <strong className="text-gray-800">Ordem:</strong> 0 (automático). Ao salvar, este post fica em primeiro e os demais passam para 1, 2, 3…
+                                </div>
+                            )}
 
                             {/* Checkbox para Post Público */}
                             <div className="flex items-center mt-2">
