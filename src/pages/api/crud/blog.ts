@@ -65,22 +65,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(`[API /api/crud/blog] Requisição Origin: ${req.headers.origin}`);
     console.log(`--- [API /api/crud/blog] FIM DOS LOGS GERAIS ---\n`);
 
-    // Lógica para lidar com a requisição GET (PÚBLICA)
+    // Lógica para lidar com a requisição GET
     if (method === 'GET') {
         try {
-            // Usa o modelo 'Blog'
+            const isAdminRequest = req.query.admin === 'true';
+            let where: { publico?: boolean } = { publico: true };
+
+            if (isAdminRequest) {
+                const session = await getServerSession(req, res, authOptions);
+                if (!session || (session.user as any)?.role !== 'ADMIN') {
+                    return res.status(401).json({
+                        success: false,
+                        message: 'Acesso não autorizado. Apenas administradores podem listar todos os posts.',
+                    });
+                }
+                // Admin: retorna todos os posts (públicos e rascunhos)
+                where = {};
+            }
+
             const posts = await prisma.blog.findMany({
-                where: {
-                    publico: true, // Filtra apenas posts que são públicos
-                },
+                where,
                 include: {
-                    items: true, // Inclui as BlogFotos
+                    items: true,
                 },
                 orderBy: {
                     order: 'asc',
-                }
+                },
             });
-            console.log(`[API /api/crud/blog] GET executado. ${posts.length} posts encontrados.`);
+            console.log(`[API /api/crud/blog] GET executado (admin=${isAdminRequest}). ${posts.length} posts encontrados.`);
             return res.status(200).json({ success: true, posts });
         } catch (e: any) {
             console.error("[API /api/crud/blog] Erro ao buscar posts:", e);

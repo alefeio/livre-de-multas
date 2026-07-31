@@ -333,7 +333,7 @@ export default function AdminBlog() {
                                     className="h-5 w-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
                                 />
                                 <label htmlFor="publico" className="ml-2 block text-base text-gray-900">
-                                    Post Público (Visível no site)
+                                    Post Público (visível no site e no blog). Sem marcar, fica só como rascunho no painel.
                                 </label>
                             </div>
 
