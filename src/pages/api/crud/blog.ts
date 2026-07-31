@@ -100,7 +100,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (method) {
         case 'POST':
             try {
-                const { title, subtitle, description, order, publico, items } = req.body;
+                const { title, subtitle, description, metaDescription, keywords, order, publico, items } = req.body;
                 
                 if (!title) {
                     return res.status(400).json({ success: false, message: 'O campo "title" é obrigatório.' });
@@ -120,6 +120,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         slug, // 🌟 Adiciona o slug gerado
                         subtitle,
                         description,
+                        metaDescription: metaDescription || null,
+                        keywords: keywords || null,
                         order,
                         publico: publico ?? false,
                         items: {
@@ -142,7 +144,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         case 'PUT':
             try {
-                const { id, title, subtitle, description, order, publico, items } = req.body;
+                const { id, title, subtitle, description, metaDescription, keywords, order, publico, items } = req.body;
                 
                 if (!id) {
                     return res.status(400).json({ success: false, message: 'O ID do post é obrigatório para atualização.' });
@@ -171,6 +173,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         slug: newSlug, // 🌟 Adiciona o novo slug gerado
                         subtitle,
                         description,
+                        metaDescription: metaDescription || null,
+                        keywords: keywords || null,
                         order,
                         publico: publico ?? false,
                         items: {

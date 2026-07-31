@@ -37,6 +37,8 @@ interface BlogPostProps {
   publico: boolean;
   subtitle: string | null;
   description: string | null;
+  metaDescription: string | null;
+  keywords: string | null;
   updatedAt: string;
 }
 
@@ -114,6 +116,8 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
       publico: post.publico,
       subtitle: post.subtitle,
       description: post.description,
+      metaDescription: (post as any).metaDescription ?? null,
+      keywords: (post as any).keywords ?? null,
       createdAt: post.createdAt.toISOString(),
       updatedAt: post.updatedAt.toISOString(),
       items: post.items.map((item) => ({
@@ -145,6 +149,10 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
 
 const BASE_URL = "https://www.livredemultasoficial.com.br";
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function truncateForMeta(text: string, maxLen: number = 158): string {
   if (!text || text.length <= maxLen) return text;
   return text.slice(0, maxLen - 3).trim() + "...";
@@ -162,9 +170,16 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
   const canonicalUrl = `${BASE_URL}/blog/${post.slug}`;
   const coverImage = post.items[0]?.img || "/images/blog-default-cover.jpg";
   const ogImage = coverImage.startsWith("http") ? coverImage : `${BASE_URL}${coverImage.startsWith("/") ? "" : "/"}${coverImage}`;
-  const metaDescription = truncateForMeta(post.description || post.subtitle || post.title);
+  const metaDescription = truncateForMeta(
+    post.metaDescription?.trim() ||
+      post.subtitle?.trim() ||
+      stripHtml(post.description || "") ||
+      post.title
+  );
   const titleTag = `${post.title} | Livre de Multas - Direito de Trânsito`;
-  const keywords = `multa trânsito, cnh provisória, direito de trânsito, ${post.title}`;
+  const keywords =
+    post.keywords?.trim() ||
+    `multa trânsito, cnh provisória, direito de trânsito, ${post.title}`;
 
   const jsonLdArticle = {
     "@context": "https://schema.org",
@@ -177,6 +192,7 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
     dateModified: post.updatedAt,
     author: { "@type": "Organization", name: "Livre de Multas Oficial", url: BASE_URL },
     publisher: { "@type": "Organization", name: "Livre de Multas Oficial", logo: { "@type": "ImageObject", url: `${BASE_URL}/images/logo.png` } },
+    keywords: keywords,
   };
 
   return (

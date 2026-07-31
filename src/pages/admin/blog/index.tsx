@@ -29,6 +29,8 @@ interface BlogItem {
     title: string;
     subtitle: string | null;
     description: string | null;
+    metaDescription: string | null;
+    keywords: string | null;
     order: number;
     publico: boolean;
     items: BlogFoto[];
@@ -40,6 +42,8 @@ interface FormState {
     title: string;
     subtitle: string;
     description: string;
+    metaDescription: string;
+    keywords: string;
     order: number;
     publico: boolean;
     items: BlogFoto[];
@@ -56,6 +60,8 @@ export default function AdminBlog() {
         title: "",
         subtitle: "",
         description: "",
+        metaDescription: "",
+        keywords: "",
         order: 0,
         publico: false,
         items: [{
@@ -102,6 +108,8 @@ export default function AdminBlog() {
             title: "",
             subtitle: "",
             description: "",
+            metaDescription: "",
+            keywords: "",
             order: 0,
             publico: false,
             items: [{
@@ -160,6 +168,8 @@ export default function AdminBlog() {
             title: post.title,
             subtitle: post.subtitle || "",
             description: post.description || "",
+            metaDescription: post.metaDescription || "",
+            keywords: post.keywords || "",
             order: post.order || 0,
             publico: post.publico,
             items: post.items.map(item => ({
@@ -279,7 +289,30 @@ export default function AdminBlog() {
                         <h2 className="text-2xl font-bold mb-6 text-gray-700">{form.id ? "Editar Post" : "Adicionar Novo Post"}</h2>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                             <input type="text" name="title" value={form.title} onChange={handleFormChange} placeholder="Título Principal do Post" required className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900" />
-                            <input type="text" name="subtitle" value={form.subtitle} onChange={handleFormChange} placeholder="Subtítulo/Resumo Curto (SEO)" className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900" />
+                            <input type="text" name="subtitle" value={form.subtitle} onChange={handleFormChange} placeholder="Subtítulo/Resumo Curto" className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900" />
+
+                            <div className="border border-orange-200 bg-orange-50/50 rounded-lg p-4 flex flex-col gap-3">
+                                <p className="text-sm font-semibold text-gray-700">SEO / Meta tags (Google)</p>
+                                <textarea
+                                    name="metaDescription"
+                                    value={form.metaDescription}
+                                    onChange={handleFormChange}
+                                    placeholder="Meta description (até ~155 caracteres) — aparece nos resultados do Google"
+                                    rows={2}
+                                    maxLength={200}
+                                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900"
+                                />
+                                <p className="text-xs text-gray-500 -mt-2">{form.metaDescription.length}/200 caracteres</p>
+                                <input
+                                    type="text"
+                                    name="keywords"
+                                    value={form.keywords}
+                                    onChange={handleFormChange}
+                                    placeholder="Keywords (separadas por vírgula) — ex: multa cnh, recurso de multa, belém"
+                                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900"
+                                />
+                            </div>
+
                             <RichTextEditor
                                 value={form.description}
                                 onChange={(value) =>
