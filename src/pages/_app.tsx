@@ -45,25 +45,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         `}
       </Script>
 
-      {/* ✅ Google tag (gtag.js) - GA4 + Google Ads (global) */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-4GN2YJ045K"
-        strategy="afterInteractive"
-      />
-      <Script id="google-gtag" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          // GA4
-          gtag('config', 'G-4GN2YJ045K');
-
-          // Google Ads (para conversões AW-...)
-          gtag('config', 'AW-11359793189');
-        `}
-      </Script>
-
       <Component {...pageProps} />
       {mounted && <CookieBanner />}
 

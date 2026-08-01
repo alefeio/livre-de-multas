@@ -4,17 +4,15 @@ import { formatPhoneNumber } from "utils/formatPhoneNumber";
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
-/** Event snippet ALE-LEAD (Google Ads) — disparado no envio do formulário */
-function gtag_report_conversion() {
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", "conversion", {
-      send_to: "AW-11359793189/ACikCKyGx9UcEKXg4qgq",
-    });
-  }
+/** Dispara evento no dataLayer para o GTM (configure a conversão ALE-LEAD no Tag Manager) */
+function pushLeadEvent() {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "ale_lead" });
 }
 
 const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
@@ -57,7 +55,7 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
       });
 
       if (res.ok) {
-        gtag_report_conversion();
+        pushLeadEvent();
         setStatus("success");
         setName("");
         setEmail("");
