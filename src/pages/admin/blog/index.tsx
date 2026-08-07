@@ -31,6 +31,7 @@ interface BlogItem {
     description: string | null;
     metaDescription: string | null;
     keywords: string | null;
+    relatedSlugs: string[];
     order: number;
     publico: boolean;
     items: BlogFoto[];
@@ -44,6 +45,7 @@ interface FormState {
     description: string;
     metaDescription: string;
     keywords: string;
+    relatedSlugs: string[];
     order: number;
     publico: boolean;
     items: BlogFoto[];
@@ -62,6 +64,7 @@ export default function AdminBlog() {
         description: "",
         metaDescription: "",
         keywords: "",
+        relatedSlugs: [],
         order: 0,
         publico: false,
         items: [{
@@ -110,6 +113,7 @@ export default function AdminBlog() {
             description: "",
             metaDescription: "",
             keywords: "",
+            relatedSlugs: [],
             order: 0,
             publico: false,
             items: [{
@@ -170,6 +174,7 @@ export default function AdminBlog() {
             description: post.description || "",
             metaDescription: post.metaDescription || "",
             keywords: post.keywords || "",
+            relatedSlugs: post.relatedSlugs || [],
             order: post.order || 0,
             publico: post.publico,
             items: post.items.map(item => ({
@@ -177,9 +182,23 @@ export default function AdminBlog() {
                 img: item.img as string,
                 detalhes: item.detalhes || '',
             })),
-            slug: null,
+            slug: post.slug,
         });
         window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    const toggleRelatedSlug = (slug: string) => {
+        setForm((prev) => {
+            const has = prev.relatedSlugs.includes(slug);
+            if (has) {
+                return {
+                    ...prev,
+                    relatedSlugs: prev.relatedSlugs.filter((s) => s !== slug),
+                };
+            }
+            if (prev.relatedSlugs.length >= 8) return prev;
+            return { ...prev, relatedSlugs: [...prev.relatedSlugs, slug] };
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -311,6 +330,39 @@ export default function AdminBlog() {
                                     placeholder="Keywords (separadas por vírgula) — ex: multa cnh, recurso de multa, belém"
                                     className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200 text-gray-900"
                                 />
+                            </div>
+
+                            <div className="border border-blue-200 bg-blue-50/50 rounded-lg p-4 flex flex-col gap-3">
+                                <p className="text-sm font-semibold text-gray-700">
+                                    Leia também (posts relacionados) — {form.relatedSlugs.length}/8
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                    Selecione até 8 artigos. Se deixar vazio, o site escolhe automaticamente outros posts públicos.
+                                </p>
+                                <div className="max-h-48 overflow-y-auto flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-3">
+                                    {posts
+                                        .filter((p) => p.slug && p.id !== form.id)
+                                        .map((p) => (
+                                            <label
+                                                key={p.id}
+                                                className="flex items-start gap-2 text-sm text-gray-800 cursor-pointer hover:bg-gray-50 rounded px-1 py-0.5"
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    checked={form.relatedSlugs.includes(p.slug as string)}
+                                                    onChange={() => toggleRelatedSlug(p.slug as string)}
+                                                    className="mt-1 h-4 w-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                                                />
+                                                <span>
+                                                    <span className="font-medium">{p.title}</span>
+                                                    <span className="block text-xs text-gray-400">{p.slug}</span>
+                                                </span>
+                                            </label>
+                                        ))}
+                                    {posts.filter((p) => p.slug && p.id !== form.id).length === 0 && (
+                                        <p className="text-xs text-gray-400">Nenhum outro post disponível ainda.</p>
+                                    )}
+                                </div>
                             </div>
 
                             <RichTextEditor

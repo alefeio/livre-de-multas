@@ -105,6 +105,9 @@ export interface BlogItem {
     slug: string | null; // Adicionado, pode ser string ou null se for opcional no Prisma
     subtitle?: string | null;
     description?: string | null;
+    metaDescription?: string | null;
+    keywords?: string | null;
+    relatedSlugs?: string[];
     order: number;
     publico: boolean;
     // Relação com os itens/fotos do post

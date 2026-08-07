@@ -300,6 +300,7 @@ model Blog {
   description     String?
   metaDescription String?     // Meta description (SEO)
   keywords        String?     // Meta keywords (SEO)
+  relatedSlugs    String[]    @default([]) // Slugs de posts relacionados ("Leia também")
   order           Int         @default(0)
   publico         Boolean     @default(true) // NOVO: Campo para definir se o projeto é público
   items           BlogFoto[]  // Define a relação com as fotos

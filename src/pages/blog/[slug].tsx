@@ -11,8 +11,11 @@ import Footer from "components/Footer";
 import WhatsAppButton from "components/WhatsAppButton";
 import { MenuData, LinkItem } from "../../types/index";
 import Blog from "components/Blog";
+import RelatedPosts, { RelatedPostItem } from "components/RelatedPosts";
 
 const prisma = new PrismaClient();
+
+const RELATED_LIMIT = 6;
 
 /* =========================
    INTERFACES
@@ -45,6 +48,7 @@ interface BlogPostProps {
 interface BlogPageProps {
   post: BlogPostProps | null;
   menu: MenuData | null;
+  relatedPosts: RelatedPostItem[];
 }
 
 /* =========================
@@ -129,10 +133,73 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
       })),
     };
 
+    // Relacionados curados (relatedSlugs) + fallback automático por ordem
+    const curatedSlugs = (post.relatedSlugs || []).filter(
+      (s) => s && s !== post.slug
+    );
+    let relatedPosts: RelatedPostItem[] = [];
+
+    if (curatedSlugs.length > 0) {
+      const curated = await prisma.blog.findMany({
+        where: {
+          slug: { in: curatedSlugs },
+          publico: true,
+        },
+        select: { title: true, slug: true, subtitle: true },
+      });
+      const bySlug = new Map(
+        curated
+          .filter((p) => p.slug)
+          .map((p) => [p.slug as string, p])
+      );
+      relatedPosts = curatedSlugs
+        .map((s) => bySlug.get(s))
+        .filter((p): p is NonNullable<typeof p> => Boolean(p))
+        .map((p) => ({
+          title: p.title,
+          slug: p.slug as string,
+          subtitle: p.subtitle,
+        }));
+    }
+
+    if (relatedPosts.length < RELATED_LIMIT) {
+      const excludeSlugs = [
+        post.slug,
+        ...relatedPosts.map((p) => p.slug),
+      ].filter(Boolean) as string[];
+
+      const fallback = await prisma.blog.findMany({
+        where: {
+          publico: true,
+          AND: [
+            { slug: { not: null } },
+            ...(excludeSlugs.length > 0
+              ? [{ slug: { notIn: excludeSlugs } }]
+              : []),
+          ],
+        },
+        orderBy: { order: "asc" },
+        take: RELATED_LIMIT - relatedPosts.length,
+        select: { title: true, slug: true, subtitle: true },
+      });
+
+      relatedPosts = [
+        ...relatedPosts,
+        ...fallback
+          .filter((p) => p.slug)
+          .map((p) => ({
+            title: p.title,
+            slug: p.slug as string,
+            subtitle: p.subtitle,
+          })),
+      ];
+    }
+
     return {
       props: {
         post: formattedPost,
         menu: formattedMenu,
+        relatedPosts,
       },
     };
   } catch (error) {
@@ -158,7 +225,7 @@ function truncateForMeta(text: string, maxLen: number = 158): string {
   return text.slice(0, maxLen - 3).trim() + "...";
 }
 
-export default function BlogPage({ post, menu }: BlogPageProps) {
+export default function BlogPage({ post, menu, relatedPosts }: BlogPageProps) {
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-blue-950 text-white">
@@ -195,6 +262,21 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
     keywords: keywords,
   };
 
+  const jsonLdRelated =
+    relatedPosts.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Leia também",
+          itemListElement: relatedPosts.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: p.title,
+            url: `${BASE_URL}/blog/${p.slug}`,
+          })),
+        }
+      : null;
+
   return (
     <>
       <Head>
@@ -230,6 +312,12 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
         <meta name="theme-color" content="#070a0f" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
+        {jsonLdRelated ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdRelated) }}
+          />
+        ) : null}
       </Head>
 
       <div className="min-h-screen bg-blue-950 text-white overflow-x-hidden">
@@ -338,6 +426,8 @@ export default function BlogPage({ post, menu }: BlogPageProps) {
                 <div className="text-justify" dangerouslySetInnerHTML={{ __html: post.content }} />
               </article>
             </section>
+
+            <RelatedPosts posts={relatedPosts} />
 
             {/* CTA final discreto (combina com internas) */}
             <section className="mt-10 mx-auto w-full max-w-7xl px-4 rounded-3xl border border-white/10 bg-gradient-to-b from-[#fec655]/10 to-white/5 p-6 shadow-2xl backdrop-blur-sm md:p-8">

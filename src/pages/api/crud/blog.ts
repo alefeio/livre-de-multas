@@ -112,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (method) {
         case 'POST':
             try {
-                const { title, subtitle, description, metaDescription, keywords, publico, items } = req.body;
+                const { title, subtitle, description, metaDescription, keywords, relatedSlugs, publico, items } = req.body;
                 
                 if (!title) {
                     return res.status(400).json({ success: false, message: 'O campo "title" é obrigatório.' });
@@ -121,6 +121,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (items && !Array.isArray(items)) {
                     return res.status(400).json({ success: false, message: 'Items deve ser um array.' });
                 }
+
+                const slugsRelacionados = Array.isArray(relatedSlugs)
+                    ? relatedSlugs.filter((s: unknown) => typeof s === 'string' && s.trim()).slice(0, 8)
+                    : [];
 
                 // 🌟 NOVO: Gera e verifica a unicidade do slug
                 const slug = await generateUniqueSlug(title);
@@ -149,6 +153,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                             description,
                             metaDescription: metaDescription || null,
                             keywords: keywords || null,
+                            relatedSlugs: slugsRelacionados,
                             order: 0,
                             publico: publico ?? false,
                             items: {
@@ -173,7 +178,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         case 'PUT':
             try {
-                const { id, title, subtitle, description, metaDescription, keywords, order, publico, items } = req.body;
+                const { id, title, subtitle, description, metaDescription, keywords, relatedSlugs, order, publico, items } = req.body;
                 
                 if (!id) {
                     return res.status(400).json({ success: false, message: 'O ID do post é obrigatório para atualização.' });
@@ -182,6 +187,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (items && !Array.isArray(items)) {
                     return res.status(400).json({ success: false, message: 'Items deve ser um array.' });
                 }
+
+                const slugsRelacionados = Array.isArray(relatedSlugs)
+                    ? relatedSlugs.filter((s: unknown) => typeof s === 'string' && s.trim()).slice(0, 8)
+                    : [];
                 
                 // 🌟 NOVO: Gera e verifica a unicidade do slug (usando o ID para ignorar o próprio post)
                 let newSlug: string | undefined = undefined;
@@ -204,6 +213,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         description,
                         metaDescription: metaDescription || null,
                         keywords: keywords || null,
+                        relatedSlugs: slugsRelacionados,
                         order,
                         publico: publico ?? false,
                         items: {
