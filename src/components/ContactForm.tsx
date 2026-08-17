@@ -124,6 +124,8 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
           className="input-base"
         >
           <option value="">Qual é o seu caso?</option>
+          <option value="DETRAN_PA">Multa / notificação DETRAN-PA</option>
+          <option value="SEMOB_SEGBEL">Multa SEMOB / SEGBEL</option>
           <option value="CNH_PROVISORIA">Multa na CNH provisória</option>
           <option value="BAFOMETRO">Bafômetro / Recusa</option>
           <option value="SUSPENSAO">Suspensão da CNH</option>

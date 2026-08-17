@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
         href="https://www.facebook.com/profile.php?id=61552915675746"
         target="_blank"
         rel="noopener noreferrer"
-        className="z-10 bg-blue-600 text-textcolor-50 hover:bg-blue-700 text-white rounded-full shadow-lg p-3 font-bold text-lg transition"
+        className="hidden md:inline-flex z-10 bg-blue-600 text-textcolor-50 hover:bg-blue-700 text-white rounded-full shadow-lg p-3 font-bold text-lg transition"
       >
         <FaFacebook className="w-7 h-7 text-primary-default" />
       </a>
@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
         href="https://www.instagram.com/livredemultasoficial"
         target="_blank"
         rel="noopener noreferrer"
-        className="z-10 bg-pink-600 text-textcolor-50 hover:bg-pink-700 text-white rounded-full shadow-lg p-3 font-bold text-lg transition"
+        className="hidden md:inline-flex z-10 bg-pink-600 text-textcolor-50 hover:bg-pink-700 text-white rounded-full shadow-lg p-3 font-bold text-lg transition"
       >
         <FaInstagram className="w-7 h-7 text-primary-default" />
       </a>
@@ -28,6 +28,7 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        data-gtm="whatsapp-cta"
         className="bg-green-600 text-textcolor-50 hover:bg-green-700 text-white rounded-full shadow-lg p-3 font-bold text-lg transition"
         aria-label="Falar no WhatsApp"
       >

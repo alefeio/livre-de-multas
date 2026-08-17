@@ -4,7 +4,6 @@ const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Verifica se o usuário já aceitou os cookies (pode usar localStorage)
     const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
     if (!hasAcceptedCookies) {
       setIsVisible(true);
@@ -17,8 +16,6 @@ const CookieBanner = () => {
   };
 
   const handleDeclineCookies = () => {
-    // Lógica para recusar cookies (opcional, dependendo da sua política)
-    // Geralmente, apenas informar e permitir fechar é suficiente se não houver recusa funcional.
     setIsVisible(false);
   };
 
@@ -27,21 +24,21 @@ const CookieBanner = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-900/80 bg-opacity-90 text-white z-50">
-      <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
-        <div className="text-sm">
-          Nós utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar, você concorda com a nossa <a href="/politica-de-cookies" className="text-ORANGE-500 hover:underline">Política de Cookies</a>.
-        </div>
-        <div className="space-x-2">
+    <div className="fixed bottom-20 left-3 right-3 z-40 max-w-screen-xl rounded-xl bg-gray-900/95 text-white shadow-lg md:left-4 md:right-4 md:mx-auto">
+      <div className="mx-auto flex max-w-screen-xl flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
+        <p className="text-xs leading-relaxed sm:text-sm">
+          Nós utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar, você concorda com a nossa <a href="/politica-de-cookies" className="text-[#fec655] hover:underline">Política de Cookies</a>.
+        </p>
+        <div className="flex shrink-0 gap-2">
           <button
             onClick={handleDeclineCookies}
-            className="bg-transparent border border-white text-white hover:text-white hover:border-white py-2 px-4 rounded-md text-sm focus:outline-none"
+            className="min-h-[40px] flex-1 rounded-md border border-white bg-transparent px-4 py-2 text-sm text-white hover:border-white hover:text-white focus:outline-none sm:flex-none"
           >
             Recusar
           </button>
           <button
             onClick={handleAcceptCookies}
-            className="bg-blue-950 hover:bg-gray-900 text-white py-2 px-4 rounded-md text-sm focus:outline-none"
+            className="min-h-[40px] flex-1 rounded-md bg-blue-950 px-4 py-2 text-sm text-white hover:bg-gray-900 focus:outline-none sm:flex-none"
           >
             Aceitar
           </button>

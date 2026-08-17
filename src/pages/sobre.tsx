@@ -15,7 +15,6 @@ import {
 import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Footer from 'components/Footer';
-import HeroSliderSobre from 'components/HeroSliderSobre';
 import Equipe from 'components/Equipe';
 import StructureSection from 'components/StructureSection';
 
@@ -177,8 +176,7 @@ export default function Sobre({ menu }: HomePageProps) {
                 <Analytics />
                 {/* O componente espera menuData={...}, e a prop 'menu' já tem essa estrutura */}
                 <MenuComponent menuData={menu} />
-                <HeroSliderSobre />
-                <main className="max-w-full mx-auto">
+                <main className="max-w-full mx-auto pt-24 md:pt-28">
                     <Equipe />
                     <StructureSection />
                     <Footer menuData={menu} />

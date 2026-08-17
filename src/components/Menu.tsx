@@ -75,9 +75,9 @@ export function Menu({ menuData }: MenuProps) {
         <Link href="/" aria-label="Página inicial" className="flex items-center justify-center">
           <img
             src={logoUrl || "/images/logo.png"}
-            alt="Livre de Multas Oficial - Especialista em Direito de Trânsito"
+            alt="Livre de Multas Oficial"
             className={`transition-all duration-300 ${
-              isScrolled ? "w-16 sm:w-14 2xl:w-24" : "w-20 sm:w-24 md:w-28 2xl:w-32"
+              isScrolled ? "w-14 sm:w-14 2xl:w-24" : "w-14 sm:w-20 md:w-28 2xl:w-32"
             }`}
           />
           {/* <h1 className={`${

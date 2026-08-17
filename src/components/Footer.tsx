@@ -200,6 +200,18 @@ export default function Footer({ menuData }: MenuProps) {
                 })}
               </nav>
             )}
+            <h4 className="text-[#fec655] text-lg font-bold mb-3 mt-8">Atendimento</h4>
+            <nav className="flex flex-col gap-3 text-sm" aria-label="Páginas de atendimento">
+              <Link href="/recurso-multa-detran-pa" className="text-white hover:text-[#fec655] transition">
+                Recurso DETRAN-PA
+              </Link>
+              <Link href="/recurso-multa-semob-belem" className="text-white hover:text-[#fec655] transition">
+                Recurso SEMOB Belém
+              </Link>
+              <Link href="/advogado-transito-belem" className="text-white hover:text-[#fec655] transition">
+                Advogado de Trânsito
+              </Link>
+            </nav>
           </div>
 
           {/* Coluna 3: Últimos posts (dinâmico) */}
