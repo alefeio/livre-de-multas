@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp, FaInstagram, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { WHATSAPP_GTM_ATTR } from "lib/whatsapp";
 
 interface LinkItem {
   id: string;
@@ -16,6 +17,7 @@ interface MenuProps {
     logoUrl: string;
     links: LinkItem[];
   } | null;
+  whatsappHref?: string;
 }
 
 interface BlogFoto {
@@ -60,7 +62,7 @@ const normalizeHref = (url: string) => {
   return `/${u}`;
 };
 
-export default function Footer({ menuData }: MenuProps) {
+export default function Footer({ menuData, whatsappHref }: MenuProps) {
   const logoUrl = menuData?.logoUrl;
   const menuLinks = menuData?.links || [];
 
@@ -76,10 +78,12 @@ export default function Footer({ menuData }: MenuProps) {
       "https://www.google.com/maps/search/?api=1&query=Av.+Gov.+Jos%C3%A9+Malcher,+153+-+Nazar%C3%A9,+Bel%C3%A9m+-+PA,+66035-065",
   };
 
-  const openWhatsAppUrl = useMemo(() => {
+  const defaultWhatsAppUrl = useMemo(() => {
     const message = encodeURIComponent("Olá! Gostaria de saber mais informações sobre os serviços da Livre de Multas.");
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
   }, [CONTACT.whatsappNumber]);
+
+  const openWhatsAppUrl = whatsappHref || defaultWhatsAppUrl;
 
   // Posts dinâmicos (mantido como no seu projeto)
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -131,6 +135,7 @@ export default function Footer({ menuData }: MenuProps) {
               href={openWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-gtm={WHATSAPP_GTM_ATTR}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 font-bold text-white shadow-lg transition hover:brightness-110"
             >
               <FaWhatsapp />
@@ -269,6 +274,7 @@ export default function Footer({ menuData }: MenuProps) {
                 href={openWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-gtm={WHATSAPP_GTM_ATTR}
                 className="flex items-center text-white hover:text-[#fec655] transition"
               >
                 <FaWhatsapp size={16} className="text-[#fec655] mr-3 flex-shrink-0" />

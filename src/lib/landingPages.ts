@@ -18,6 +18,7 @@ export type ServiceLandingContent = {
   subtitle: string;
   badge: string;
   ctaLabel: string;
+  ctaLabelFocused: string;
   ctaFinalHeading: string;
   whatsappMessage: string;
   identificationHeading: string;
@@ -41,6 +42,7 @@ export const LANDING_DETRAN: ServiceLandingContent = {
     "Atendimento jurídico para análise de notificações, defesa de autuação e recurso administrativo relacionados ao DETRAN-PA.",
   badge: "DETRAN-PA",
   ctaLabel: "Enviar notificação para análise",
+  ctaLabelFocused: "Enviar notificação pelo WhatsApp",
   ctaFinalHeading: "Envie a notificação do DETRAN-PA",
   whatsappMessage:
     "Olá! Recebi uma notificação ou multa do DETRAN-PA e gostaria de solicitar uma análise do meu caso.",
@@ -112,6 +114,7 @@ export const LANDING_SEMOB: ServiceLandingContent = {
     "Atendimento jurídico para defesa e recurso administrativo de multas municipais em Belém, inclusive notificações da SEMOB e da SEGBEL.",
   badge: "SEMOB / SEGBEL",
   ctaLabel: "Enviar notificação para análise",
+  ctaLabelFocused: "Enviar notificação pelo WhatsApp",
   ctaFinalHeading: "Envie a notificação da SEMOB",
   whatsappMessage:
     "Olá! Recebi uma notificação ou multa da SEMOB/SEGBEL em Belém e gostaria de solicitar uma análise do meu caso.",
@@ -183,6 +186,7 @@ export const LANDING_ADVOGADO: ServiceLandingContent = {
     "Atendimento jurídico em Direito de Trânsito para análise de multas, notificações e processos administrativos em Belém.",
   badge: "Direito de Trânsito",
   ctaLabel: "Enviar meu caso para análise",
+  ctaLabelFocused: "Enviar meu caso pelo WhatsApp",
   ctaFinalHeading: "Envie seu caso para análise",
   whatsappMessage:
     "Olá! Estou procurando atendimento jurídico em Direito de Trânsito e gostaria de enviar meu caso para análise.",

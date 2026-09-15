@@ -40,6 +40,7 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
         .filter(Boolean)
         .join(". ") + (message ? (receivedNotification || deadline ? "\n\n" : "") + message : "");
     const messageToSend = (messageFull || message || "").trim() || "(Sem descrição)";
+    const messageWithOrigin = pageSlug ? `[Origem: ${pageSlug}]\n\n${messageToSend}` : messageToSend;
 
     try {
       const res = await fetch("/api/contact", {
@@ -50,7 +51,7 @@ const ContactForm: React.FC<{ pageSlug?: string }> = ({ pageSlug }) => {
           email,
           phone: phone || undefined,
           serviceOfInterest: service || undefined,
-          message: messageToSend,
+          message: messageWithOrigin,
         }),
       });
 

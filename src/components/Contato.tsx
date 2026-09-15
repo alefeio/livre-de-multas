@@ -14,7 +14,7 @@ const STATIC_SLIDES: BannerItem[] = [
     },
 ];
 
-export default function Contato() {
+export default function Contato({ pageSlug }: { pageSlug?: string }) {
     const slide = STATIC_SLIDES[0];
 
     return (
@@ -35,7 +35,7 @@ export default function Contato() {
             <div className="relative z-10 flex flex-col items-center px-6 py-16 md:px-10 md:py-24">
                 {/* Formulário */}
                 <div className="w-full px-6">
-                    <ContactForm />
+                    <ContactForm pageSlug={pageSlug} />
                 </div>
             </div>
         </div>
